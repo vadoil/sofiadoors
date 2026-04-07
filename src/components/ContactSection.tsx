@@ -9,12 +9,12 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Left — contacts */}
           <div>
-            <h2 className="text-3xl md:text-5xl tracking-tight mb-6">
+            <h2 className={`text-3xl md:text-5xl tracking-tight mb-6 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
               Подберём двери
               <br />
               под ваш проект
             </h2>
-            <p className="text-primary-foreground/60 mb-10 leading-relaxed">
+            <p className={`text-primary-foreground/60 mb-10 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.1s" }}>
               Пришлите визуализации или планировки — подготовим подборку коллекций, отделок и решений
             </p>
 
