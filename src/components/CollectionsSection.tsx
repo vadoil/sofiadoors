@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import CollectionCard from "./catalog/CollectionCard";
 import SystemCard from "./catalog/SystemCard";
 import {
@@ -16,14 +17,15 @@ import {
 
 const CollectionsSection = () => {
   const [activeCategory, setActiveCategory] = useState<CategoryId>("swing");
+  const { ref, isVisible } = useScrollReveal();
 
   return (
     <section id="collections" className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">
+      <div ref={ref} className="max-w-7xl mx-auto">
+        <p className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
           Каталог продукции
         </p>
-        <h2 className="text-3xl md:text-5xl tracking-tight mb-6">
+        <h2 className={`text-3xl md:text-5xl tracking-tight mb-6 opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.1s" }}>
           Полный каталог решений Sofia
         </h2>
         <p className="text-muted-foreground max-w-2xl mb-12 leading-relaxed">
