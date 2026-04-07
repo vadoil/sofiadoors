@@ -1,9 +1,11 @@
-import { Phone, MapPin } from "lucide-react";
+import { Phone, MapPin, Clock } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const ContactSection = () => {
+  const { ref, isVisible } = useScrollReveal();
   return (
     <section id="contact" className="py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-primary text-primary-foreground">
-      <div className="max-w-5xl mx-auto">
+      <div ref={ref} className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Left — contacts */}
           <div>

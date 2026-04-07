@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Droplets } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const coatingTypes = ["Окрашенный шпон", "Акриловая эмаль"] as const;
 const paletteSystems = ["RAL", "NCS"] as const;
@@ -58,6 +60,7 @@ const ncsColors = [
 ];
 
 const ColorPaletteSection = () => {
+  const { ref, isVisible } = useScrollReveal();
   const [coating, setCoating] = useState<typeof coatingTypes[number]>("Акриловая эмаль");
   const [palette, setPalette] = useState<typeof paletteSystems[number]>("RAL");
   const [hoveredColor, setHoveredColor] = useState<string | null>(null);
@@ -66,14 +69,17 @@ const ColorPaletteSection = () => {
 
   return (
     <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">
-          Цветовые решения
-        </p>
-        <h2 className="text-3xl md:text-5xl tracking-tight mb-4">
+      <div ref={ref} className="max-w-7xl mx-auto">
+        <div className="flex items-center gap-3 mb-4">
+          <Droplets className={`w-5 h-5 text-primary opacity-0 ${isVisible ? "animate-fade-up" : ""}`} strokeWidth={1.5} />
+          <p className={`text-sm uppercase tracking-[0.2em] text-muted-foreground opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
+            Цветовые решения
+          </p>
+        </div>
+        <h2 className={`text-3xl md:text-5xl tracking-tight mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.1s" }}>
           Любой цвет по RAL и NCS
         </h2>
-        <p className="text-muted-foreground max-w-2xl mb-12 leading-relaxed">
+        <p className={`text-muted-foreground max-w-2xl mb-12 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.15s" }}>
           Двери Sofia доступны в любом цвете палитр RAL Classic и NCS. 
           Покраска акриловой эмалью или окрашенный шпон — подберём точное совпадение под ваш проект.
         </p>

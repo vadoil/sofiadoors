@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Images } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 import doorFokus from "@/assets/door-fokus.jpg";
 import doorSkyline from "@/assets/door-skyline.jpg";
@@ -43,14 +44,19 @@ const GalleryCarousel = () => {
     return () => clearInterval(timer);
   }, [next]);
 
+  const { ref, isVisible } = useScrollReveal();
+
   return (
     <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">
-          Галерея
-        </p>
+      <div ref={ref} className="max-w-7xl mx-auto">
+        <div className="flex items-center gap-3 mb-4">
+          <Images className={`w-5 h-5 text-muted-foreground opacity-0 ${isVisible ? "animate-fade-up" : ""}`} strokeWidth={1.5} />
+          <p className={`text-sm uppercase tracking-[0.2em] text-muted-foreground opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
+            Галерея
+          </p>
+        </div>
         <div className="flex items-end justify-between mb-10">
-          <h2 className="text-3xl md:text-5xl tracking-tight">
+          <h2 className={`text-3xl md:text-5xl tracking-tight opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.1s" }}>
             Наши решения в интерьерах
           </h2>
           <div className="hidden md:flex gap-2">
