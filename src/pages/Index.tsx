@@ -8,6 +8,7 @@ import StylesSection from "@/components/StylesSection";
 import ColorPaletteSection from "@/components/ColorPaletteSection";
 import ServicesSection from "@/components/ServicesSection";
 import ProcessSection from "@/components/ProcessSection";
+import GalleryCarousel from "@/components/GalleryCarousel";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
@@ -25,6 +26,7 @@ const Index = () => {
       <ColorPaletteSection />
       <ServicesSection />
       <ProcessSection />
+      <GalleryCarousel />
       <ContactSection />
       <Footer />
       <ChatWidget />
