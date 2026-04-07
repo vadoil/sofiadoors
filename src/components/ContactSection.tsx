@@ -75,6 +75,19 @@ const ContactSection = () => {
             </form>
           </div>
         </div>
+
+        {/* Yandex Map */}
+        <div className="mt-16 rounded-2xl overflow-hidden border border-primary-foreground/10">
+          <iframe
+            src="https://yandex.ru/map-widget/v1/?ll=50.110338%2C53.195063&z=16&pt=50.110338%2C53.195063%2Cpm2rdm&lang=ru_RU"
+            width="100%"
+            height="400"
+            frameBorder="0"
+            allowFullScreen
+            className="w-full"
+            title="Шоурум Sofia — г. Самара, ул. Чкалова, 100"
+          />
+        </div>
       </div>
     </section>
   );
