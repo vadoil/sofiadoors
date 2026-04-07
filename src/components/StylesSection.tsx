@@ -1,3 +1,6 @@
+import { Paintbrush, TreePine, GlassWater, RectangleHorizontal } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+
 const finishes = [
   {
     category: "Покрытия",
@@ -29,13 +32,14 @@ const finishes = [
 ];
 
 const StylesSection = () => {
+  const { ref, isVisible } = useScrollReveal();
   return (
-    <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-primary text-primary-foreground">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-sm uppercase tracking-[0.2em] text-primary-foreground/50 mb-4">
+    <section id="styles" className="py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-primary text-primary-foreground">
+      <div ref={ref} className="max-w-7xl mx-auto">
+        <p className={`text-sm uppercase tracking-[0.2em] text-primary-foreground/50 mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
           Облицовки и отделки
         </p>
-        <h2 className="text-3xl md:text-5xl tracking-tight mb-6">
+        <h2 className={`text-3xl md:text-5xl tracking-tight mb-6 opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.1s" }}>
           Материалы и покрытия
         </h2>
         <p className="text-primary-foreground/60 max-w-2xl mb-16 leading-relaxed">

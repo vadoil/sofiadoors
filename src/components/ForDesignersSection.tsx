@@ -1,14 +1,18 @@
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 import architectCollab from "@/assets/architect-collab.jpg";
 import designerMaterials from "@/assets/designer-materials.jpg";
 
 const ForDesignersSection = () => {
+  const { ref, isVisible } = useScrollReveal();
   return (
     <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
-      <div className="max-w-7xl mx-auto">
-        <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 animate-reveal">
+      <div ref={ref} className="max-w-7xl mx-auto">
+        <p className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
           Для архитекторов и дизайнеров
         </p>
-        <h2 className="text-3xl md:text-5xl tracking-tight leading-[1.15] mb-16 animate-reveal animate-reveal-delay-1">
+        <h2 className={`text-3xl md:text-5xl tracking-tight leading-[1.15] mb-16 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+          style={{ animationDelay: "0.1s" }}
+        >
           Мы не продаём двери.
           <br />
           <span className="text-muted-foreground">
@@ -17,7 +21,9 @@ const ForDesignersSection = () => {
         </h2>
 
         {/* Checkerboard grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 animate-reveal animate-reveal-delay-2">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-0 opacity-0 ${isVisible ? "animate-fade-up-slow" : ""}`}
+          style={{ animationDelay: "0.25s" }}
+        >
           {/* Row 1 */}
           <div className="aspect-[4/3] overflow-hidden">
             <img
