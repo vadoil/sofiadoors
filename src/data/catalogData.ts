@@ -1,15 +1,13 @@
-import collectionFokus from "@/assets/collection-fokus.jpg";
-import collectionSkyline from "@/assets/collection-skyline.jpg";
-import collectionOriginal from "@/assets/collection-original.jpg";
-import collectionElegant from "@/assets/collection-elegant.jpg";
-import collectionMetamorfoza from "@/assets/collection-metamorfoza.jpg";
-import collectionAkustika from "@/assets/collection-akustika.jpg";
-import collectionSliding from "@/assets/collection-sliding.jpg";
-import collectionFire from "@/assets/collection-fire.jpg";
-import collectionMinimal from "@/assets/collection-minimal.jpg";
-import collectionHidden from "@/assets/collection-hidden.jpg";
-import collectionDecorative from "@/assets/collection-decorative.jpg";
-import collectionTechnical from "@/assets/collection-technical.jpg";
+import doorFokus from "@/assets/door-fokus.jpg";
+import doorSkyline from "@/assets/door-skyline.jpg";
+import doorOriginal from "@/assets/door-original.jpg";
+import doorElegant from "@/assets/door-elegant.jpg";
+import doorGlass from "@/assets/door-glass.jpg";
+import doorHidden from "@/assets/door-hidden.jpg";
+import doorSliding from "@/assets/door-sliding.jpg";
+import doorPartition from "@/assets/door-partition.jpg";
+import doorAcoustic from "@/assets/door-acoustic.jpg";
+import doorFire from "@/assets/door-fire.jpg";
 
 // ─── Types ───────────────────────────────────────────────
 export type CategoryId =
@@ -67,7 +65,7 @@ export const swingCollections: Collection[] = [
     description:
       "Базовая глухая дверь в стандартной комплектации. Ничего лишнего — только выверенные решения, доведённые до идеала.",
     models: ["ДВ 32 (на себя)", "ДВ 33 (от себя)"],
-    image: collectionFokus,
+    image: doorFokus,
   },
   {
     name: "Оригинал",
@@ -75,7 +73,7 @@ export const swingCollections: Collection[] = [
     description:
       "Строгие и современные линии. Соотношение между деревянными деталями и стеклянными вставками.",
     models: ["ДВ 01", "ДВ 02", "ДВ 03", "ДВ 04", "ДВ 07", "ДВ 18"],
-    image: collectionOriginal,
+    image: doorOriginal,
   },
   {
     name: "Элегант",
@@ -83,7 +81,7 @@ export const swingCollections: Collection[] = [
     description:
       "Для тех, кто предпочитает вечные ценности: чёткие прямые линии, классические формы, спокойные цвета.",
     models: ["38", "39", "158", "168", "259", "269"],
-    image: collectionElegant,
+    image: doorElegant,
   },
   {
     name: "Акустика",
@@ -91,7 +89,7 @@ export const swingCollections: Collection[] = [
     description:
       "Полотно 60 мм с повышенными характеристиками тепло- и шумоизоляции.",
     models: ["116", "117 (от себя)", "118 (лёгкое)", "119 (лёгкое, от себя)"],
-    image: collectionAkustika,
+    image: doorAcoustic,
   },
   {
     name: "Скайлайн",
@@ -99,7 +97,7 @@ export const swingCollections: Collection[] = [
     description:
       "Двери высотой до потолка — до 3500 мм. Без горизонтального наличника, зрительно расширяют пространство.",
     models: ["ДВ 94 (на себя)", "ДВ 96 (от себя)"],
-    image: collectionSkyline,
+    image: doorSkyline,
   },
   {
     name: "Метаморфоза",
@@ -107,7 +105,7 @@ export const swingCollections: Collection[] = [
     description:
       "Кардинальное переосмысление привычных форм. Ни классика, ни модерн — нечто абсолютно новое.",
     models: ["170", "171", "172", "173"],
-    image: collectionMetamorfoza,
+    image: doorFokus,
   },
   {
     name: "Листва",
@@ -115,7 +113,7 @@ export const swingCollections: Collection[] = [
     description:
       "Вдохновлена русской природой. Гравировка имитирует природные мотивы. Модели коллекции сочетаются между собой.",
     models: ["176", "177", "178", "179"],
-    image: collectionDecorative,
+    image: doorElegant,
   },
   {
     name: "Исток",
@@ -123,7 +121,7 @@ export const swingCollections: Collection[] = [
     description:
       "Авторские модели с уникальным характером. Широкая линейка вариантов для разных интерьерных решений.",
     models: ["180", "181", "182", "183", "184", "185", "186", "187"],
-    image: collectionMinimal,
+    image: doorSkyline,
   },
 ];
 
@@ -135,7 +133,7 @@ export const glassCollections: Collection[] = [
     description:
       "Стекло с двух сторон полотна. Гравировка имитирует стекающие капли дождя. Доступна опция без гравировки.",
     models: ["ДВ 22 (с гравировкой)", "ДВ 22 (без гравировки)"],
-    image: collectionMinimal,
+    image: doorGlass,
   },
   {
     name: "Оригинал — Стеклянная перегородка",
@@ -143,7 +141,7 @@ export const glassCollections: Collection[] = [
     description:
       "Стеклянные модели перегородок на базе коллекции Оригинал. Триплекс 8 мм, широкий выбор стёкол.",
     models: ["МП Стеклянная", "МП Интарсия"],
-    image: collectionOriginal,
+    image: doorGlass,
   },
 ];
 
@@ -153,26 +151,22 @@ export const hiddenCollections: Collection[] = [
     name: "Скрытый короб 35",
     description:
       "Дверь с невидимым коробом толщиной 35 мм. Открывание на себя и от себя. Вариант с наличником и без.",
-    models: [
-      "НА СЕБЯ",
-      "НА СЕБЯ с наличником",
-      "ОТ СЕБЯ",
-    ],
-    image: collectionHidden,
+    models: ["НА СЕБЯ", "НА СЕБЯ с наличником", "ОТ СЕБЯ"],
+    image: doorHidden,
   },
   {
     name: "Скрытый короб 60",
     description:
       "Усиленный скрытый короб 60 мм для дверей с повышенной шумоизоляцией. Совместим с коллекцией Акустика.",
     models: ["НА СЕБЯ", "ОТ СЕБЯ"],
-    image: collectionHidden,
+    image: doorHidden,
   },
   {
     name: "Скрытый Пенал",
     description:
       "Дверь задвигается внутрь стены. Полностью скрытая конструкция для максимальной экономии пространства.",
     models: ["1 створка"],
-    image: collectionSliding,
+    image: doorSliding,
   },
 ];
 
@@ -183,28 +177,28 @@ export const slidingSystems: SystemItem[] = [
     description:
       "Сдвижная система для 1 и 2 створок, включая неравнопольные. Плавное открывание вдоль стены.",
     items: ["1 створка", "2 створки", "Неравнопольные"],
-    image: collectionSliding,
+    image: doorSliding,
   },
   {
     name: "Компак 90",
     description:
       "Дверь складывается под углом 90° к стене. Компактное решение для узких проёмов.",
     items: ["1 створка", "Без обрамления проёма", "С обрамлением проёма"],
-    image: collectionSliding,
+    image: doorSliding,
   },
   {
     name: "Компак 180",
     description:
       "Дверь складывается на 180° и прижимается к стене. Для 1 и 2 створок.",
     items: ["1 створка", "2 створки", "Равнопольные"],
-    image: collectionSliding,
+    image: doorSliding,
   },
   {
     name: "Скрытый Пенал",
     description:
       "Дверь убирается внутрь стены. Идеально для минималистичных интерьеров.",
     items: ["1 створка"],
-    image: collectionHidden,
+    image: doorHidden,
   },
 ];
 
@@ -215,33 +209,33 @@ export const partitions: SystemItem[] = [
     description:
       "Деревянные и стеклянные перегородки на базе коллекции Оригинал. Крепление к стене, внутри проёма, купе.",
     items: ["К стене — 1 створка", "Внутри проёма — 2, 3, 4 створки", "Купе"],
-    image: collectionOriginal,
+    image: doorOriginal,
   },
   {
     name: "Сёдзи",
     description:
       "Алюминиевые реечные перегородки в японском стиле. Модели SZ_0 – SZ_5.",
     items: ["ДВ SZ_0", "ДВ SZ_1", "ДВ SZ_2", "ДВ SZ_3", "ДВ SZ_4", "ДВ SZ_5"],
-    image: collectionHidden,
+    image: doorPartition,
   },
   {
     name: "Сёдзи Лайт",
     description:
       "Облегчённая версия реечных перегородок. Модели SZL10 – SZL12.",
     items: ["МП SZL10", "МП SZL11", "МП SZL12"],
-    image: collectionHidden,
+    image: doorPartition,
   },
   {
     name: "Деревянные реечные",
     description: "Реечные перегородки из массива. Натуральные текстуры и тёплая эстетика.",
     items: ["Деревянные реечные перегородки"],
-    image: collectionDecorative,
+    image: doorPartition,
   },
   {
     name: "Алюминиевые со стеклом",
     description: "Алюминиевый профиль со стеклянным заполнением. Лёгкость и прозрачность.",
     items: ["Алюминиевые реечные перегородки со стеклом"],
-    image: collectionMinimal,
+    image: doorGlass,
   },
 ];
 
@@ -252,14 +246,14 @@ export const fireCollections: SystemItem[] = [
     description:
       "Сертифицированные противопожарные двери с огнестойкостью 30 минут. Для жилых и коммерческих объектов.",
     items: ["EI 30"],
-    image: collectionFire,
+    image: doorFire,
   },
   {
     name: "Пожароустойчивые двери EI 60",
     description:
       "Усиленная огнестойкость 60 минут. Для объектов с повышенными требованиями безопасности.",
     items: ["EI 60"],
-    image: collectionFire,
+    image: doorFire,
   },
 ];
 
@@ -271,10 +265,7 @@ export const decorData: DecorItem[] = [
   { name: "ПСП", description: "Панели с покрытием для стен и потолка" },
   { name: "Плинтус ЕВРО", description: "Классический европейский плинтус" },
   { name: "Теневой плинтус", description: "Скрытый теневой плинтус для минимализма" },
-  {
-    name: "Графика",
-    description: "Декоративные графические паттерны на полотне. Модели GR10–GR17.",
-  },
+  { name: "Графика", description: "Декоративные графические паттерны на полотне. Модели GR10–GR17." },
   { name: "Аркада", description: "Арочные решения — модель 110" },
   { name: "Солярис", description: "Панели с покрытием — модели 174 КВ0–КВ9, 175 КВ0–КВ9" },
   { name: "Манильона", description: "Двери с интегрированной ручкой — модели МП GR0–GR9" },
