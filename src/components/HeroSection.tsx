@@ -115,7 +115,7 @@ const MarqueeRow = ({
           <div
             key={`${slide.title}-${i}`}
             className="shrink-0 relative overflow-hidden rounded-xl cursor-pointer group"
-            style={{ width: "clamp(320px, 26vw, 520px)" }}
+            style={{ width: "clamp(420px, 34vw, 680px)" }}
           >
             <div className="aspect-[16/10] relative overflow-hidden">
               <img
