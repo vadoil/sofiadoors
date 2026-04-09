@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 import doorFokus from "@/assets/door-fokus-hero.png";
 import doorSkyline from "@/assets/door-skyline.jpg";
+import doorOriginalHero from "@/assets/door-original-hero.png";
 import doorOriginal from "@/assets/door-original.jpg";
 import doorElegant from "@/assets/door-elegant-hero.png";
 import doorHidden from "@/assets/door-hidden.jpg";
@@ -17,9 +18,9 @@ const slides = [
     subtitle: "Классика для современных интерьеров",
   },
   {
-    image: doorOriginal,
+    image: doorOriginalHero,
     title: "Оригинал",
-    subtitle: "Стекло и дерево в строгих линиях",
+    subtitle: "Золотые пропорции и архитектурный «рассвет»",
   },
   {
     image: scenarioHotel,
