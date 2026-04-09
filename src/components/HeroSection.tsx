@@ -1,3 +1,4 @@
+import { useRef, useEffect, useCallback } from "react";
 import { ArrowRight } from "lucide-react";
 
 import doorElegant from "@/assets/door-elegant-hero-new.png";
@@ -46,20 +47,77 @@ const MarqueeRow = ({
   slides: typeof row1;
   direction: "left" | "right";
 }) => {
-  // Duplicate slides for seamless loop
+  const trackRef = useRef<HTMLDivElement>(null);
+  const animRef = useRef<Animation | null>(null);
+  const scrollSpeedRef = useRef(0);
+  const rafRef = useRef<number>(0);
+
   const items = [...slides, ...slides];
-  const animClass = direction === "left" ? "animate-marquee-left" : "animate-marquee-right";
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    // Half width = one set of slides
+    const halfWidth = track.scrollWidth / 2;
+
+    const keyframes =
+      direction === "left"
+        ? [{ transform: "translateX(0)" }, { transform: `translateX(-${halfWidth}px)` }]
+        : [{ transform: `translateX(-${halfWidth}px)` }, { transform: "translateX(0)" }];
+
+    const anim = track.animate(keyframes, {
+      duration: 80000,
+      iterations: Infinity,
+      easing: "linear",
+    });
+
+    animRef.current = anim;
+
+    return () => {
+      anim.cancel();
+    };
+  }, [direction]);
+
+  // Wheel-to-scroll: accelerate/decelerate animation based on scroll
+  const handleWheel = useCallback(
+    (e: React.WheelEvent) => {
+      e.preventDefault();
+      const anim = animRef.current;
+      if (!anim || !anim.currentTime) return;
+
+      // Apply scroll delta to currentTime
+      const delta = e.deltaY || e.deltaX;
+      const multiplier = direction === "left" ? 1 : -1;
+      const newTime = (anim.currentTime as number) + delta * 8 * multiplier;
+      anim.currentTime = Math.max(0, newTime);
+
+      // Briefly pause auto-play then resume
+      anim.pause();
+      scrollSpeedRef.current = 1;
+
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = window.setTimeout(() => {
+        anim.play();
+      }, 600) as unknown as number;
+    },
+    [direction]
+  );
 
   return (
-    <div className="relative overflow-hidden">
-      <div className={`flex gap-3 ${animClass}`} style={{ width: "max-content" }}>
+    <div className="relative overflow-hidden" onWheel={handleWheel}>
+      <div
+        ref={trackRef}
+        className="flex gap-4"
+        style={{ width: "max-content", willChange: "transform" }}
+      >
         {items.map((slide, i) => (
           <div
             key={`${slide.title}-${i}`}
             className="shrink-0 relative overflow-hidden rounded-xl cursor-pointer group"
-            style={{ width: "clamp(280px, 24vw, 460px)" }}
+            style={{ width: "clamp(320px, 26vw, 520px)" }}
           >
-            <div className="aspect-video relative overflow-hidden">
+            <div className="aspect-[16/10] relative overflow-hidden">
               <img
                 src={slide.image}
                 alt={slide.title}
@@ -68,13 +126,13 @@ const MarqueeRow = ({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-graphite/70 via-transparent to-transparent" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5">
-                <h2 className="text-lg md:text-xl lg:text-2xl text-primary-foreground tracking-tight font-heading leading-tight">
+              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
+                <h2 className="text-xl md:text-2xl lg:text-3xl text-primary-foreground tracking-tight font-heading leading-tight">
                   {slide.title}
                 </h2>
-                <div className="flex items-center gap-2 mt-1 text-primary-foreground/70 group-hover:text-primary-foreground transition-colors">
-                  <span className="text-xs md:text-sm">{slide.subtitle}</span>
-                  <ArrowRight className="w-3.5 h-3.5 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
+                <div className="flex items-center gap-2 mt-1.5 text-primary-foreground/70 group-hover:text-primary-foreground transition-colors">
+                  <span className="text-sm md:text-base">{slide.subtitle}</span>
+                  <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </div>
             </div>
@@ -87,8 +145,8 @@ const MarqueeRow = ({
 
 const HeroSection = () => {
   return (
-    <section className="relative pt-24 md:pt-28 pb-8 px-0 bg-background overflow-hidden">
-      <div className="flex flex-col gap-3">
+    <section className="relative pt-24 md:pt-28 pb-10 px-0 bg-background overflow-hidden">
+      <div className="flex flex-col gap-4">
         <MarqueeRow slides={row1} direction="left" />
         <MarqueeRow slides={row2} direction="right" />
       </div>
