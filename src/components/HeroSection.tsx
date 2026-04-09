@@ -74,6 +74,11 @@ const slides = [
     title: "Противопожарные EI",
     subtitle: "Защита от огня 30 и 60 минут, сертификат EI30/EI60",
   },
+  {
+    image: doorListva,
+    title: "Листва",
+    subtitle: "Вдохновлена русской природой, форма листвы в современных линиях",
+  },
 ];
 
 const HeroSection = () => {
