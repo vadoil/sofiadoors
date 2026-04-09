@@ -46,8 +46,8 @@ const CountdownBadge = () => {
   const pad = (n: number) => String(n).padStart(2, "0");
 
   return (
-    <div className="absolute top-4 left-4 right-4 z-10">
-      <div className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-xs font-bold px-3 py-2 rounded-lg backdrop-blur-sm">
+    <div className="absolute top-3 left-3 z-10">
+      <div className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-xs font-bold px-3 py-1.5 rounded-lg backdrop-blur-sm shadow-lg">
         <span>🔥</span>
         <span>{days}д</span>
         <span>{pad(hours)}:{pad(minutes)}:{pad(seconds)}</span>
@@ -88,13 +88,13 @@ const CollectionsSection = () => {
                 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2 hover:border-accent/30 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: `${0.2 + i * 0.08}s` }}
             >
-              <div className="relative overflow-hidden aspect-[4/5]">
+              <div className="relative overflow-hidden">
                 <CountdownBadge />
                 <img
                   src={promo.image}
                   alt="Акция Sofia"
                   loading="lazy"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
+                  className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
