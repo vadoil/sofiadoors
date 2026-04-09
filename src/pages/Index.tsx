@@ -1,14 +1,14 @@
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
-import DesignerFeaturesSection from "@/components/DesignerFeaturesSection";
-import ForDesignersSection from "@/components/ForDesignersSection";
+import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import CollectionsSection from "@/components/CollectionsSection";
-import ProjectScenariosSection from "@/components/ProjectScenariosSection";
-import StylesSection from "@/components/StylesSection";
-import ColorPaletteSection from "@/components/ColorPaletteSection";
-import ServicesSection from "@/components/ServicesSection";
+import TaskSelectionSection from "@/components/TaskSelectionSection";
+import PortfolioSection from "@/components/PortfolioSection";
+import HelpFormSection from "@/components/HelpFormSection";
 import ProcessSection from "@/components/ProcessSection";
-import GalleryCarousel from "@/components/GalleryCarousel";
+import DesignersSection from "@/components/DesignersSection";
+import FAQSection from "@/components/FAQSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import ChatWidget from "@/components/ChatWidget";
@@ -18,15 +18,15 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <HeroSection />
-      <DesignerFeaturesSection />
-      <ForDesignersSection />
+      <WhyChooseUsSection />
       <CollectionsSection />
-      <ProjectScenariosSection />
-      <StylesSection />
-      <ColorPaletteSection />
-      <ServicesSection />
+      <TaskSelectionSection />
+      <PortfolioSection />
+      <HelpFormSection />
       <ProcessSection />
-      <GalleryCarousel />
+      <DesignersSection />
+      <FAQSection />
+      <FinalCTASection />
       <ContactSection />
       <Footer />
       <ChatWidget />
