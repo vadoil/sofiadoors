@@ -62,6 +62,11 @@ const slides = [
     title: "Сёдзи",
     subtitle: "Современная интерпретация японских перегородок",
   },
+  {
+    image: doorRein,
+    title: "Рейн",
+    subtitle: "Вдохновлён струями дождя по стеклу",
+  },
 ];
 
 const HeroSection = () => {
