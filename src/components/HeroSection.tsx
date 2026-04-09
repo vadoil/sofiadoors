@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 import doorFokus from "@/assets/door-fokus-hero.png";
 import doorSkyline from "@/assets/door-skyline.jpg";
+import doorSkylineHero from "@/assets/door-skyline-hero.png";
 import doorOriginalHero from "@/assets/door-original-hero.png";
 import doorOriginal from "@/assets/door-original.jpg";
 import doorElegant from "@/assets/door-elegant-hero.png";
@@ -25,9 +26,9 @@ const slides = [
     subtitle: "Золотые пропорции и архитектурный «рассвет»",
   },
   {
-    image: scenarioHotel,
+    image: doorSkylineHero,
     title: "Скайлайн",
-    subtitle: "Двери в потолок — до 3500 мм",
+    subtitle: "Двери в потолок — новый образ пространства",
   },
   {
     image: doorFokus,
