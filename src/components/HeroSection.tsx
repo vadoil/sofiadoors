@@ -8,6 +8,8 @@ import doorOriginal from "@/assets/door-original.jpg";
 import doorElegant from "@/assets/door-elegant-hero.png";
 import doorHidden from "@/assets/door-hidden-hero.png";
 import doorGlass from "@/assets/door-glass.jpg";
+import doorMetamorfoza from "@/assets/door-metamorfoza-hero.png";
+import doorAcoustica from "@/assets/door-acoustica-hero.png";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
 import scenarioHotel from "@/assets/scenario-hotel.jpg";
 
