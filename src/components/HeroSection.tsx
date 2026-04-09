@@ -13,6 +13,7 @@ import doorMetamorfoza from "@/assets/door-metamorfoza-hero.png";
 import doorAcoustica from "@/assets/door-acoustica-hero.png";
 import doorShoji from "@/assets/door-shoji-hero.png";
 import doorRein from "@/assets/door-rein-hero.png";
+import doorFireproof from "@/assets/door-fireproof-hero.png";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
 import scenarioHotel from "@/assets/scenario-hotel.jpg";
 
@@ -66,6 +67,11 @@ const slides = [
     image: doorRein,
     title: "Рейн",
     subtitle: "Вдохновлён струями дождя по стеклу",
+  },
+  {
+    image: doorFireproof,
+    title: "Противопожарные EI",
+    subtitle: "Защита от огня 30 и 60 минут, сертификат EI30/EI60",
   },
 ];
 
