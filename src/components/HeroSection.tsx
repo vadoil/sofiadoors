@@ -16,6 +16,7 @@ import doorRein from "@/assets/door-rein-hero.png";
 import doorFireproof from "@/assets/door-fireproof-hero.png";
 import doorListva from "@/assets/door-listva-hero.png";
 import doorIstok from "@/assets/door-istok-hero.png";
+import door1000lines from "@/assets/door-1000lines-hero.png";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
 import scenarioHotel from "@/assets/scenario-hotel.jpg";
 
@@ -84,6 +85,11 @@ const slides = [
     image: doorIstok,
     title: "Исток",
     subtitle: "Вдохновлена истоком Волги — русла рек и изгибы ручьёв",
+  },
+  {
+    image: door1000lines,
+    title: "1000 линий",
+    subtitle: "Авторский линейный рельеф в серебряном или чёрном профиле",
   },
 ];
 
