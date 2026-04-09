@@ -15,6 +15,7 @@ import doorShoji from "@/assets/door-shoji-hero.png";
 import doorRein from "@/assets/door-rein-hero.png";
 import doorFireproof from "@/assets/door-fireproof-hero.png";
 import doorListva from "@/assets/door-listva-hero.png";
+import doorIstok from "@/assets/door-istok-hero.png";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
 import scenarioHotel from "@/assets/scenario-hotel.jpg";
 
