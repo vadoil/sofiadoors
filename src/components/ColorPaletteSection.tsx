@@ -260,8 +260,16 @@ const ColorPaletteSection = () => {
   const [coating, setCoating] = useState<typeof coatingTypes[number]>("Акриловая эмаль");
   const [palette, setPalette] = useState<typeof paletteSystems[number]>("RAL");
   const [hoveredColor, setHoveredColor] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
 
-  const colors = palette === "RAL" ? ralColors : ncsColors;
+  const allColors = palette === "RAL" ? ralColors : ncsColors;
+  const colors = useMemo(() => {
+    if (!search.trim()) return allColors;
+    const q = search.toLowerCase();
+    return allColors.filter(
+      (c) => c.code.toLowerCase().includes(q) || c.name.toLowerCase().includes(q)
+    );
+  }, [allColors, search]);
 
   return (
     <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
