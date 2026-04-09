@@ -45,14 +45,14 @@ const slides = [
     subtitle: "Лёгкость и прозрачность пространства",
   },
   {
-    image: doorElegant,
-    title: "Элегант",
-    subtitle: "Вечные ценности в элегантном переосмыслении",
+    image: doorMetamorfoza,
+    title: "Метаморфоза",
+    subtitle: "Аскетично элегантное прочтение классических форм",
   },
   {
-    image: doorSkyline,
+    image: doorAcoustica,
     title: "Акустика",
-    subtitle: "Шумоизоляция 42 дБ, полотно 60 мм",
+    subtitle: "Полотно 60 мм, повышенная шумоизоляция",
   },
 ];
 
