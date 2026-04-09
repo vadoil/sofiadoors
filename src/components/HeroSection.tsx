@@ -12,6 +12,7 @@ import doorGlass from "@/assets/door-glass.jpg";
 import doorMetamorfoza from "@/assets/door-metamorfoza-hero.png";
 import doorAcoustica from "@/assets/door-acoustica-hero.png";
 import doorShoji from "@/assets/door-shoji-hero.png";
+import doorRein from "@/assets/door-rein-hero.png";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
 import scenarioHotel from "@/assets/scenario-hotel.jpg";
 
