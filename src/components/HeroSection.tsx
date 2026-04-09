@@ -19,6 +19,7 @@ import doorIstok from "@/assets/door-istok-hero.png";
 import door1000lines from "@/assets/door-1000lines-hero.png";
 import doorGrafika from "@/assets/door-grafika-hero.png";
 import doorSolyaris from "@/assets/door-solyaris-hero.png";
+import doorManiliona from "@/assets/door-maniliona-hero.png";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
 import scenarioHotel from "@/assets/scenario-hotel.jpg";
 
@@ -102,6 +103,11 @@ const slides = [
     image: doorSolyaris,
     title: "Солярис",
     subtitle: "Мягкие формы и сотни сочетаний цветов и стекла",
+  },
+  {
+    image: doorManiliona,
+    title: "Манильона",
+    subtitle: "Арт-объект с уникальной ручкой из массива",
   },
 ];
 
