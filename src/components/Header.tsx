@@ -8,6 +8,8 @@ const Header = () => {
   const navLinks = [
     { label: "Преимущества", href: "#advantages" },
     { label: "Акции", href: "#collections" },
+    { label: "Каталог", href: "/catalog", isRoute: true },
+    { label: "Палитра", href: "/palette", isRoute: true },
     { label: "Портфолио", href: "#portfolio" },
     { label: "Новости", href: "/news", isRoute: true },
     { label: "Контакты", href: "#contact" },
