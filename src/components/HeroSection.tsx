@@ -68,6 +68,11 @@ const slides = [
     title: "Рейн",
     subtitle: "Вдохновлён струями дождя по стеклу",
   },
+  {
+    image: doorFireproof,
+    title: "Противопожарные EI",
+    subtitle: "Защита от огня 30 и 60 минут, сертификат EI30/EI60",
+  },
 ];
 
 const HeroSection = () => {
