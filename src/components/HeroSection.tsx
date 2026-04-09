@@ -56,6 +56,11 @@ const slides = [
     title: "Акустика",
     subtitle: "Полотно 60 мм, повышенная шумоизоляция",
   },
+  {
+    image: doorShoji,
+    title: "Сёдзи",
+    subtitle: "Современная интерпретация японских перегородок",
+  },
 ];
 
 const HeroSection = () => {
