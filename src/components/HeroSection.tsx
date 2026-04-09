@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import doorFokus from "@/assets/door-fokus-hero.png";
 import doorSkyline from "@/assets/door-skyline.jpg";
 import doorOriginal from "@/assets/door-original.jpg";
-import doorElegant from "@/assets/door-elegant.jpg";
+import doorElegant from "@/assets/door-elegant-hero.png";
 import doorHidden from "@/assets/door-hidden.jpg";
 import doorGlass from "@/assets/door-glass.jpg";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
@@ -43,8 +43,8 @@ const slides = [
   },
   {
     image: doorElegant,
-    title: "Листва",
-    subtitle: "Природные мотивы в гравировке",
+    title: "Элегант",
+    subtitle: "Вечные ценности в элегантном переосмыслении",
   },
   {
     image: doorSkyline,
