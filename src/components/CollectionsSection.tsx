@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 import promoElegant from "@/assets/promo-elegant.jpg";
@@ -7,62 +8,53 @@ import promoHidden from "@/assets/promo-hidden.jpg";
 import promoSolid from "@/assets/promo-solid.jpg";
 import promoGlass from "@/assets/promo-glass.jpg";
 
+const DEADLINE = new Date("2026-04-13T23:59:59");
+
 const promos = [
-  {
-    image: promoElegant,
-    title: "Двери Элегант",
-    oldPrice: "57 391 р.",
-    newPrice: "45 699 р.",
-    badge: "−40%",
-    badgeLabel: "На полотно",
-    deadline: "13 апреля",
-  },
-  {
-    image: promoOriginal,
-    title: "Двери Оригинал в любой отделке",
-    oldPrice: "70 368 р.",
-    newPrice: "49 264 р.",
-    badge: "−50%",
-    badgeLabel: "На полотно",
-    deadline: "13 апреля",
-  },
-  {
-    image: promoFokus,
-    title: "Коллекция Фокус",
-    oldPrice: null,
-    newPrice: "32 650 р.",
-    badge: null,
-    badgeLabel: null,
-    deadline: "13 апреля",
-  },
-  {
-    image: promoHidden,
-    title: "Скрытая дверь под покраску",
-    oldPrice: null,
-    newPrice: "49 116 р.",
-    badge: null,
-    badgeLabel: null,
-    deadline: "13 апреля",
-  },
-  {
-    image: promoSolid,
-    title: "Межкомнатные двери",
-    oldPrice: "56 032 р.",
-    newPrice: "42 096 р.",
-    badge: "−50%",
-    badgeLabel: "На полотно",
-    deadline: "13 апреля",
-  },
-  {
-    image: promoGlass,
-    title: "Стеклянные перегородки и двери",
-    oldPrice: "58 339 р.",
-    newPrice: "40 837 р.",
-    badge: "−30%",
-    badgeLabel: "Комплимент",
-    deadline: "13 апреля",
-  },
+  { image: promoElegant },
+  { image: promoOriginal },
+  { image: promoFokus },
+  { image: promoHidden },
+  { image: promoSolid },
+  { image: promoGlass },
 ];
+
+const useCountdown = (target: Date) => {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const calc = () => {
+      const now = new Date().getTime();
+      const diff = Math.max(0, target.getTime() - now);
+      setTimeLeft({
+        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((diff / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((diff / (1000 * 60)) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      });
+    };
+    calc();
+    const id = setInterval(calc, 1000);
+    return () => clearInterval(id);
+  }, [target]);
+
+  return timeLeft;
+};
+
+const CountdownBadge = () => {
+  const { days, hours, minutes, seconds } = useCountdown(DEADLINE);
+  const pad = (n: number) => String(n).padStart(2, "0");
+
+  return (
+    <div className="absolute top-4 left-4 right-4 z-10">
+      <div className="inline-flex items-center gap-1.5 bg-accent text-accent-foreground text-xs font-bold px-3 py-2 rounded-lg backdrop-blur-sm">
+        <span>🔥</span>
+        <span>{days}д</span>
+        <span>{pad(hours)}:{pad(minutes)}:{pad(seconds)}</span>
+      </div>
+    </div>
+  );
+};
 
 const CollectionsSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -85,56 +77,26 @@ const CollectionsSection = () => {
           className={`text-muted-foreground max-w-2xl mb-14 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
           style={{ animationDelay: "0.15s" }}
         >
-          Успейте приобрести двери Sofia по специальным ценам. Акции действуют до указанной даты.
+          Успейте приобрести двери Sofia по специальным ценам. Акции ограничены по времени.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {promos.map((promo, i) => (
             <div
-              key={promo.title}
+              key={i}
               className={`group rounded-2xl overflow-hidden bg-card border border-border/50 cursor-pointer 
-                transition-all duration-500 hover:shadow-lg hover:-translate-y-1 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+                transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10 hover:-translate-y-2 hover:border-accent/30 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: `${0.2 + i * 0.08}s` }}
             >
-              {/* Image */}
               <div className="relative overflow-hidden aspect-[4/5]">
+                <CountdownBadge />
                 <img
                   src={promo.image}
-                  alt={promo.title}
+                  alt="Акция Sofia"
                   loading="lazy"
-                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.06]"
                 />
-                {promo.badge && (
-                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground text-sm font-bold px-3 py-1.5 rounded-lg">
-                    {promo.badge}
-                  </div>
-                )}
-              </div>
-
-              {/* Info */}
-              <div className="p-6">
-                <h3 className="text-lg md:text-xl font-heading tracking-tight mb-3">
-                  {promo.title}
-                </h3>
-                <div className="flex items-baseline gap-3 mb-4">
-                  {promo.oldPrice && (
-                    <span className="text-muted-foreground line-through text-sm">
-                      от {promo.oldPrice}
-                    </span>
-                  )}
-                  <span className="text-foreground font-semibold text-lg">
-                    от {promo.newPrice}
-                  </span>
-                </div>
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
-                  {promo.badgeLabel && (
-                    <span>
-                      {promo.badgeLabel}{" "}
-                      <span className="text-accent font-bold">{promo.badge}</span>
-                    </span>
-                  )}
-                  <span>До {promo.deadline}</span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           ))}
