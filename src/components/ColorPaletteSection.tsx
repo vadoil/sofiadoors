@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
+import { Search } from "lucide-react";
 import { Droplets } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
