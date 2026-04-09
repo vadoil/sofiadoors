@@ -18,9 +18,9 @@ const slides = [
     subtitle: "Классика для современных интерьеров",
   },
   {
-    image: doorOriginal,
+    image: doorOriginalHero,
     title: "Оригинал",
-    subtitle: "Стекло и дерево в строгих линиях",
+    subtitle: "Золотые пропорции и архитектурный «рассвет»",
   },
   {
     image: scenarioHotel,
