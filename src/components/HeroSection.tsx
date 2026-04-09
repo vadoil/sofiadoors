@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
 import doorFokus from "@/assets/door-fokus-hero.png";
 import doorSkyline from "@/assets/door-skyline.jpg";
+import doorOriginalHero from "@/assets/door-original-hero.png";
 import doorOriginal from "@/assets/door-original.jpg";
 import doorElegant from "@/assets/door-elegant-hero.png";
 import doorHidden from "@/assets/door-hidden.jpg";
