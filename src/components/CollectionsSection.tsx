@@ -1,174 +1,144 @@
-import { useState } from "react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import {
-  categories,
-  swingCollections,
-  glassCollections,
-  hiddenCollections,
-  slidingSystems,
-  partitions,
-  fireCollections,
-  type CategoryId,
-  type Collection,
-  type SystemItem,
-} from "@/data/catalogData";
 
-const collectionFeatures: Record<string, string[]> = {
-  "Фокус": ["лаконичный профиль", "выверенная база", "идеальна для первого выбора"],
-  "Оригинал": ["стекло и дерево", "строгие линии", "универсальный дизайн"],
-  "Элегант": ["классические формы", "чёткие линии", "спокойные цвета"],
-  "Акустика": ["полотно 60 мм", "шумоизоляция 42 дБ", "тепло- и звукоизоляция"],
-  "Скайлайн": ["высота до 3500 мм", "без горизонтального наличника", "расширяет пространство"],
-  "Метаморфоза": ["нестандартные формы", "ни классика ни модерн", "для смелых интерьеров"],
-  "Листва": ["гравировка с природными мотивами", "коллекции сочетаются", "дизайн Франко Поли"],
-  "Исток": ["авторские модели", "широкая линейка", "уникальный характер"],
-};
+import promoElegant from "@/assets/promo-elegant.jpg";
+import promoFokus from "@/assets/promo-fokus.jpg";
+import promoOriginal from "@/assets/promo-original.jpg";
+import promoHidden from "@/assets/promo-hidden.jpg";
+import promoSolid from "@/assets/promo-solid.jpg";
+import promoGlass from "@/assets/promo-glass.jpg";
 
-const CollectionPremiumCard = ({ collection }: { collection: Collection }) => {
-  const features = collectionFeatures[collection.name] || [];
-  
-  return (
-    <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-[4/5] cursor-pointer">
-      <img
-        src={collection.image}
-        alt={collection.name}
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/30 to-transparent" />
-      <div className="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
-        {collection.designer && (
-          <p className="text-xs text-primary-foreground/45 uppercase tracking-wider mb-1">
-            {collection.designer}
-          </p>
-        )}
-        <h3 className="text-2xl md:text-3xl text-primary-foreground tracking-tight font-heading">
-          {collection.name}
-        </h3>
-        <p className="mt-2 text-primary-foreground/70 text-sm max-w-sm leading-relaxed">
-          {collection.description}
-        </p>
-        {features.length > 0 && (
-          <div className="mt-3 space-y-1">
-            {features.map((f) => (
-              <p key={f} className="text-primary-foreground/55 text-xs">— {f}</p>
-            ))}
-          </div>
-        )}
-        <div className="mt-5 flex flex-wrap gap-2">
-          <span className="rounded-2xl bg-primary-foreground/15 backdrop-blur-sm px-4 py-2 text-xs text-primary-foreground border border-primary-foreground/10 transition-colors hover:bg-primary-foreground/25 cursor-pointer">
-            Смотреть коллекцию
-          </span>
-          <span className="rounded-2xl bg-primary-foreground/15 backdrop-blur-sm px-4 py-2 text-xs text-primary-foreground border border-primary-foreground/10 transition-colors hover:bg-primary-foreground/25 cursor-pointer">
-            Подобрать под интерьер
-          </span>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-const SystemPremiumCard = ({ system }: { system: SystemItem }) => (
-  <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer">
-    <img
-      src={system.image}
-      alt={system.name}
-      loading="lazy"
-      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/30 to-transparent" />
-    <div className="relative z-10 flex h-full flex-col justify-end p-6">
-      <h3 className="text-xl text-primary-foreground tracking-tight font-heading">{system.name}</h3>
-      <p className="mt-1 text-primary-foreground/60 text-sm leading-relaxed">{system.description}</p>
-    </div>
-  </div>
-);
+const promos = [
+  {
+    image: promoElegant,
+    title: "Двери Элегант",
+    oldPrice: "57 391 р.",
+    newPrice: "45 699 р.",
+    badge: "−40%",
+    badgeLabel: "На полотно",
+    deadline: "13 апреля",
+  },
+  {
+    image: promoOriginal,
+    title: "Двери Оригинал в любой отделке",
+    oldPrice: "70 368 р.",
+    newPrice: "49 264 р.",
+    badge: "−50%",
+    badgeLabel: "На полотно",
+    deadline: "13 апреля",
+  },
+  {
+    image: promoFokus,
+    title: "Коллекция Фокус",
+    oldPrice: null,
+    newPrice: "32 650 р.",
+    badge: null,
+    badgeLabel: null,
+    deadline: "13 апреля",
+  },
+  {
+    image: promoHidden,
+    title: "Скрытая дверь под покраску",
+    oldPrice: null,
+    newPrice: "49 116 р.",
+    badge: null,
+    badgeLabel: null,
+    deadline: "13 апреля",
+  },
+  {
+    image: promoSolid,
+    title: "Межкомнатные двери",
+    oldPrice: "56 032 р.",
+    newPrice: "42 096 р.",
+    badge: "−50%",
+    badgeLabel: "На полотно",
+    deadline: "13 апреля",
+  },
+  {
+    image: promoGlass,
+    title: "Стеклянные перегородки и двери",
+    oldPrice: "58 339 р.",
+    newPrice: "40 837 р.",
+    badge: "−30%",
+    badgeLabel: "Комплимент",
+    deadline: "13 апреля",
+  },
+];
 
 const CollectionsSection = () => {
-  const [activeCategory, setActiveCategory] = useState<CategoryId>("swing");
   const { ref, isVisible } = useScrollReveal();
-
-  const renderContent = () => {
-    switch (activeCategory) {
-      case "swing":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {swingCollections.map((col) => <CollectionPremiumCard key={col.name} collection={col} />)}
-          </div>
-        );
-      case "glass":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {glassCollections.map((col) => <CollectionPremiumCard key={col.name} collection={col} />)}
-          </div>
-        );
-      case "hidden":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {hiddenCollections.map((col) => <CollectionPremiumCard key={col.name} collection={col} />)}
-          </div>
-        );
-      case "sliding":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {slidingSystems.map((sys) => <SystemPremiumCard key={sys.name} system={sys} />)}
-          </div>
-        );
-      case "partitions":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {partitions.map((sys) => <SystemPremiumCard key={sys.name} system={sys} />)}
-          </div>
-        );
-      case "fire":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {fireCollections.map((sys) => <SystemPremiumCard key={sys.name} system={sys} />)}
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
 
   return (
     <section id="collections" className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
       <div ref={ref} className="max-w-7xl mx-auto">
-        <p className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
-          Коллекции Sofia
+        <p
+          className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+        >
+          Акции Sofia
         </p>
         <h2
-          className={`text-3xl md:text-5xl tracking-tight mb-6 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+          className={`text-3xl md:text-5xl tracking-tight mb-6 opacity-0 font-heading ${isVisible ? "animate-fade-up" : ""}`}
           style={{ animationDelay: "0.1s" }}
         >
-          Коллекции как сценарии интерьера
+          Специальные предложения
         </h2>
         <p
-          className={`text-muted-foreground max-w-2xl mb-12 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+          className={`text-muted-foreground max-w-2xl mb-14 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
           style={{ animationDelay: "0.15s" }}
         >
-          Каждая коллекция — готовое решение для определённого стиля. Выберите направление — покажем подходящие модели.
+          Успейте приобрести двери Sofia по специальным ценам. Акции действуют до указанной даты.
         </p>
 
-        <div className={`flex flex-wrap gap-2 mb-12 opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.2s" }}>
-          {categories
-            .filter((c) => !["decor", "accessories"].includes(c.id))
-            .map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
-                className={`px-5 py-2.5 rounded-full text-sm transition-all duration-200 ${
-                  activeCategory === cat.id
-                    ? "bg-foreground text-background"
-                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {promos.map((promo, i) => (
+            <div
+              key={promo.title}
+              className={`group rounded-2xl overflow-hidden bg-card border border-border/50 cursor-pointer 
+                transition-all duration-500 hover:shadow-lg hover:-translate-y-1 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+              style={{ animationDelay: `${0.2 + i * 0.08}s` }}
+            >
+              {/* Image */}
+              <div className="relative overflow-hidden aspect-[4/5]">
+                <img
+                  src={promo.image}
+                  alt={promo.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                {promo.badge && (
+                  <div className="absolute top-4 left-4 bg-accent text-accent-foreground text-sm font-bold px-3 py-1.5 rounded-lg">
+                    {promo.badge}
+                  </div>
+                )}
+              </div>
 
-        {renderContent()}
+              {/* Info */}
+              <div className="p-6">
+                <h3 className="text-lg md:text-xl font-heading tracking-tight mb-3">
+                  {promo.title}
+                </h3>
+                <div className="flex items-baseline gap-3 mb-4">
+                  {promo.oldPrice && (
+                    <span className="text-muted-foreground line-through text-sm">
+                      от {promo.oldPrice}
+                    </span>
+                  )}
+                  <span className="text-foreground font-semibold text-lg">
+                    от {promo.newPrice}
+                  </span>
+                </div>
+                <div className="flex items-center justify-between text-sm text-muted-foreground">
+                  {promo.badgeLabel && (
+                    <span>
+                      {promo.badgeLabel}{" "}
+                      <span className="text-accent font-bold">{promo.badge}</span>
+                    </span>
+                  )}
+                  <span>До {promo.deadline}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
