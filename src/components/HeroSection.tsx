@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 
-import doorFokus from "@/assets/door-fokus.jpg";
+import doorFokus from "@/assets/door-fokus-hero.png";
 import doorSkyline from "@/assets/door-skyline.jpg";
 import doorOriginal from "@/assets/door-original.jpg";
 import doorElegant from "@/assets/door-elegant.jpg";
@@ -29,7 +29,7 @@ const slides = [
   {
     image: doorFokus,
     title: "Фокус",
-    subtitle: "Лаконичная база без лишнего",
+    subtitle: "Базовая элегантность, доведённая до идеала",
   },
   {
     image: doorHidden,
