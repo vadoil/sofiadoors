@@ -129,6 +129,8 @@ export default {
         "slide-in-left": "slide-in-left 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
         "slide-in-right": "slide-in-right 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
         "blur-in": "blur-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards",
+        "marquee-left": "marquee-left 40s linear infinite",
+        "marquee-right": "marquee-right 40s linear infinite",
       },
     },
   },
