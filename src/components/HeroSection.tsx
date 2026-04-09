@@ -26,9 +26,9 @@ const slides = [
     subtitle: "Золотые пропорции и архитектурный «рассвет»",
   },
   {
-    image: scenarioHotel,
+    image: doorSkylineHero,
     title: "Скайлайн",
-    subtitle: "Двери в потолок — до 3500 мм",
+    subtitle: "Двери в потолок — новый образ пространства",
   },
   {
     image: doorFokus,
