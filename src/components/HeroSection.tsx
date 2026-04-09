@@ -6,7 +6,7 @@ import doorSkyline from "@/assets/door-skyline.jpg";
 import doorOriginalHero from "@/assets/door-original-hero.png";
 import doorOriginal from "@/assets/door-original.jpg";
 import doorElegant from "@/assets/door-elegant-hero.png";
-import doorHidden from "@/assets/door-hidden.jpg";
+import doorHidden from "@/assets/door-hidden-hero.png";
 import doorGlass from "@/assets/door-glass.jpg";
 import scenarioResidence from "@/assets/scenario-residence.jpg";
 import scenarioHotel from "@/assets/scenario-hotel.jpg";
@@ -35,7 +35,7 @@ const slides = [
   {
     image: doorHidden,
     title: "Скрытые двери",
-    subtitle: "Невидимый короб, покраска в цвет стены",
+    subtitle: "Двери высотой до 6 м, повышенная шумоизоляция",
   },
   {
     image: doorGlass,
