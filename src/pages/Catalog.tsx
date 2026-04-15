@@ -1,15 +1,12 @@
-import { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import {
-  categories,
   swingCollections,
   glassCollections,
   hiddenCollections,
   slidingSystems,
   partitions,
   fireCollections,
-  type CategoryId,
   type Collection,
   type SystemItem,
 } from "@/data/catalogData";
@@ -25,44 +22,116 @@ const collectionFeatures: Record<string, string[]> = {
   "Исток": ["авторские модели", "широкая линейка", "уникальный характер"],
 };
 
-const CollectionCard = ({ collection }: { collection: Collection }) => {
-  const features = collectionFeatures[collection.name] || [];
-  const isPng = collection.image.endsWith('.png');
+// Unified item type for the wall
+type CatalogItem = {
+  name: string;
+  designer?: string;
+  description: string;
+  image: string;
+  category: string;
+  features?: string[];
+};
+
+const allItems: CatalogItem[] = [
+  ...swingCollections.map((c) => ({
+    name: c.name,
+    designer: c.designer,
+    description: c.description,
+    image: c.image,
+    category: "Распашные",
+    features: collectionFeatures[c.name],
+  })),
+  ...glassCollections.map((c) => ({
+    name: c.name,
+    designer: c.designer,
+    description: c.description,
+    image: c.image,
+    category: "Стеклянные",
+  })),
+  ...hiddenCollections.map((c) => ({
+    name: c.name,
+    description: c.description,
+    image: c.image,
+    category: "Скрытые",
+  })),
+  ...slidingSystems.map((s) => ({
+    name: s.name,
+    description: s.description,
+    image: s.image,
+    category: "Сдвижные",
+  })),
+  ...partitions.map((s) => ({
+    name: s.name,
+    description: s.description,
+    image: s.image,
+    category: "Перегородки",
+  })),
+  ...fireCollections.map((s) => ({
+    name: s.name,
+    description: s.description,
+    image: s.image,
+    category: "Пожароустойчивые",
+  })),
+];
+
+// Masonry-like sizes for visual variety — cycle through patterns
+const sizePatterns = [
+  "md:col-span-2 md:row-span-1",  // wide
+  "md:col-span-1 md:row-span-1",  // normal
+  "md:col-span-1 md:row-span-1",  // normal
+  "md:col-span-1 md:row-span-1",  // normal
+  "md:col-span-2 md:row-span-1",  // wide
+  "md:col-span-1 md:row-span-1",  // normal
+];
+
+const CatalogCard = ({ item, index }: { item: CatalogItem; index: number }) => {
+  const isPng = item.image.endsWith('.png');
+  const sizeClass = sizePatterns[index % sizePatterns.length];
+  const isWide = sizeClass.includes("col-span-2");
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-[4/5] cursor-pointer bg-gradient-to-b from-stone/30 to-graphite/90">
+    <div
+      className={`group relative overflow-hidden rounded-2xl cursor-pointer ${sizeClass} ${
+        isWide ? "aspect-[16/7]" : "aspect-[4/5]"
+      } bg-gradient-to-br from-stone/20 to-graphite/80`}
+    >
       {isPng ? (
         <img
-          src={collection.image}
-          alt={collection.name}
+          src={item.image}
+          alt={item.name}
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03] drop-shadow-2xl"
+          className={`absolute h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03] drop-shadow-2xl ${
+            isWide ? "right-0 w-1/2 object-bottom" : "inset-0 w-full object-bottom"
+          }`}
         />
       ) : (
         <img
-          src={collection.image}
-          alt={collection.name}
+          src={item.image}
+          alt={item.name}
           loading="lazy"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
         />
       )}
-      <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/30 to-transparent" />
-      <div className="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
-        {collection.designer && (
+      <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 via-graphite/30 to-transparent" />
+      <div className={`relative z-10 flex h-full flex-col justify-end p-6 md:p-8 ${isWide ? "max-w-[55%]" : ""}`}>
+        <span className="text-[10px] uppercase tracking-[0.15em] text-accent/80 mb-1">
+          {item.category}
+        </span>
+        {item.designer && (
           <p className="text-xs text-primary-foreground/45 uppercase tracking-wider mb-1">
-            {collection.designer}
+            {item.designer}
           </p>
         )}
-        <h3 className="text-2xl md:text-3xl text-primary-foreground tracking-tight font-heading">
-          {collection.name}
+        <h3 className="text-xl md:text-2xl text-primary-foreground tracking-tight font-heading">
+          {item.name}
         </h3>
-        <p className="mt-2 text-primary-foreground/70 text-sm max-w-sm leading-relaxed">
-          {collection.description}
+        <p className="mt-2 text-primary-foreground/70 text-sm max-w-sm leading-relaxed line-clamp-2">
+          {item.description}
         </p>
-        {features.length > 0 && (
-          <div className="mt-3 space-y-1">
-            {features.map((f) => (
-              <p key={f} className="text-primary-foreground/55 text-xs">— {f}</p>
+        {item.features && item.features.length > 0 && (
+          <div className="mt-3 space-y-0.5 hidden md:block">
+            {item.features.map((f) => (
+              <p key={f} className="text-primary-foreground/50 text-xs">— {f}</p>
             ))}
           </div>
         )}
@@ -71,68 +140,7 @@ const CollectionCard = ({ collection }: { collection: Collection }) => {
   );
 };
 
-const SystemCard = ({ system }: { system: SystemItem }) => (
-  <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer">
-    <img
-      src={system.image}
-      alt={system.name}
-      loading="lazy"
-      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-    />
-    <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/30 to-transparent" />
-    <div className="relative z-10 flex h-full flex-col justify-end p-6">
-      <h3 className="text-xl text-primary-foreground tracking-tight font-heading">{system.name}</h3>
-      <p className="mt-1 text-primary-foreground/60 text-sm leading-relaxed">{system.description}</p>
-    </div>
-  </div>
-);
-
 const Catalog = () => {
-  const [activeCategory, setActiveCategory] = useState<CategoryId>("swing");
-
-  const renderContent = () => {
-    switch (activeCategory) {
-      case "swing":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {swingCollections.map((col) => <CollectionCard key={col.name} collection={col} />)}
-          </div>
-        );
-      case "glass":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {glassCollections.map((col) => <CollectionCard key={col.name} collection={col} />)}
-          </div>
-        );
-      case "hidden":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {hiddenCollections.map((col) => <CollectionCard key={col.name} collection={col} />)}
-          </div>
-        );
-      case "sliding":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {slidingSystems.map((sys) => <SystemCard key={sys.name} system={sys} />)}
-          </div>
-        );
-      case "partitions":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {partitions.map((sys) => <SystemCard key={sys.name} system={sys} />)}
-          </div>
-        );
-      case "fire":
-        return (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {fireCollections.map((sys) => <SystemCard key={sys.name} system={sys} />)}
-          </div>
-        );
-      default:
-        return null;
-    }
-  };
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -142,31 +150,17 @@ const Catalog = () => {
             Каталог
           </p>
           <h1 className="text-3xl md:text-5xl tracking-tight mb-6 font-heading">
-            Выбор по коллекциям
+            Все коллекции Sofia
           </h1>
-          <p className="text-muted-foreground max-w-2xl mb-12 leading-relaxed">
-            Каждая коллекция — готовое решение для определённого стиля. Выберите направление — покажем подходящие модели.
+          <p className="text-muted-foreground max-w-2xl mb-14 leading-relaxed">
+            Каждая коллекция — готовое решение для определённого стиля. Двери, перегородки, системы — всё в одном месте.
           </p>
 
-          <div className="flex flex-wrap gap-2 mb-12">
-            {categories
-              .filter((c) => !["decor", "accessories"].includes(c.id))
-              .map((cat) => (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-5 py-2.5 rounded-full text-sm transition-all duration-200 ${
-                    activeCategory === cat.id
-                      ? "bg-foreground text-background"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                  }`}
-                >
-                  {cat.label}
-                </button>
-              ))}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {allItems.map((item, i) => (
+              <CatalogCard key={item.name} item={item} index={i} />
+            ))}
           </div>
-
-          {renderContent()}
         </div>
       </section>
       <Footer />
