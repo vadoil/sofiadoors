@@ -255,14 +255,14 @@ export const fireCollections: SystemItem[] = [
     description:
       "Сертифицированные противопожарные двери с огнестойкостью 30 минут. Для жилых и коммерческих объектов.",
     items: ["EI 30"],
-    image: doorFire,
+    image: doorFireproof,
   },
   {
     name: "Пожароустойчивые двери EI 60",
     description:
       "Усиленная огнестойкость 60 минут. Для объектов с повышенными требованиями безопасности.",
     items: ["EI 60"],
-    image: doorFire,
+    image: doorFireproof,
   },
 ];
 
