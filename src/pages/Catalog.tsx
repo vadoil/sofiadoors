@@ -74,26 +74,12 @@ const allItems: CatalogItem[] = [
   })),
 ];
 
-// Masonry-like sizes for visual variety — cycle through patterns
-const sizePatterns = [
-  "md:col-span-2 md:row-span-1",  // wide
-  "md:col-span-1 md:row-span-1",  // normal
-  "md:col-span-1 md:row-span-1",  // normal
-  "md:col-span-1 md:row-span-1",  // normal
-  "md:col-span-2 md:row-span-1",  // wide
-  "md:col-span-1 md:row-span-1",  // normal
-];
-
-const CatalogCard = ({ item, index }: { item: CatalogItem; index: number }) => {
+const CatalogCard = ({ item }: { item: CatalogItem }) => {
   const isPng = item.image.endsWith('.png');
-  const sizeClass = sizePatterns[index % sizePatterns.length];
-  const isWide = sizeClass.includes("col-span-2");
 
   return (
     <div
-      className={`group relative overflow-hidden rounded-2xl cursor-pointer ${sizeClass} ${
-        isWide ? "aspect-[16/7]" : "aspect-[4/5]"
-      }`}
+      className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4]"
     >
       <img
         src={item.image}
