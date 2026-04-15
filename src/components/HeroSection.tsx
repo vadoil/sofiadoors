@@ -49,8 +49,8 @@ const MarqueeRow = ({
 }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<Animation | null>(null);
-  const scrollSpeedRef = useRef(0);
   const rafRef = useRef<number>(0);
+  const dragRef = useRef({ isDragging: false, startX: 0, startTime: 0 });
 
   const items = [...slides, ...slides];
 
@@ -58,7 +58,6 @@ const MarqueeRow = ({
     const track = trackRef.current;
     if (!track) return;
 
-    // Half width = one set of slides
     const halfWidth = track.scrollWidth / 2;
 
     const keyframes =
@@ -79,36 +78,67 @@ const MarqueeRow = ({
     };
   }, [direction]);
 
-  // Wheel-to-scroll: accelerate/decelerate animation based on scroll
+  const pauseAndResume = useCallback(() => {
+    const anim = animRef.current;
+    if (!anim) return;
+    anim.pause();
+    clearTimeout(rafRef.current);
+    rafRef.current = window.setTimeout(() => {
+      anim.play();
+    }, 800) as unknown as number;
+  }, []);
+
+  const shiftTime = useCallback((delta: number) => {
+    const anim = animRef.current;
+    if (!anim || anim.currentTime == null) return;
+    const multiplier = direction === "left" ? 1 : -1;
+    const newTime = (anim.currentTime as number) + delta * multiplier;
+    anim.currentTime = Math.max(0, newTime);
+  }, [direction]);
+
   const handleWheel = useCallback(
     (e: React.WheelEvent) => {
       e.preventDefault();
-      const anim = animRef.current;
-      if (!anim || !anim.currentTime) return;
-
-      // Apply scroll delta to currentTime
       const delta = e.deltaY || e.deltaX;
-      const multiplier = direction === "left" ? 1 : -1;
-      const newTime = (anim.currentTime as number) + delta * 8 * multiplier;
-      anim.currentTime = Math.max(0, newTime);
-
-      // Briefly pause auto-play then resume
-      anim.pause();
-      scrollSpeedRef.current = 1;
-
-      cancelAnimationFrame(rafRef.current);
-      rafRef.current = window.setTimeout(() => {
-        anim.play();
-      }, 600) as unknown as number;
+      shiftTime(delta * 8);
+      pauseAndResume();
     },
-    [direction]
+    [shiftTime, pauseAndResume]
   );
 
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    dragRef.current = { isDragging: true, startX: e.clientX, startTime: (animRef.current?.currentTime as number) || 0 };
+    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    animRef.current?.pause();
+  }, []);
+
+  const handlePointerMove = useCallback((e: React.PointerEvent) => {
+    if (!dragRef.current.isDragging) return;
+    const dx = e.clientX - dragRef.current.startX;
+    const multiplier = direction === "left" ? -1 : 1;
+    const anim = animRef.current;
+    if (anim) {
+      anim.currentTime = Math.max(0, dragRef.current.startTime + dx * 8 * multiplier);
+    }
+  }, [direction]);
+
+  const handlePointerUp = useCallback(() => {
+    dragRef.current.isDragging = false;
+    pauseAndResume();
+  }, [pauseAndResume]);
+
   return (
-    <div className="relative overflow-hidden" onWheel={handleWheel}>
+    <div
+      className="relative overflow-hidden cursor-grab active:cursor-grabbing select-none touch-pan-y"
+      onWheel={handleWheel}
+      onPointerDown={handlePointerDown}
+      onPointerMove={handlePointerMove}
+      onPointerUp={handlePointerUp}
+      onPointerCancel={handlePointerUp}
+    >
       <div
         ref={trackRef}
-        className="flex gap-4"
+        className="flex gap-4 pointer-events-none"
         style={{ width: "max-content", willChange: "transform" }}
       >
         {items.map((slide, i) => (
