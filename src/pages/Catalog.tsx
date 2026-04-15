@@ -90,7 +90,7 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
         }`}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-transparent to-transparent" />
-      <div className={`relative z-10 flex h-full flex-col justify-end p-6 md:p-8 ${isWide ? "max-w-[55%]" : ""}`}>
+      <div className="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
         <span className="text-[10px] uppercase tracking-[0.15em] text-accent/80 mb-1">
           {item.category}
         </span>
@@ -133,9 +133,9 @@ const Catalog = () => {
             Каждая коллекция — готовое решение для определённого стиля. Двери, перегородки, системы — всё в одном месте.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {allItems.map((item, i) => (
-              <CatalogCard key={item.name} item={item} index={i} />
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+            {allItems.map((item) => (
+              <CatalogCard key={item.name} item={item} />
             ))}
           </div>
         </div>
