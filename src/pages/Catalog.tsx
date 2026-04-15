@@ -27,15 +27,25 @@ const collectionFeatures: Record<string, string[]> = {
 
 const CollectionCard = ({ collection }: { collection: Collection }) => {
   const features = collectionFeatures[collection.name] || [];
+  const isPng = collection.image.endsWith('.png');
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-[4/5] cursor-pointer">
-      <img
-        src={collection.image}
-        alt={collection.name}
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-      />
+    <div className="group relative overflow-hidden rounded-2xl aspect-[3/4] md:aspect-[4/5] cursor-pointer bg-gradient-to-b from-stone/30 to-graphite/90">
+      {isPng ? (
+        <img
+          src={collection.image}
+          alt={collection.name}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-contain object-bottom transition-transform duration-700 ease-out group-hover:scale-[1.03] drop-shadow-2xl"
+        />
+      ) : (
+        <img
+          src={collection.image}
+          alt={collection.name}
+          loading="lazy"
+          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        />
+      )}
       <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/30 to-transparent" />
       <div className="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
         {collection.designer && (
