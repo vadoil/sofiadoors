@@ -93,26 +93,17 @@ const CatalogCard = ({ item, index }: { item: CatalogItem; index: number }) => {
     <div
       className={`group relative overflow-hidden rounded-2xl cursor-pointer ${sizeClass} ${
         isWide ? "aspect-[16/7]" : "aspect-[4/5]"
-      } bg-gradient-to-br from-stone/20 to-graphite/80`}
+      }`}
     >
-      {isPng ? (
-        <img
-          src={item.image}
-          alt={item.name}
-          loading="lazy"
-          className={`absolute h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03] drop-shadow-2xl ${
-            isWide ? "right-0 w-1/2 object-bottom" : "inset-0 w-full object-bottom"
-          }`}
-        />
-      ) : (
-        <img
-          src={item.image}
-          alt={item.name}
-          loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
-        />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-graphite/90 via-graphite/30 to-transparent" />
+      <img
+        src={item.image}
+        alt={item.name}
+        loading="lazy"
+        className={`absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.03] ${
+          isPng ? "object-contain object-bottom drop-shadow-2xl" : "object-cover"
+        }`}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-transparent to-transparent" />
       <div className={`relative z-10 flex h-full flex-col justify-end p-6 md:p-8 ${isWide ? "max-w-[55%]" : ""}`}>
         <span className="text-[10px] uppercase tracking-[0.15em] text-accent/80 mb-1">
           {item.category}
