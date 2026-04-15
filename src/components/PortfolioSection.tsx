@@ -80,7 +80,7 @@ const PortfolioSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
+    <section id="portfolio" className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
       <div ref={ref} className="max-w-7xl mx-auto">
         <p
           className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
