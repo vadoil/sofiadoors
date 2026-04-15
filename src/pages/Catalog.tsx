@@ -78,40 +78,30 @@ const CatalogCard = ({ item }: { item: CatalogItem }) => {
   const isPng = item.image.endsWith('.png');
 
   return (
-    <div
-      className="group relative overflow-hidden rounded-2xl cursor-pointer aspect-[3/4]"
-    >
-      <img
-        src={item.image}
-        alt={item.name}
-        loading="lazy"
-        className={`absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.03] ${
-          isPng ? "object-contain object-bottom drop-shadow-2xl" : "object-cover"
-        }`}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-transparent to-transparent" />
-      <div className="relative z-10 flex h-full flex-col justify-end p-6 md:p-8">
-        <span className="text-[10px] uppercase tracking-[0.15em] text-accent/80 mb-1">
+    <div className="group cursor-pointer">
+      <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-secondary/30">
+        <img
+          src={item.image}
+          alt={item.name}
+          loading="lazy"
+          className={`absolute inset-0 h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.03] ${
+            isPng ? "object-contain object-bottom drop-shadow-2xl" : "object-cover"
+          }`}
+        />
+      </div>
+      <div className="mt-3 px-1">
+        <span className="text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
           {item.category}
         </span>
         {item.designer && (
-          <p className="text-xs text-primary-foreground/45 uppercase tracking-wider mb-1">
-            {item.designer}
-          </p>
+          <p className="text-xs text-muted-foreground/60 mt-0.5">{item.designer}</p>
         )}
-        <h3 className="text-xl md:text-2xl text-primary-foreground tracking-tight font-heading">
+        <h3 className="text-base md:text-lg tracking-tight font-heading mt-1">
           {item.name}
         </h3>
-        <p className="mt-2 text-primary-foreground/70 text-sm max-w-sm leading-relaxed line-clamp-2">
+        <p className="mt-1 text-muted-foreground text-sm leading-relaxed line-clamp-2">
           {item.description}
         </p>
-        {item.features && item.features.length > 0 && (
-          <div className="mt-3 space-y-0.5 hidden md:block">
-            {item.features.map((f) => (
-              <p key={f} className="text-primary-foreground/50 text-xs">— {f}</p>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
