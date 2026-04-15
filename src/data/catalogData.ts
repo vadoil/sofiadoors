@@ -1,13 +1,22 @@
-import doorFokus from "@/assets/door-fokus.jpg";
-import doorSkyline from "@/assets/door-skyline.jpg";
-import doorOriginal from "@/assets/door-original.jpg";
-import doorElegant from "@/assets/door-elegant.jpg";
-import doorGlass from "@/assets/door-glass.jpg";
-import doorHidden from "@/assets/door-hidden.jpg";
+import doorFokus from "@/assets/door-fokus-hero.png";
+import doorSkyline from "@/assets/door-skyline-hero.png";
+import doorOriginal from "@/assets/door-original-hero.png";
+import doorElegant from "@/assets/door-elegant-hero-new.png";
+import doorHidden from "@/assets/door-hidden-hero.png";
+import doorMetamorfoza from "@/assets/door-metamorfoza-hero.png";
+import doorAcoustica from "@/assets/door-acoustica-hero.png";
+import doorListva from "@/assets/door-listva-hero.png";
+import doorIstok from "@/assets/door-istok-hero.png";
+import doorRein from "@/assets/door-rein-hero.png";
+import doorShoji from "@/assets/door-shoji-hero.png";
+import doorFireproof from "@/assets/door-fireproof-hero.png";
+import doorGrafika from "@/assets/door-grafika-hero.png";
+import doorSolyaris from "@/assets/door-solyaris-hero.png";
+import doorManiliona from "@/assets/door-maniliona-hero.png";
+import door1000lines from "@/assets/door-1000lines-hero.png";
 import doorSliding from "@/assets/door-sliding.jpg";
 import doorPartition from "@/assets/door-partition.jpg";
-import doorAcoustic from "@/assets/door-acoustic.jpg";
-import doorFire from "@/assets/door-fire.jpg";
+import doorGlass from "@/assets/door-glass.jpg";
 
 // ─── Types ───────────────────────────────────────────────
 export type CategoryId =
@@ -89,7 +98,7 @@ export const swingCollections: Collection[] = [
     description:
       "Полотно 60 мм с повышенными характеристиками тепло- и шумоизоляции.",
     models: ["116", "117 (от себя)", "118 (лёгкое)", "119 (лёгкое, от себя)"],
-    image: doorAcoustic,
+    image: doorAcoustica,
   },
   {
     name: "Скайлайн",
@@ -105,7 +114,7 @@ export const swingCollections: Collection[] = [
     description:
       "Кардинальное переосмысление привычных форм. Ни классика, ни модерн — нечто абсолютно новое.",
     models: ["170", "171", "172", "173"],
-    image: doorFokus,
+    image: doorMetamorfoza,
   },
   {
     name: "Листва",
@@ -113,7 +122,7 @@ export const swingCollections: Collection[] = [
     description:
       "Вдохновлена русской природой. Гравировка имитирует природные мотивы. Модели коллекции сочетаются между собой.",
     models: ["176", "177", "178", "179"],
-    image: doorElegant,
+    image: doorListva,
   },
   {
     name: "Исток",
@@ -121,7 +130,7 @@ export const swingCollections: Collection[] = [
     description:
       "Авторские модели с уникальным характером. Широкая линейка вариантов для разных интерьерных решений.",
     models: ["180", "181", "182", "183", "184", "185", "186", "187"],
-    image: doorSkyline,
+    image: doorIstok,
   },
 ];
 
@@ -246,14 +255,14 @@ export const fireCollections: SystemItem[] = [
     description:
       "Сертифицированные противопожарные двери с огнестойкостью 30 минут. Для жилых и коммерческих объектов.",
     items: ["EI 30"],
-    image: doorFire,
+    image: doorFireproof,
   },
   {
     name: "Пожароустойчивые двери EI 60",
     description:
       "Усиленная огнестойкость 60 минут. Для объектов с повышенными требованиями безопасности.",
     items: ["EI 60"],
-    image: doorFire,
+    image: doorFireproof,
   },
 ];
 
