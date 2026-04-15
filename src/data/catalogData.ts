@@ -98,7 +98,7 @@ export const swingCollections: Collection[] = [
     description:
       "Полотно 60 мм с повышенными характеристиками тепло- и шумоизоляции.",
     models: ["116", "117 (от себя)", "118 (лёгкое)", "119 (лёгкое, от себя)"],
-    image: doorAcoustic,
+    image: doorAcoustica,
   },
   {
     name: "Скайлайн",
@@ -114,7 +114,7 @@ export const swingCollections: Collection[] = [
     description:
       "Кардинальное переосмысление привычных форм. Ни классика, ни модерн — нечто абсолютно новое.",
     models: ["170", "171", "172", "173"],
-    image: doorFokus,
+    image: doorMetamorfoza,
   },
   {
     name: "Листва",
@@ -122,7 +122,7 @@ export const swingCollections: Collection[] = [
     description:
       "Вдохновлена русской природой. Гравировка имитирует природные мотивы. Модели коллекции сочетаются между собой.",
     models: ["176", "177", "178", "179"],
-    image: doorElegant,
+    image: doorListva,
   },
   {
     name: "Исток",
@@ -130,7 +130,7 @@ export const swingCollections: Collection[] = [
     description:
       "Авторские модели с уникальным характером. Широкая линейка вариантов для разных интерьерных решений.",
     models: ["180", "181", "182", "183", "184", "185", "186", "187"],
-    image: doorSkyline,
+    image: doorIstok,
   },
 ];
 
