@@ -50,7 +50,10 @@ const Designers = () => {
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-up" style={{ animationDelay: "0.3s" }}>
               <a
-                href="#join"
+                href="/catalog/katalog-framyr.pdf"
+                download="Katalog-Framyr.pdf"
+                target="_blank"
+                rel="noopener"
                 className="inline-flex items-center gap-2 bg-foreground text-background px-7 py-3.5 rounded-full font-semibold hover:bg-foreground/90 transition-all group"
               >
                 <Download className="w-4 h-4" />
