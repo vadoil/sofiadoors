@@ -77,6 +77,9 @@ const Header = () => {
           </a>
         </nav>
         <div className="flex items-center gap-3 md:hidden">
+          <Link to="/" aria-label="На главную" className="text-graphite">
+            <Home className="w-4 h-4" />
+          </Link>
           <a href="tel:+78462429636" className="text-graphite">
             <Phone className="w-4 h-4" />
           </a>
