@@ -8,12 +8,58 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import paletteVeneer from "@/assets/panels/palette-veneer.png";
-import paletteEnamel from "@/assets/panels/palette-enamel.png";
-import paletteNanotex from "@/assets/panels/palette-nanotex.png";
-import paletteGlass from "@/assets/panels/palette-glass.png";
-import paletteMirror from "@/assets/panels/palette-mirror.png";
+// Veneer swatches
+import vAmerOreh from "@/assets/panels/swatches/veneer-amerikanskij-oreh.jpg";
+import vDubGrano from "@/assets/panels/swatches/veneer-dub-grano.jpg";
+import vDubNat from "@/assets/panels/swatches/veneer-dub-naturalnyj.jpg";
+import vDubKam from "@/assets/panels/swatches/veneer-dub-kamennyj.jpg";
+import vOrehFlejm from "@/assets/panels/swatches/veneer-oreh-flejm.jpg";
+import vDubSend from "@/assets/panels/swatches/veneer-dub-send.jpg";
+import vDubKlej from "@/assets/panels/swatches/veneer-dub-klej.jpg";
+import vDubKejv from "@/assets/panels/swatches/veneer-dub-kejv.jpg";
+import vDubRidzh from "@/assets/panels/swatches/veneer-dub-ridzh.jpg";
+import vDubRut from "@/assets/panels/swatches/veneer-dub-rut.jpg";
 
+// Enamel swatches
+import eBelosn from "@/assets/panels/swatches/enamel-belosnezhnyj.jpg";
+import eBlanzh from "@/assets/panels/swatches/enamel-blanzh.jpg";
+import eKremovo from "@/assets/panels/swatches/enamel-kremovo-belyj.jpg";
+import ePraline from "@/assets/panels/swatches/enamel-praline.jpg";
+import eGrejdzh from "@/assets/panels/swatches/enamel-grejdzh.jpg";
+import eMoleskin from "@/assets/panels/swatches/enamel-moleskin.jpg";
+import eUmbra from "@/assets/panels/swatches/enamel-umbra.jpg";
+import eChernyj from "@/assets/panels/swatches/enamel-chernyj-agat.jpg";
+import eBazalt from "@/assets/panels/swatches/enamel-bazalt.jpg";
+import ePylno from "@/assets/panels/swatches/enamel-pylno-seryj.jpg";
+import eTele from "@/assets/panels/swatches/enamel-telegrej.jpg";
+import eSkand from "@/assets/panels/swatches/enamel-skand-seryj.jpg";
+import eSignal from "@/assets/panels/swatches/enamel-signalno-belyj.jpg";
+import eKashemir from "@/assets/panels/swatches/enamel-kashemir.jpg";
+import eSeryjShelk from "@/assets/panels/swatches/enamel-seryj-shelk.jpg";
+
+// Nanotex swatches
+import nBelyj from "@/assets/panels/swatches/nanotex-belyj.jpg";
+import nAjvori from "@/assets/panels/swatches/nanotex-ajvori-soft.jpg";
+import nKrem from "@/assets/panels/swatches/nanotex-krem-soft.jpg";
+import nSkaj from "@/assets/panels/swatches/nanotex-skaj-soft.jpg";
+import nMuskat from "@/assets/panels/swatches/nanotex-muskat-soft.jpg";
+import nGrej from "@/assets/panels/swatches/nanotex-grej-soft.jpg";
+import nTaup from "@/assets/panels/swatches/nanotex-taup-soft.jpg";
+import nMerengo from "@/assets/panels/swatches/nanotex-merengo-soft.jpg";
+import nChernyj from "@/assets/panels/swatches/nanotex-chernyj-soft.jpg";
+import nDubMram from "@/assets/panels/swatches/nanotex-dub-mramornyj.jpg";
+import nDubNatur from "@/assets/panels/swatches/nanotex-dub-natur.jpg";
+import nDubSkal from "@/assets/panels/swatches/nanotex-dub-skalnyj.jpg";
+import nOrehNat from "@/assets/panels/swatches/nanotex-oreh-natur.jpg";
+
+// Mirror swatches
+import mOpti from "@/assets/panels/swatches/mirror-optivajt.jpg";
+import mBest from "@/assets/panels/swatches/mirror-bestsvetnoe.jpg";
+import mGrafit from "@/assets/panels/swatches/mirror-grafit.jpg";
+import mBronza from "@/assets/panels/swatches/mirror-bronza.jpg";
+import mBronzaMat from "@/assets/panels/swatches/mirror-bronza-matovoe.jpg";
+
+// Interior carousel
 import interior1 from "@/assets/panels/interior-1.webp";
 import interior2 from "@/assets/panels/interior-2.webp";
 import interior3 from "@/assets/panels/interior-3.webp";
@@ -44,8 +90,8 @@ type Coating = {
   id: string;
   label: string;
   description: string;
-  source: string; // полная картинка-разворот палитры с подписями
-  palettes: SubPalette[]; // для будущей замены на отдельные свотчи
+  palettes: SubPalette[];
+  placeholder?: string;
 };
 
 const coatings: Coating[] = [
@@ -54,26 +100,25 @@ const coatings: Coating[] = [
     label: "Шпон",
     description:
       "Тонкий срез дерева; материал с уникальным природным рисунком, добавляющий в интерьер благородство и естественность. Две палитры оттенков — авторская и традиционная — отличаются глубиной проработки цвета.",
-    source: paletteVeneer,
     palettes: [
       {
         title: "Традиционная палитра",
         swatches: [
-          { name: "Американский орех", src: paletteVeneer },
-          { name: "Дуб грано", src: paletteVeneer },
-          { name: "Дуб натуральный", src: paletteVeneer },
-          { name: "Дуб каменный", src: paletteVeneer },
+          { name: "Американский орех", src: vAmerOreh },
+          { name: "Дуб грано", src: vDubGrano },
+          { name: "Дуб натуральный", src: vDubNat },
+          { name: "Дуб каменный", src: vDubKam },
         ],
       },
       {
         title: "Авторская палитра",
         swatches: [
-          { name: "Орех Флейм", src: paletteVeneer },
-          { name: "Дуб Сэнд", src: paletteVeneer },
-          { name: "Дуб Клэй", src: paletteVeneer },
-          { name: "Дуб Кейв", src: paletteVeneer },
-          { name: "Дуб Ридж", src: paletteVeneer },
-          { name: "Дуб Рут", src: paletteVeneer },
+          { name: "Орех Флейм", src: vOrehFlejm },
+          { name: "Дуб Сэнд", src: vDubSend },
+          { name: "Дуб Клэй", src: vDubKlej },
+          { name: "Дуб Кейв", src: vDubKejv },
+          { name: "Дуб Ридж", src: vDubRidzh },
+          { name: "Дуб Рут", src: vDubRut },
         ],
       },
     ],
@@ -83,25 +128,24 @@ const coatings: Coating[] = [
     label: "Эмаль",
     description:
       "Мы по праву гордимся качеством нашей эмали: благодаря сочетанию ручной и машинной работы покрытие получается идеально ровным даже на сложной фрезеровке. Шелковистые на ощупь, изделия в эмали делают роскошнее любой интерьер.",
-    source: paletteEnamel,
     palettes: [
       {
         swatches: [
-          { name: "Белоснежный", src: paletteEnamel },
-          { name: "Бланж (RAL 9010)", src: paletteEnamel },
-          { name: "Кремово-белый", src: paletteEnamel },
-          { name: "Пралине (NCS S 1505-Y40R)", src: paletteEnamel },
-          { name: "Грейдж (NCS S 3005-Y50R)", src: paletteEnamel },
-          { name: "Молескин", src: paletteEnamel },
-          { name: "Умбра (NCS S 6005-Y50R)", src: paletteEnamel },
-          { name: "Чёрный агат", src: paletteEnamel },
-          { name: "Базальт (NCS S 8000-N)", src: paletteEnamel },
-          { name: "Пыльно-серый (RAL 7037)", src: paletteEnamel },
-          { name: "Телегрей (RAL 7047)", src: paletteEnamel },
-          { name: "Скандинавский серый", src: paletteEnamel },
-          { name: "Сигнально-белый (RAL 9003)", src: paletteEnamel },
-          { name: "Кашемир (NCS S 2002-Y50R)", src: paletteEnamel },
-          { name: "Серый шёлк (RAL 7044)", src: paletteEnamel },
+          { name: "Белоснежный", src: eBelosn },
+          { name: "Бланж (RAL 9010)", src: eBlanzh },
+          { name: "Кремово-белый", src: eKremovo },
+          { name: "Пралине (NCS S 1505-Y40R)", src: ePraline },
+          { name: "Грейдж (NCS S 3005-Y50R)", src: eGrejdzh },
+          { name: "Молескин", src: eMoleskin },
+          { name: "Умбра (NCS S 6005-Y50R)", src: eUmbra },
+          { name: "Чёрный агат", src: eChernyj },
+          { name: "Базальт (NCS S 8000-N)", src: eBazalt },
+          { name: "Пыльно-серый (RAL 7037)", src: ePylno },
+          { name: "Телегрей (RAL 7047)", src: eTele },
+          { name: "Скандинавский серый", src: eSkand },
+          { name: "Сигнально-белый (RAL 9003)", src: eSignal },
+          { name: "Кашемир (NCS S 2002-Y50R)", src: eKashemir },
+          { name: "Серый шёлк (RAL 7044)", src: eSeryjShelk },
         ],
       },
     ],
@@ -111,29 +155,28 @@ const coatings: Coating[] = [
     label: "Нанотекс",
     description:
       "Высокотехнологичное покрытие, которое выглядит как натуральное и не уступает ему в прочности. Может имитировать эмаль или дерево, реалистично передавая текстуру природных материалов.",
-    source: paletteNanotex,
     palettes: [
       {
         title: "Монохромная палитра",
         swatches: [
-          { name: "Белый", src: paletteNanotex },
-          { name: "Айвори софт", src: paletteNanotex },
-          { name: "Крем софт", src: paletteNanotex },
-          { name: "Скай софт", src: paletteNanotex },
-          { name: "Мускат софт", src: paletteNanotex },
-          { name: "Грей софт", src: paletteNanotex },
-          { name: "Тауп софт", src: paletteNanotex },
-          { name: "Меренго софт", src: paletteNanotex },
-          { name: "Чёрный софт", src: paletteNanotex },
+          { name: "Белый", src: nBelyj },
+          { name: "Айвори софт", src: nAjvori },
+          { name: "Крем софт", src: nKrem },
+          { name: "Скай софт", src: nSkaj },
+          { name: "Мускат софт", src: nMuskat },
+          { name: "Грей софт", src: nGrej },
+          { name: "Тауп софт", src: nTaup },
+          { name: "Меренго софт", src: nMerengo },
+          { name: "Чёрный софт", src: nChernyj },
         ],
       },
       {
         title: "Древесная палитра",
         swatches: [
-          { name: "Дуб мраморный", src: paletteNanotex },
-          { name: "Дуб натур", src: paletteNanotex },
-          { name: "Дуб скальный", src: paletteNanotex },
-          { name: "Орех натур", src: paletteNanotex },
+          { name: "Дуб мраморный", src: nDubMram },
+          { name: "Дуб натур", src: nDubNatur },
+          { name: "Дуб скальный", src: nDubSkal },
+          { name: "Орех натур", src: nOrehNat },
         ],
       },
     ],
@@ -142,30 +185,45 @@ const coatings: Coating[] = [
     id: "glass",
     label: "Стекло",
     description:
-      "Стеклянные вставки и панели наполняют интерьер светом и глубиной. Палитра охватывает мягкие монохромы, насыщенные тона и природные текстуры — для лаконичных и выразительных решений.",
-    source: paletteGlass,
+      "Стеклянные вставки и панели наполняют интерьер светом и глубиной. Палитра охватывает мягкие монохромы, прозрачные и рифлёные фактуры — для лаконичных и выразительных решений.",
     palettes: [],
+    placeholder:
+      "Палитра стёкол готовится. Подберём подходящие варианты под ваш проект — оставьте заявку, и мы пришлём актуальные образцы фактур и тонировок.",
   },
   {
     id: "mirror",
     label: "Зеркало",
     description:
       "Панели с зеркальным эффектом решают сразу несколько задач: визуально увеличивают пространство, добавляют в интерьер больше света и служат, собственно, зеркалом, которое совсем не занимает места.",
-    source: paletteMirror,
     palettes: [
       {
         swatches: [
-          { name: "Зеркало оптивайт", src: paletteMirror },
-          { name: "Зеркало бесцветное", src: paletteMirror },
-          { name: "Зеркало графит", src: paletteMirror },
-          { name: "Зеркало бронза", src: paletteMirror },
-          { name: "Зеркало бронза матовое", src: paletteMirror },
+          { name: "Зеркало оптивайт", src: mOpti },
+          { name: "Зеркало бесцветное", src: mBest },
+          { name: "Зеркало графит", src: mGrafit },
+          { name: "Зеркало бронза", src: mBronza },
+          { name: "Зеркало бронза матовое", src: mBronzaMat },
         ],
       },
     ],
   },
 ];
 
+const SwatchTile = ({ name, src }: Swatch) => (
+  <figure className="group">
+    <div className="aspect-square rounded-lg overflow-hidden bg-stone/30 border border-border">
+      <img
+        src={src}
+        alt={name}
+        loading="lazy"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+      />
+    </div>
+    <figcaption className="mt-2.5 text-xs md:text-sm text-foreground/80 leading-snug">
+      {name}
+    </figcaption>
+  </figure>
+);
 
 const WallPanelsSection = () => {
   const [active, setActive] = useState<string>("veneer");
@@ -212,30 +270,54 @@ const WallPanelsSection = () => {
               value={c.id}
               className="mt-0 focus-visible:outline-none"
             >
-              <div className="grid md:grid-cols-[1fr_1.4fr] gap-8 md:gap-12 items-start">
-                <div className="space-y-4 md:sticky md:top-24">
+              <div className="grid lg:grid-cols-[280px_1fr] gap-8 md:gap-12 items-start">
+                {/* Левая колонка с описанием */}
+                <div className="space-y-4 lg:sticky lg:top-24">
                   <h3 className="font-heading text-2xl md:text-4xl tracking-tight">
                     {c.label}
                   </h3>
-                  <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                  <p className="text-muted-foreground text-base leading-relaxed">
                     {c.description}
                   </p>
                 </div>
 
-                <div className="rounded-2xl overflow-hidden bg-background border border-border">
-                  <img
-                    src={c.source}
-                    alt={`Палитра — ${c.label}`}
-                    className="w-full h-auto block"
-                    loading="lazy"
-                  />
+                {/* Правая колонка со свотчами */}
+                <div className="space-y-10 md:space-y-12">
+                  {c.palettes.length === 0 && c.placeholder && (
+                    <div className="rounded-2xl border border-dashed border-border bg-background/60 p-8 md:p-10">
+                      <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl">
+                        {c.placeholder}
+                      </p>
+                      <a
+                        href="#help-form"
+                        className="inline-flex mt-6 text-sm tracking-wider uppercase text-graphite border-b border-graphite/40 hover:border-graphite pb-0.5 transition-colors"
+                      >
+                        Запросить образцы
+                      </a>
+                    </div>
+                  )}
+
+                  {c.palettes.map((p, idx) => (
+                    <div key={idx}>
+                      {p.title && (
+                        <h4 className="font-heading text-lg md:text-2xl tracking-tight mb-5 md:mb-6">
+                          {p.title}
+                        </h4>
+                      )}
+                      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-5">
+                        {p.swatches.map((s) => (
+                          <SwatchTile key={s.name} {...s} />
+                        ))}
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </TabsContent>
           ))}
         </Tabs>
 
-        {/* Карусель интерьеров (плейсхолдер до загрузки фото) */}
+        {/* Карусель интерьеров */}
         <div className="mt-20 md:mt-28">
           <div className="flex items-end justify-between gap-6 flex-wrap mb-8 md:mb-10">
             <div>
