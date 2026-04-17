@@ -37,6 +37,7 @@ import doorSavona from "@/assets/door-savona.png";
 import doorTwin from "@/assets/door-twin.png";
 import doorSolo from "@/assets/door-solo.png";
 import doorDuet from "@/assets/door-duet.png";
+import doorKanva from "@/assets/door-kanva.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
