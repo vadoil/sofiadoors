@@ -173,9 +173,25 @@ const MarqueeRow = ({
   );
 };
 
-const HeroSection = () => {
+const CollectionsMarquee = () => {
   return (
-    <section className="relative pt-24 md:pt-28 pb-10 px-0 bg-background overflow-hidden">
+    <section id="collections" className="relative py-16 md:py-24 px-0 bg-background overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 mb-10 md:mb-14">
+        <div className="flex items-end justify-between gap-6 flex-wrap">
+          <div>
+            <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-muted-foreground">
+              Каталог Фрамир
+            </span>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight mt-3 max-w-2xl leading-[1.05]">
+              Коллекции, в которых хочется жить
+            </h2>
+          </div>
+          <p className="text-muted-foreground max-w-md text-base md:text-lg">
+            От строгой классики до арт-объектов. Полистайте подборку — каждое
+            полотно можно адаптировать под ваш проект.
+          </p>
+        </div>
+      </div>
       <div className="flex flex-col gap-4">
         <MarqueeRow slides={row1} direction="left" />
         <MarqueeRow slides={row2} direction="right" />
@@ -184,4 +200,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default CollectionsMarquee;

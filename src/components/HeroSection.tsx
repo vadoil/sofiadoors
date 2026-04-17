@@ -67,7 +67,7 @@ const HeroSection = () => {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   size="lg"
-                  onClick={() => scrollTo("help-form")}
+                  onClick={() => scrollTo("help")}
                   className="bg-warm-white text-graphite hover:bg-warm-white/90 rounded-full px-8 h-14 text-base group shadow-xl"
                 >
                   Получить расчёт за 15 минут
