@@ -105,7 +105,7 @@ const QuizWidget = () => {
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-24 right-6 z-50 bg-accent text-accent-foreground px-5 py-3 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-semibold text-sm flex items-center gap-2 animate-fade-up"
+          className="fixed bottom-6 left-6 z-50 bg-accent text-accent-foreground px-5 py-3 rounded-full shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300 font-semibold text-sm flex items-center gap-2 animate-fade-up"
         >
           <DoorOpen className="w-5 h-5" />
           Подобрать дверь
