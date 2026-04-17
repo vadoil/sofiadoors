@@ -28,6 +28,7 @@ import doorBase from "@/assets/door-base.png";
 import doorAline from "@/assets/door-aline.png";
 import doorDuo from "@/assets/door-duo.png";
 import doorPrime from "@/assets/door-prime.png";
+import doorRhythm from "@/assets/door-rhythm.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
