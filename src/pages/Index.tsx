@@ -22,7 +22,6 @@ const Index = () => {
       <HeroSection />
       <WhyChooseUsSection />
       <Suspense fallback={<div className="h-96" />}>
-        <CollectionsSection />
         <TaskSelectionSection />
         <PortfolioSection />
         <HelpFormSection />
