@@ -39,6 +39,7 @@ import doorSolo from "@/assets/door-solo.png";
 import doorDuet from "@/assets/door-duet.png";
 import doorKanva from "@/assets/door-kanva.png";
 import doorEmma from "@/assets/door-emma.png";
+import doorArta from "@/assets/door-arta.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
