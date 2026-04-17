@@ -255,18 +255,18 @@ const WallPanelsSection = () => {
 
           <Carousel opts={{ align: "start", loop: true }} className="w-full">
             <CarouselContent className="-ml-4">
-              {interiorPlaceholders.map((i) => (
+              {interiorPhotos.map((photo, i) => (
                 <CarouselItem
                   key={i}
                   className="pl-4 basis-[85%] sm:basis-[60%] md:basis-1/2 lg:basis-[42%]"
                 >
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-stone/40 border border-border flex items-center justify-center">
-                    <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                      <ImageIcon className="w-8 h-8 opacity-50" />
-                      <span className="text-xs tracking-[0.2em] uppercase">
-                        Фото проекта №{i}
-                      </span>
-                    </div>
+                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-stone/30 border border-border group">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
                   </div>
                 </CarouselItem>
               ))}
@@ -274,10 +274,6 @@ const WallPanelsSection = () => {
             <CarouselPrevious className="hidden md:flex -left-4" />
             <CarouselNext className="hidden md:flex -right-4" />
           </Carousel>
-
-          <p className="mt-6 text-xs md:text-sm text-muted-foreground/80 text-center">
-            Пришлите фото — заменю плейсхолдеры на реальные проекты.
-          </p>
         </div>
       </div>
     </section>
