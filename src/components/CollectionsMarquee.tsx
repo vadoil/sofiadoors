@@ -71,7 +71,7 @@ const allSlides: Slide[] = [
   { image: doorKanva, title: "Канва", price: "от 25 825 ₽" },
   { image: doorEmma, title: "Эмма", price: "от 47 330 ₽" },
   { image: doorArta, title: "Арта", price: "от 29 630 ₽" },
-  { image: doorFokus2, title: "Омега", price: "от 50 975 ₽" },
+  { image: doorOmega, title: "Омега", price: "от 50 975 ₽" },
   { image: doorSkyline2, title: "Титаниум", price: "от 28 605 ₽" },
   { image: doorHidden2, title: "Нео", price: "от 28 000 ₽" },
   { image: doorRimini, title: "Римини", price: "от 49 760 ₽" },
