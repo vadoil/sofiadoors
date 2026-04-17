@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Phone, Flame } from "lucide-react";
+import { Phone, Flame, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinks = [
-    { label: "Преимущества", href: "#advantages" },
+    { label: "Преимущества", href: "/advantages", isRoute: true },
     { label: "Каталог", href: "/catalog", isRoute: true },
     { label: "Палитра", href: "/palette", isRoute: true },
     { label: "Дизайнерам", href: "/designers", isRoute: true },
@@ -37,9 +37,18 @@ const Header = () => {
 
       {/* Основная навигация — тёплый айвори с лёгким blur */}
       <div className="px-6 md:px-16 lg:px-24 py-4 flex items-center justify-between bg-warm-white/85 backdrop-blur-md border-b border-stone/60">
-        <a href="/" className="text-graphite text-xl font-heading font-semibold tracking-wide">
-          Фрамир · Самара
-        </a>
+        <div className="flex items-center gap-3">
+          <Link
+            to="/"
+            aria-label="На главную"
+            className="hidden md:inline-flex w-9 h-9 items-center justify-center rounded-full border border-stone/70 text-graphite/80 hover:text-graphite hover:border-graphite/60 hover:bg-stone/30 transition-colors"
+          >
+            <Home className="w-4 h-4" strokeWidth={1.6} />
+          </Link>
+          <Link to="/" className="text-graphite text-xl font-heading font-semibold tracking-wide">
+            Фрамир · Самара
+          </Link>
+        </div>
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) =>
             link.isRoute ? (
