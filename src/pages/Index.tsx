@@ -5,7 +5,6 @@ import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import ChatWidget from "@/components/ChatWidget";
 import QuizWidget from "@/components/QuizWidget";
 
-const CollectionsSection = lazy(() => import("@/components/CollectionsSection"));
 const TaskSelectionSection = lazy(() => import("@/components/TaskSelectionSection"));
 const PortfolioSection = lazy(() => import("@/components/PortfolioSection"));
 const HelpFormSection = lazy(() => import("@/components/HelpFormSection"));
@@ -23,7 +22,6 @@ const Index = () => {
       <HeroSection />
       <WhyChooseUsSection />
       <Suspense fallback={<div className="h-96" />}>
-        <CollectionsSection />
         <TaskSelectionSection />
         <PortfolioSection />
         <HelpFormSection />
