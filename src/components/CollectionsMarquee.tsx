@@ -42,6 +42,7 @@ import doorEmma from "@/assets/door-emma.png";
 import doorArta from "@/assets/door-arta.png";
 import doorOmega from "@/assets/door-omega.png";
 import doorTitanium from "@/assets/door-titanium.png";
+import doorNeo from "@/assets/door-neo.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
@@ -74,7 +75,7 @@ const allSlides: Slide[] = [
   { image: doorArta, title: "Арта", price: "от 29 630 ₽" },
   { image: doorOmega, title: "Омега", price: "от 50 975 ₽" },
   { image: doorTitanium, title: "Титаниум", price: "от 28 605 ₽" },
-  { image: doorHidden2, title: "Нео", price: "от 28 000 ₽" },
+  { image: doorNeo, title: "Нео", price: "от 28 000 ₽" },
   { image: doorRimini, title: "Римини", price: "от 49 760 ₽" },
 ];
 
