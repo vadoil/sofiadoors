@@ -15,6 +15,30 @@ import paletteNanotex from "@/assets/panels/palette-nanotex.png";
 import paletteGlass from "@/assets/panels/palette-glass.png";
 import paletteMirror from "@/assets/panels/palette-mirror.png";
 
+import interior1 from "@/assets/panels/interior-1.webp";
+import interior2 from "@/assets/panels/interior-2.webp";
+import interior3 from "@/assets/panels/interior-3.webp";
+import interior4 from "@/assets/panels/interior-4.webp";
+import interior5 from "@/assets/panels/interior-5.webp";
+import interior6 from "@/assets/panels/interior-6.webp";
+import interior7 from "@/assets/panels/interior-7.webp";
+import interior8 from "@/assets/panels/interior-8.webp";
+import interior9 from "@/assets/panels/interior-9.webp";
+import interior10 from "@/assets/panels/interior-10.webp";
+
+const interiorPhotos = [
+  { src: interior1, alt: "Спальня с панелями из шпона ореха и бетонными вставками" },
+  { src: interior2, alt: "Спальня с реечной стеновой панелью и шпонированной зоной изголовья" },
+  { src: interior3, alt: "Скрытая дверь и стеновые панели из тёмного ореха" },
+  { src: interior4, alt: "Реечная панель из дуба и рифлёное стекло" },
+  { src: interior5, alt: "Композиция стеновых панелей: дерево, рифлёное стекло, зеркало" },
+  { src: interior6, alt: "Прихожая со светлыми панелями из дуба" },
+  { src: interior7, alt: "Коридор с порталом из шпона ореха" },
+  { src: interior8, alt: "Скрытая дверь и панели из ореха в классическом интерьере" },
+  { src: interior9, alt: "Арт-панель с декоративным напылением" },
+  { src: interior10, alt: "Стенд: реечные панели и рифлёное стекло" },
+];
+
 type Swatch = { name: string; src: string };
 type SubPalette = { title?: string; swatches: Swatch[] };
 type Coating = {
