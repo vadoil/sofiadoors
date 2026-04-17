@@ -8,6 +8,7 @@ import QuizWidget from "@/components/QuizWidget";
 
 const WallPanelsSection = lazy(() => import("@/components/WallPanelsSection"));
 const TaskSelectionSection = lazy(() => import("@/components/TaskSelectionSection"));
+const AlineSolutionsSection = lazy(() => import("@/components/AlineSolutionsSection"));
 const HelpFormSection = lazy(() => import("@/components/HelpFormSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const ForDesignersSection = lazy(() => import("@/components/ForDesignersSection"));
@@ -27,6 +28,7 @@ const Index = () => {
       <Suspense fallback={<div className="h-96" />}>
         <WallPanelsSection />
         <TaskSelectionSection />
+        <AlineSolutionsSection />
         <HelpFormSection />
         <ProcessSection />
         <ForDesignersSection />
