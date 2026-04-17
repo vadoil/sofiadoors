@@ -6,6 +6,7 @@ import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import ChatWidget from "@/components/ChatWidget";
 import QuizWidget from "@/components/QuizWidget";
 
+const WallPanelsSection = lazy(() => import("@/components/WallPanelsSection"));
 const TaskSelectionSection = lazy(() => import("@/components/TaskSelectionSection"));
 const HelpFormSection = lazy(() => import("@/components/HelpFormSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
@@ -24,6 +25,7 @@ const Index = () => {
       <CollectionsMarquee />
       <WhyChooseUsSection />
       <Suspense fallback={<div className="h-96" />}>
+        <WallPanelsSection />
         <TaskSelectionSection />
         <HelpFormSection />
         <ProcessSection />
