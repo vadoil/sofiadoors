@@ -33,6 +33,7 @@ import doorErte from "@/assets/door-erte.png";
 import doorCatalina from "@/assets/door-catalina.png";
 import doorElegans from "@/assets/door-elegans.png";
 import doorFlorence from "@/assets/door-florence.png";
+import doorSavona from "@/assets/door-savona.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
