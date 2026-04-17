@@ -7,7 +7,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Image as ImageIcon } from "lucide-react";
 
 import paletteVeneer from "@/assets/panels/palette-veneer.png";
 import paletteEnamel from "@/assets/panels/palette-enamel.png";
