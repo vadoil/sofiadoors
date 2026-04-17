@@ -21,7 +21,7 @@ const Header = () => {
       <div className="bg-accent text-accent-foreground px-6 md:px-16 lg:px-24 py-1.5 hidden md:flex items-center justify-between text-xs font-medium">
         <div className="flex items-center gap-2">
           <Flame className="w-3 h-3" />
-          <span>Скидки до 60% на двери Sofia — акция до 13 апреля!</span>
+          <span>Скидки до 60% на двери Фрамир — акция до 13 апреля!</span>
         </div>
         <div className="flex items-center gap-6">
           <span>г. Самара, ул. Чкалова, 100</span>
@@ -37,7 +37,7 @@ const Header = () => {
 
       <div className="px-6 md:px-16 lg:px-24 py-4 flex items-center justify-between bg-foreground/30 backdrop-blur-md">
         <a href="/" className="text-primary-foreground text-xl font-heading font-semibold tracking-wide">
-          Sofia · Самара
+          Фрамир · Самара
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) =>

@@ -57,7 +57,7 @@ const DesignerFeaturesSection = () => {
         <p className={`text-muted-foreground max-w-2xl mb-16 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
           style={{ animationDelay: "0.2s" }}
         >
-          Sofia работает с профессионалами, которые понимают: дверь — это не просто фурнитура, 
+          Фрамир работает с профессионалами, которые понимают: дверь — это не просто фурнитура, 
           а элемент дизайна, определяющий пространственный опыт.
         </p>
 

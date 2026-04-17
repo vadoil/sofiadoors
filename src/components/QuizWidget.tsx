@@ -84,7 +84,7 @@ const QuizWidget = () => {
   const getRecommendation = () => {
     const task = answers[2];
     if (task === "acoustic") return "Коллекция «Акустика» — полотно 60 мм, шумоизоляция до 42 дБ";
-    if (task === "fireproof") return "Противопожарные двери Sofia EI-30 / EI-60";
+    if (task === "fireproof") return "Противопожарные двери Фрамир EI-30 / EI-60";
     const style = answers[3];
     if (style === "classic") return "Коллекции «Элегант» и «Метаморфоза» — классика в современном исполнении";
     if (style === "loft") return "Коллекция «Скрытые двери» и «1000 линий» — минимализм и брутальность";

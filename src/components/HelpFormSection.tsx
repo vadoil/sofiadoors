@@ -17,7 +17,7 @@ const HelpFormSection = () => {
               className={`text-background/60 leading-relaxed mb-8 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: "0.1s" }}
             >
-              Оставьте заявку — подберём двери Sofia под стиль интерьера, размеры проёмов, покрытие и бюджет.
+              Оставьте заявку — подберём двери Фрамир под стиль интерьера, размеры проёмов, покрытие и бюджет.
             </p>
             <div className={`space-y-3 text-background/50 text-sm opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.15s" }}>
               <p>✓ Бесплатная консультация</p>

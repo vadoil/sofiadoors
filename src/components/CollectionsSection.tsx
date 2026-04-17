@@ -65,7 +65,7 @@ const CollectionsSection = () => {
         <p
           className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
         >
-          Акции Sofia
+          Акции Фрамир
         </p>
         <h2
           className={`text-3xl md:text-5xl tracking-tight mb-6 opacity-0 font-heading ${isVisible ? "animate-fade-up" : ""}`}
@@ -77,7 +77,7 @@ const CollectionsSection = () => {
           className={`text-muted-foreground max-w-2xl mb-14 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
           style={{ animationDelay: "0.15s" }}
         >
-          Успейте приобрести двери Sofia по специальным ценам. Акции ограничены по времени.
+          Успейте приобрести двери Фрамир по специальным ценам. Акции ограничены по времени.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -92,7 +92,7 @@ const CollectionsSection = () => {
                 <CountdownBadge />
                 <img
                   src={promo.image}
-                  alt="Акция Sofia"
+                  alt="Акция Фрамир"
                   loading="lazy"
                   className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.04]"
                 />

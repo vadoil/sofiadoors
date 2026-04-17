@@ -6,9 +6,9 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           <div>
-            <span className="font-heading text-lg block mb-3">Sofia · Самара</span>
+            <span className="font-heading text-lg block mb-3">Фрамир · Самара</span>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Официальный партнёр фабрики Sofia в Самаре. Двери, перегородки, декор.
+              Официальный партнёр фабрики Фрамир в Самаре. Двери, перегородки, декор.
             </p>
           </div>
           <div>
@@ -26,7 +26,7 @@ const Footer = () => {
         </div>
         <div className="border-t border-border pt-6 flex flex-col md:flex-row items-center justify-between gap-2">
           <p className="text-xs text-muted-foreground">
-            © {new Date().getFullYear()} Двери Sofia в Самаре. Официальный партнёр.
+            © {new Date().getFullYear()} Двери Фрамир в Самаре. Официальный партнёр.
           </p>
         </div>
       </div>

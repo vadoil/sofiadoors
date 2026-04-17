@@ -28,7 +28,7 @@ const services = [
     icon: ShieldCheck,
     title: "Гарантия",
     items: [
-      { icon: ShieldCheck, text: "Гарантия фабрики Sofia — 5 лет" },
+      { icon: ShieldCheck, text: "Гарантия фабрики Фрамир — 5 лет" },
       { icon: ShieldCheck, text: "Гарантия на монтаж — 2 года" },
       { icon: Wrench, text: "Сервисное обслуживание" },
       { icon: Wrench, text: "Регулировка петель и фурнитуры" },

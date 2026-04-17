@@ -18,7 +18,7 @@ const FinalCTASection = () => {
         <h2
           className={`text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] mb-6 font-heading text-background opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
         >
-          Подберём двери Sofia, которые действительно подойдут вашему интерьеру
+          Подберём двери Фрамир, которые действительно подойдут вашему интерьеру
         </h2>
         <p
           className={`text-background/70 text-lg leading-relaxed mb-10 max-w-xl mx-auto opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
