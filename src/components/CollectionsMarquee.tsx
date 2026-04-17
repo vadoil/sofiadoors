@@ -17,34 +17,54 @@ import door1000lines from "@/assets/door-1000lines-hero.png";
 import doorGrafika from "@/assets/door-grafika-hero.png";
 import doorSolyaris from "@/assets/door-solyaris-hero.png";
 import doorManiliona from "@/assets/door-maniliona-hero.png";
+import doorElegant2 from "@/assets/door-elegant.jpg";
+import doorOriginal2 from "@/assets/door-original.jpg";
+import doorFokus2 from "@/assets/door-fokus.jpg";
+import doorSkyline2 from "@/assets/door-skyline.jpg";
+import doorHidden2 from "@/assets/door-hidden.jpg";
+import doorAcoustic2 from "@/assets/door-acoustic.jpg";
 
-const row1 = [
-  { image: doorElegant, title: "Элегант", subtitle: "Вечные ценности в элегантном переосмыслении" },
-  { image: doorOriginal, title: "Оригинал", subtitle: "Золотые пропорции и архитектурный «рассвет»" },
-  { image: doorSkyline, title: "Скайлайн", subtitle: "Двери в потолок — новый образ пространства" },
-  { image: doorFokus, title: "Фокус", subtitle: "Базовая элегантность, доведённая до идеала" },
-  { image: doorHidden, title: "Скрытые двери", subtitle: "Двери высотой до 6 м, повышенная шумоизоляция" },
-  { image: doorMetamorfoza, title: "Метаморфоза", subtitle: "Аскетично элегантное прочтение классических форм" },
-  { image: doorAcoustica, title: "Акустика", subtitle: "Полотно 60 мм, повышенная шумоизоляция" },
-  { image: doorShoji, title: "Сёдзи", subtitle: "Современная интерпретация японских перегородок" },
+type Slide = {
+  image: string;
+  title: string;
+  price: string;
+};
+
+// 22 коллекции Sofia — по 11 в каждом ряду
+const allSlides: Slide[] = [
+  { image: doorElegant, title: "Мастер", price: "от 88 100 ₽" },
+  { image: doorFokus, title: "Двери в грунте под покраску", price: "от 35 640 ₽" },
+  { image: doorOriginal, title: "Бэйс", price: "от 24 365 ₽" },
+  { image: doorSkyline, title: "А-лайн", price: "от 76 805 ₽" },
+  { image: doorMetamorfoza, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽" },
+  { image: doorHidden, title: "Прайм", price: "от 71 547 ₽" },
+  { image: doorAcoustica, title: "Ритм", price: "от 44 905 ₽" },
+  { image: doorShoji, title: "Эрте", price: "от 48 545 ₽" },
+  { image: doorRein, title: "Каталина", price: "от 66 750 ₽" },
+  { image: doorListva, title: "Элеганс", price: "от 27 020 ₽" },
+  { image: doorGrafika, title: "Флоренция", price: "от 65 535 ₽" },
+
+  { image: doorIstok, title: "Савона", price: "от 53 400 ₽" },
+  { image: door1000lines, title: "Твин", price: "от 47 330 ₽" },
+  { image: doorSolyaris, title: "Соло", price: "от 52 285 ₽" },
+  { image: doorManiliona, title: "Дуэт", price: "от 43 690 ₽" },
+  { image: doorFireproof, title: "Канва", price: "от 25 825 ₽" },
+  { image: doorElegant2, title: "Эмма", price: "от 47 330 ₽" },
+  { image: doorOriginal2, title: "Арта", price: "от 29 630 ₽" },
+  { image: doorFokus2, title: "Омега", price: "от 50 975 ₽" },
+  { image: doorSkyline2, title: "Титаниум", price: "от 28 605 ₽" },
+  { image: doorHidden2, title: "Нео", price: "от 28 000 ₽" },
+  { image: doorAcoustic2, title: "Римини", price: "от 49 760 ₽" },
 ];
 
-const row2 = [
-  { image: doorRein, title: "Рейн", subtitle: "Вдохновлён струями дождя по стеклу" },
-  { image: doorFireproof, title: "Противопожарные EI", subtitle: "Защита от огня 30 и 60 минут" },
-  { image: doorListva, title: "Листва", subtitle: "Форма листвы в современных линиях" },
-  { image: doorIstok, title: "Исток", subtitle: "Русла рек и изгибы ручьёв" },
-  { image: door1000lines, title: "1000 линий", subtitle: "Авторский линейный рельеф в профиле" },
-  { image: doorGrafika, title: "Графика", subtitle: "Многообразие дизайна и качество материалов" },
-  { image: doorSolyaris, title: "Солярис", subtitle: "Мягкие формы и сотни сочетаний" },
-  { image: doorManiliona, title: "Манильона", subtitle: "Арт-объект с ручкой из массива" },
-];
+const row1 = allSlides.slice(0, 11);
+const row2 = allSlides.slice(11, 22);
 
 const MarqueeRow = ({
   slides,
   direction,
 }: {
-  slides: typeof row1;
+  slides: Slide[];
   direction: "left" | "right";
 }) => {
   const trackRef = useRef<HTMLDivElement>(null);
@@ -66,7 +86,7 @@ const MarqueeRow = ({
         : [{ transform: `translateX(-${halfWidth}px)` }, { transform: "translateX(0)" }];
 
     const anim = track.animate(keyframes, {
-      duration: 80000,
+      duration: 110000,
       iterations: Infinity,
       easing: "linear",
     });
@@ -138,30 +158,36 @@ const MarqueeRow = ({
     >
       <div
         ref={trackRef}
-        className="flex gap-4 pointer-events-none"
+        className="flex gap-5 md:gap-6 pointer-events-none"
         style={{ width: "max-content", willChange: "transform" }}
       >
         {items.map((slide, i) => (
           <div
             key={`${slide.title}-${i}`}
-            className="shrink-0 relative overflow-hidden rounded-xl cursor-pointer group"
-            style={{ width: "clamp(420px, 34vw, 680px)" }}
+            className="shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group"
+            style={{ width: "clamp(520px, 42vw, 820px)" }}
           >
-            <div className="aspect-[16/10] relative overflow-hidden">
+            <div className="aspect-[4/3] relative overflow-hidden">
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                loading={i < 8 ? "eager" : "lazy"}
+                loading={i < 6 ? "eager" : "lazy"}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-graphite/70 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/10 to-transparent" />
 
-              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                <h2 className="text-xl md:text-2xl lg:text-3xl text-primary-foreground tracking-tight font-heading leading-tight">
+              <div className="absolute top-5 left-5 md:top-6 md:left-6">
+                <span className="inline-flex items-center rounded-full bg-warm-white/90 backdrop-blur-sm px-3 py-1.5 text-xs md:text-sm tracking-wide text-graphite font-medium">
+                  {slide.price} <span className="ml-1 text-graphite/60">комплект</span>
+                </span>
+              </div>
+
+              <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+                <h3 className="text-2xl md:text-3xl lg:text-4xl text-primary-foreground tracking-tight font-heading leading-tight">
                   {slide.title}
-                </h2>
-                <div className="flex items-center gap-2 mt-1.5 text-primary-foreground/70 group-hover:text-primary-foreground transition-colors">
-                  <span className="text-sm md:text-base">{slide.subtitle}</span>
+                </h3>
+                <div className="flex items-center gap-2 mt-2 text-primary-foreground/80 group-hover:text-primary-foreground transition-colors">
+                  <span className="text-sm md:text-base">Смотреть коллекцию</span>
                   <ArrowRight className="w-4 h-4 shrink-0 transition-transform duration-300 group-hover:translate-x-1" />
                 </div>
               </div>
@@ -180,19 +206,19 @@ const CollectionsMarquee = () => {
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
             <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-muted-foreground">
-              Каталог Фрамир
+              Каталог Sofia
             </span>
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight mt-3 max-w-2xl leading-[1.05]">
-              Коллекции, в которых хочется жить
+              Межкомнатные двери
             </h2>
           </div>
           <p className="text-muted-foreground max-w-md text-base md:text-lg">
-            От строгой классики до арт-объектов. Полистайте подборку — каждое
-            полотно можно адаптировать под ваш проект.
+            22 коллекции — от лаконичной классики до авторских арт-объектов.
+            Каждое полотно адаптируется под ваш проект и бюджет.
           </p>
         </div>
       </div>
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-5 md:gap-6">
         <MarqueeRow slides={row1} direction="left" />
         <MarqueeRow slides={row2} direction="right" />
       </div>
