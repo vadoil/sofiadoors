@@ -32,7 +32,7 @@ type Slide = {
   price: string;
 };
 
-// 22 коллекции Sofia — по 11 в каждом ряду
+// 22 коллекции Фрамир — по 11 в каждом ряду
 const allSlides: Slide[] = [
   { image: sofiaMaster, title: "Мастер", price: "от 88 100 ₽" },
   { image: sofiaGrunt, title: "Двери в грунте под покраску", price: "от 35 640 ₽" },
@@ -208,7 +208,7 @@ const CollectionsMarquee = () => {
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
             <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-muted-foreground">
-              Каталог Sofia
+              Каталог Фрамир
             </span>
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight mt-3 max-w-2xl leading-[1.05]">
               Межкомнатные двери
