@@ -7,13 +7,36 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Image as ImageIcon } from "lucide-react";
 
 import paletteVeneer from "@/assets/panels/palette-veneer.png";
 import paletteEnamel from "@/assets/panels/palette-enamel.png";
 import paletteNanotex from "@/assets/panels/palette-nanotex.png";
 import paletteGlass from "@/assets/panels/palette-glass.png";
 import paletteMirror from "@/assets/panels/palette-mirror.png";
+
+import interior1 from "@/assets/panels/interior-1.webp";
+import interior2 from "@/assets/panels/interior-2.webp";
+import interior3 from "@/assets/panels/interior-3.webp";
+import interior4 from "@/assets/panels/interior-4.webp";
+import interior5 from "@/assets/panels/interior-5.webp";
+import interior6 from "@/assets/panels/interior-6.webp";
+import interior7 from "@/assets/panels/interior-7.webp";
+import interior8 from "@/assets/panels/interior-8.webp";
+import interior9 from "@/assets/panels/interior-9.webp";
+import interior10 from "@/assets/panels/interior-10.webp";
+
+const interiorPhotos = [
+  { src: interior1, alt: "Спальня с панелями из шпона ореха и бетонными вставками" },
+  { src: interior2, alt: "Спальня с реечной стеновой панелью и шпонированной зоной изголовья" },
+  { src: interior3, alt: "Скрытая дверь и стеновые панели из тёмного ореха" },
+  { src: interior4, alt: "Реечная панель из дуба и рифлёное стекло" },
+  { src: interior5, alt: "Композиция стеновых панелей: дерево, рифлёное стекло, зеркало" },
+  { src: interior6, alt: "Прихожая со светлыми панелями из дуба" },
+  { src: interior7, alt: "Коридор с порталом из шпона ореха" },
+  { src: interior8, alt: "Скрытая дверь и панели из ореха в классическом интерьере" },
+  { src: interior9, alt: "Арт-панель с декоративным напылением" },
+  { src: interior10, alt: "Стенд: реечные панели и рифлёное стекло" },
+];
 
 type Swatch = { name: string; src: string };
 type SubPalette = { title?: string; swatches: Swatch[] };
@@ -143,8 +166,6 @@ const coatings: Coating[] = [
   },
 ];
 
-// Плейсхолдеры для карусели интерьеров — заменим, когда пришлёте фото
-const interiorPlaceholders = Array.from({ length: 6 }, (_, i) => i + 1);
 
 const WallPanelsSection = () => {
   const [active, setActive] = useState<string>("veneer");
@@ -233,18 +254,18 @@ const WallPanelsSection = () => {
 
           <Carousel opts={{ align: "start", loop: true }} className="w-full">
             <CarouselContent className="-ml-4">
-              {interiorPlaceholders.map((i) => (
+              {interiorPhotos.map((photo, i) => (
                 <CarouselItem
                   key={i}
                   className="pl-4 basis-[85%] sm:basis-[60%] md:basis-1/2 lg:basis-[42%]"
                 >
-                  <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-stone/40 border border-border flex items-center justify-center">
-                    <div className="flex flex-col items-center gap-2 text-muted-foreground">
-                      <ImageIcon className="w-8 h-8 opacity-50" />
-                      <span className="text-xs tracking-[0.2em] uppercase">
-                        Фото проекта №{i}
-                      </span>
-                    </div>
+                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-stone/30 border border-border group">
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
                   </div>
                 </CarouselItem>
               ))}
@@ -252,10 +273,6 @@ const WallPanelsSection = () => {
             <CarouselPrevious className="hidden md:flex -left-4" />
             <CarouselNext className="hidden md:flex -right-4" />
           </Carousel>
-
-          <p className="mt-6 text-xs md:text-sm text-muted-foreground/80 text-center">
-            Пришлите фото — заменю плейсхолдеры на реальные проекты.
-          </p>
         </div>
       </div>
     </section>
