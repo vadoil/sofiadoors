@@ -25,6 +25,7 @@ import doorHidden2 from "@/assets/door-hidden.jpg";
 import doorAcoustic2 from "@/assets/door-acoustic.jpg";
 import doorRimini from "@/assets/door-rimini.png";
 import doorBase from "@/assets/door-base.png";
+import doorAline from "@/assets/door-aline.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
@@ -39,7 +40,7 @@ const allSlides: Slide[] = [
   { image: sofiaMaster, title: "Мастер", price: "от 88 100 ₽" },
   { image: sofiaGrunt, title: "Двери в грунте под покраску", price: "от 35 640 ₽" },
   { image: doorBase, title: "Бэйс", price: "от 24 365 ₽" },
-  { image: doorSkyline, title: "А-лайн", price: "от 76 805 ₽" },
+  { image: doorAline, title: "А-лайн", price: "от 76 805 ₽" },
   { image: doorMetamorfoza, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽" },
   { image: doorHidden, title: "Прайм", price: "от 71 547 ₽" },
   { image: doorAcoustica, title: "Ритм", price: "от 44 905 ₽" },
