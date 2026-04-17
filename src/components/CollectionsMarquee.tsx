@@ -24,6 +24,7 @@ import doorSkyline2 from "@/assets/door-skyline.jpg";
 import doorHidden2 from "@/assets/door-hidden.jpg";
 import doorAcoustic2 from "@/assets/door-acoustic.jpg";
 import sofiaMaster from "@/assets/sofia-master.png";
+import sofiaGrunt from "@/assets/sofia-grunt.png";
 
 type Slide = {
   image: string;
@@ -34,7 +35,7 @@ type Slide = {
 // 22 коллекции Sofia — по 11 в каждом ряду
 const allSlides: Slide[] = [
   { image: sofiaMaster, title: "Мастер", price: "от 88 100 ₽" },
-  { image: doorFokus, title: "Двери в грунте под покраску", price: "от 35 640 ₽" },
+  { image: sofiaGrunt, title: "Двери в грунте под покраску", price: "от 35 640 ₽" },
   { image: doorOriginal, title: "Бэйс", price: "от 24 365 ₽" },
   { image: doorSkyline, title: "А-лайн", price: "от 76 805 ₽" },
   { image: doorMetamorfoza, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽" },
