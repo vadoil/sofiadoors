@@ -28,6 +28,7 @@ import doorBase from "@/assets/door-base.png";
 import doorAline from "@/assets/door-aline.png";
 import doorDuo from "@/assets/door-duo.png";
 import doorPrime from "@/assets/door-prime.png";
+import doorRhythm from "@/assets/door-rhythm.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
@@ -45,7 +46,7 @@ const allSlides: Slide[] = [
   { image: doorAline, title: "А-лайн", price: "от 76 805 ₽" },
   { image: doorDuo, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽" },
   { image: doorPrime, title: "Прайм", price: "от 71 547 ₽" },
-  { image: doorAcoustica, title: "Ритм", price: "от 44 905 ₽" },
+  { image: doorRhythm, title: "Ритм", price: "от 44 905 ₽" },
   { image: doorShoji, title: "Эрте", price: "от 48 545 ₽" },
   { image: doorRein, title: "Каталина", price: "от 66 750 ₽" },
   { image: doorListva, title: "Элеганс", price: "от 27 020 ₽" },
