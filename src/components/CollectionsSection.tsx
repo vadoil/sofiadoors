@@ -77,7 +77,7 @@ const CollectionsSection = () => {
           className={`text-muted-foreground max-w-2xl mb-14 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
           style={{ animationDelay: "0.15s" }}
         >
-          Успейте приобрести двери Sofia по специальным ценам. Акции ограничены по времени.
+          Успейте приобрести двери Фрамир по специальным ценам. Акции ограничены по времени.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -40,7 +40,7 @@ const DesignersSection = () => {
               className={`text-muted-foreground leading-relaxed mb-10 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: "0.15s" }}
             >
-              Поможем интегрировать двери Sofia в ваш проект — от первых визуализаций до финальной комплектации.
+              Поможем интегрировать двери Фрамир в ваш проект — от первых визуализаций до финальной комплектации.
             </p>
 
             <div className={`space-y-5 mb-10 opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.2s" }}>

@@ -6,7 +6,7 @@ const ChatWidget = () => {
   const [messages, setMessages] = useState<{ role: "user" | "bot"; text: string }[]>([
     {
       role: "bot",
-      text: "Здравствуйте! Я консультант Sofia Samara. Помогу подобрать двери, рассчитать стоимость или записать на замер. Чем могу помочь?",
+      text: "Здравствуйте! Я консультант Фрамир Самара. Помогу подобрать двери, рассчитать стоимость или записать на замер. Чем могу помочь?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -62,7 +62,7 @@ const ChatWidget = () => {
         <div className="fixed bottom-24 right-6 z-50 w-[360px] max-w-[calc(100vw-3rem)] bg-card border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-reveal">
           {/* Header */}
           <div className="bg-primary text-primary-foreground px-5 py-4">
-            <p className="font-heading text-lg">Sofia Samara</p>
+            <p className="font-heading text-lg">Фрамир Самара</p>
             <p className="text-xs text-primary-foreground/70">Онлайн-консультант</p>
           </div>
 

@@ -3,76 +3,76 @@ import { ArrowRight } from "lucide-react";
 
 const projects = [
   {
-    image: "https://sofiadoors.com/upload/iblock/68a/ug2o4s24umi27zcifsxpvrtqgjj4c8xx.jpg",
+    image: "https://framyr.ru/upload/iblock/68a/ug2o4s24umi27zcifsxpvrtqgjj4c8xx.jpg",
     title: "ЖК «Светлана парк»",
     designer: "Ё [YOUR] DESIGN",
-    link: "https://sofiadoors.com/projects/svetlana-park/",
+    link: "https://framyr.ru/projects/svetlana-park/",
   },
   {
-    image: "https://sofiadoors.com/upload/iblock/9d3/vejv6fyprf9oi24nd00f1ibhr42q7vii.jpg",
+    image: "https://framyr.ru/upload/iblock/9d3/vejv6fyprf9oi24nd00f1ibhr42q7vii.jpg",
     title: "Квартира для двоих",
     designer: "Валерия Кошеутова",
-    link: "https://sofiadoors.com/projects/kvartira-dlya-dvoikh/",
+    link: "https://framyr.ru/projects/kvartira-dlya-dvoikh/",
   },
   {
-    image: "https://sofiadoors.com/upload/iblock/e33/5rcwfm2ordug8eltqmlkrcyyrnk64q41.jpeg",
+    image: "https://framyr.ru/upload/iblock/e33/5rcwfm2ordug8eltqmlkrcyyrnk64q41.jpeg",
     title: "Светлая душевая",
     designer: "Студия DSGN HUB",
-    link: "https://sofiadoors.com/projects/svetlaya-dushevaya/",
+    link: "https://framyr.ru/projects/svetlaya-dushevaya/",
   },
   {
-    image: "https://sofiadoors.com/upload/iblock/7ac/6i66wnx1tmv0x8d4jtj0mqe2bh2sgp9p.jpg",
+    image: "https://framyr.ru/upload/iblock/7ac/6i66wnx1tmv0x8d4jtj0mqe2bh2sgp9p.jpg",
     title: "Загородный дом",
     designer: "Студия DSGN HUB",
-    link: "https://sofiadoors.com/projects/zagorodnyy-dom-dlya-sergeya-i-marii-sirotkinykh/",
+    link: "https://framyr.ru/projects/zagorodnyy-dom-dlya-sergeya-i-marii-sirotkinykh/",
   },
   {
-    image: "https://sofiadoors.com/upload/iblock/eb6/2hx98ej4wo84b5qr6dst2ldersc3lodd.jpg",
+    image: "https://framyr.ru/upload/iblock/eb6/2hx98ej4wo84b5qr6dst2ldersc3lodd.jpg",
     title: "ЖК Riversky 83",
     designer: "Студия DSGN HUB",
-    link: "https://sofiadoors.com/projects/zhk-riversky-83/",
+    link: "https://framyr.ru/projects/zhk-riversky-83/",
   },
   {
-    image: "https://sofiadoors.com/upload/iblock/10a/yh0gdsiu21qicgar5sm5wjvultddxv8g.jpg",
+    image: "https://framyr.ru/upload/iblock/10a/yh0gdsiu21qicgar5sm5wjvultddxv8g.jpg",
     title: "Дом с цветным интерьером",
     designer: "Анна Малютина",
-    link: "https://sofiadoors.com/projects/dom-s-tsvetnym-intererom/",
+    link: "https://framyr.ru/projects/dom-s-tsvetnym-intererom/",
   },
   {
-    image: "https://sofiadoors.com/upload/iblock/f61/0edxsk1f6ugp34znrq0b26xkodsfex4j.jpg",
+    image: "https://framyr.ru/upload/iblock/f61/0edxsk1f6ugp34znrq0b26xkodsfex4j.jpg",
     title: "Мастер-спальня с радиусной стеной",
     designer: "Студия DSGN HUB",
-    link: "https://sofiadoors.com/projects/master-spalnya-s-radiusnoy-stenoy/",
+    link: "https://framyr.ru/projects/master-spalnya-s-radiusnoy-stenoy/",
   },
   {
-    image: "https://sofiadoors.com/upload/iblock/0ae/p7z62qh4dwz5n16twptqdb0iq9r80f7k.jpg",
+    image: "https://framyr.ru/upload/iblock/0ae/p7z62qh4dwz5n16twptqdb0iq9r80f7k.jpg",
     title: "Спальня с акцентной дверью",
     designer: "Студия DSGN HUB",
-    link: "https://sofiadoors.com/projects/spalnya-s-aktsentnoy-dveryu/",
+    link: "https://framyr.ru/projects/spalnya-s-aktsentnoy-dveryu/",
   },
   {
-    image: "https://sofiadoors.com/upload/optimization/images/71ceaee3c9e1927c7da12f8828909547.webp",
+    image: "https://framyr.ru/upload/optimization/images/71ceaee3c9e1927c7da12f8828909547.webp",
     title: "Зимняя гармония",
     designer: "Ирина Киряшова",
-    link: "https://sofiadoors.com/projects/zimnyaya-garmoniya/",
+    link: "https://framyr.ru/projects/zimnyaya-garmoniya/",
   },
   {
-    image: "https://sofiadoors.com/upload/optimization/images/30c5cb2643d8ee6df9a1d990252ab6fa.webp",
+    image: "https://framyr.ru/upload/optimization/images/30c5cb2643d8ee6df9a1d990252ab6fa.webp",
     title: "Дом с панорамным остеклением",
     designer: "Chado",
-    link: "https://sofiadoors.com/projects/dom-s-panoramnym-ostekleniem/",
+    link: "https://framyr.ru/projects/dom-s-panoramnym-ostekleniem/",
   },
   {
-    image: "https://sofiadoors.com/upload/optimization/images/521719d88d5fbd30087882295a37e360.webp",
+    image: "https://framyr.ru/upload/optimization/images/521719d88d5fbd30087882295a37e360.webp",
     title: "Монохром",
     designer: "Евгения Мельникова",
-    link: "https://sofiadoors.com/projects/monokhrom/",
+    link: "https://framyr.ru/projects/monokhrom/",
   },
   {
-    image: "https://sofiadoors.com/upload/optimization/images/4dca62e910c1e5035490e20ad3b1c6e2.webp",
+    image: "https://framyr.ru/upload/optimization/images/4dca62e910c1e5035490e20ad3b1c6e2.webp",
     title: "Офис DSGN HUB",
     designer: "Студия DSGN HUB",
-    link: "https://sofiadoors.com/projects/ofis-dsgn-hub/",
+    link: "https://framyr.ru/projects/ofis-dsgn-hub/",
   },
 ];
 
@@ -93,7 +93,7 @@ const PortfolioSection = () => {
               className={`text-3xl md:text-5xl tracking-tight font-heading opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: "0.1s" }}
             >
-              Sofia в интерьерах
+              Фрамир в интерьерах
             </h2>
             <p
               className={`text-muted-foreground max-w-xl mt-4 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
@@ -104,7 +104,7 @@ const PortfolioSection = () => {
             </p>
           </div>
           <a
-            href="https://sofiadoors.com/projects/"
+            href="https://framyr.ru/projects/"
             target="_blank"
             rel="noopener noreferrer"
             className={`inline-flex items-center gap-2 rounded-2xl border border-border px-6 py-3 text-sm font-medium transition-all duration-200 hover:bg-secondary active:scale-95 shrink-0 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}

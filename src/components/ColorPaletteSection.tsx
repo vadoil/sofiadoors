@@ -284,7 +284,7 @@ const ColorPaletteSection = () => {
           Любой цвет по RAL и NCS
         </h2>
         <p className={`text-muted-foreground max-w-2xl mb-12 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`} style={{ animationDelay: "0.15s" }}>
-          Двери Sofia доступны в любом цвете палитр RAL Classic и NCS. 
+          Двери Фрамир доступны в любом цвете палитр RAL Classic и NCS. 
           Покраска акриловой эмалью или окрашенный шпон — подберём точное совпадение под ваш проект.
         </p>
 

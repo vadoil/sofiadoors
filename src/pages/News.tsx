@@ -30,7 +30,7 @@ const News = () => {
 
           <h1 className="text-4xl md:text-6xl font-heading tracking-tight mb-4">Новости</h1>
           <p className="text-muted-foreground max-w-xl mb-14">
-            Следите за обновлениями коллекций, акциями и полезными материалами о дверях Sofia.
+            Следите за обновлениями коллекций, акциями и полезными материалами о дверях Фрамир.
           </p>
 
           {isLoading ? (

@@ -43,7 +43,7 @@ const ContactSection = () => {
               frameBorder="0"
               allowFullScreen
               className="w-full"
-              title="Шоурум Sofia — г. Самара, ул. Чкалова, 100"
+              title="Шоурум Фрамир — г. Самара, ул. Чкалова, 100"
             />
           </div>
         </div>

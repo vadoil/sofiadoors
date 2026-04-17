@@ -117,7 +117,7 @@ const Catalog = () => {
             Каталог
           </p>
           <h1 className="text-3xl md:text-5xl tracking-tight mb-6 font-heading">
-            Все коллекции Sofia
+            Все коллекции Фрамир
           </h1>
           <p className="text-muted-foreground max-w-2xl mb-14 leading-relaxed">
             Каждая коллекция — готовое решение для определённого стиля. Двери, перегородки, системы — всё в одном месте.
