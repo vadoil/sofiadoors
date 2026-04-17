@@ -57,7 +57,7 @@ const allSlides: Slide[] = [
   { image: doorFokus2, title: "Омега", price: "от 50 975 ₽" },
   { image: doorSkyline2, title: "Титаниум", price: "от 28 605 ₽" },
   { image: doorHidden2, title: "Нео", price: "от 28 000 ₽" },
-  { image: doorAcoustic2, title: "Римини", price: "от 49 760 ₽" },
+  { image: doorRimini, title: "Римини", price: "от 49 760 ₽" },
 ];
 
 const row1 = allSlides.slice(0, 11);
