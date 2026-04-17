@@ -24,6 +24,7 @@ import doorSkyline2 from "@/assets/door-skyline.jpg";
 import doorHidden2 from "@/assets/door-hidden.jpg";
 import doorAcoustic2 from "@/assets/door-acoustic.jpg";
 import doorRimini from "@/assets/door-rimini.png";
+import doorBase from "@/assets/door-base.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
