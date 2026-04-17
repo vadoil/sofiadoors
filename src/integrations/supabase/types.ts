@@ -16,6 +16,8 @@ export type Database = {
     Tables: {
       news: {
         Row: {
+          category: string
+          content: string | null
           created_at: string
           excerpt: string | null
           id: string
@@ -26,6 +28,8 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          category?: string
+          content?: string | null
           created_at?: string
           excerpt?: string | null
           id?: string
@@ -36,6 +40,8 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          category?: string
+          content?: string | null
           created_at?: string
           excerpt?: string | null
           id?: string
