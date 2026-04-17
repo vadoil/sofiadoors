@@ -167,8 +167,6 @@ const coatings: Coating[] = [
   },
 ];
 
-// Плейсхолдеры для карусели интерьеров — заменим, когда пришлёте фото
-const interiorPlaceholders = Array.from({ length: 6 }, (_, i) => i + 1);
 
 const WallPanelsSection = () => {
   const [active, setActive] = useState<string>("veneer");
