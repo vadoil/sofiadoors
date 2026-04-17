@@ -9,6 +9,7 @@ const TaskSelectionSection = lazy(() => import("@/components/TaskSelectionSectio
 const HelpFormSection = lazy(() => import("@/components/HelpFormSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
 const ForDesignersSection = lazy(() => import("@/components/ForDesignersSection"));
+const NewsSection = lazy(() => import("@/components/NewsSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
@@ -25,6 +26,7 @@ const Index = () => {
         <HelpFormSection />
         <ProcessSection />
         <ForDesignersSection />
+        <NewsSection />
         <FAQSection />
         <FinalCTASection />
         <ContactSection />
