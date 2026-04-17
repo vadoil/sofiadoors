@@ -1,10 +1,12 @@
 import { useMemo, useState } from "react";
-import { ArrowRight, X } from "lucide-react";
+import { ArrowRight, X, Loader2 } from "lucide-react";
+import { useQuery } from "@tanstack/react-query";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { projects, styleFilters, roomFilters } from "@/data/portfolioData";
+import { supabase } from "@/integrations/supabase/client";
 
-const designerFilters = Array.from(new Set(projects.map((p) => p.designer))).sort();
+const styleFilters = ["Современные", "Классические", "Неоклассические", "Дизайнерские", "Скрытые"];
+const roomFilters = ["Квартира", "Дом", "Гостиная", "Спальня", "Ванная", "Офис", "Коммерческое"];
 
 const FilterChip = ({
   label,
@@ -60,6 +62,25 @@ const Portfolio = () => {
   const [rooms, setRooms] = useState<string[]>([]);
   const [designers, setDesigners] = useState<string[]>([]);
 
+  const { data: projects = [], isLoading } = useQuery({
+    queryKey: ["projects-public"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("projects")
+        .select("*")
+        .eq("is_published", true)
+        .order("sort_order", { ascending: true })
+        .order("created_at", { ascending: false });
+      if (error) throw error;
+      return data;
+    },
+  });
+
+  const designerFilters = useMemo(
+    () => Array.from(new Set(projects.map((p) => p.designer).filter(Boolean))).sort(),
+    [projects]
+  );
+
   const toggle = (setter: React.Dispatch<React.SetStateAction<string[]>>) => (val: string) => {
     setter((prev) => (prev.includes(val) ? prev.filter((v) => v !== val) : [...prev, val]));
   };
@@ -77,7 +98,7 @@ const Portfolio = () => {
       if (designers.length && !designers.includes(p.designer)) return false;
       return true;
     });
-  }, [styles, rooms, designers]);
+  }, [projects, styles, rooms, designers]);
 
   const hasFilters = styles.length + rooms.length + designers.length > 0;
 
@@ -122,7 +143,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Фильтры */}
       <section className="px-6 md:px-16 lg:px-24 pb-10">
         <div className="max-w-7xl mx-auto bg-warm-white/60 border border-stone/60 rounded-2xl p-6 md:p-8 space-y-6">
           <FilterGroup
@@ -137,12 +157,14 @@ const Portfolio = () => {
             selected={rooms}
             onToggle={toggle(setRooms)}
           />
-          <FilterGroup
-            title="Дизайнер"
-            options={designerFilters}
-            selected={designers}
-            onToggle={toggle(setDesigners)}
-          />
+          {designerFilters.length > 0 && (
+            <FilterGroup
+              title="Дизайнер"
+              options={designerFilters}
+              selected={designers}
+              onToggle={toggle(setDesigners)}
+            />
+          )}
 
           <div className="flex items-center justify-between pt-2 border-t border-stone/60">
             <p className="text-sm text-muted-foreground">
@@ -161,27 +183,35 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* Сетка проектов */}
       <section className="px-6 md:px-16 lg:px-24 pb-24 md:pb-32">
         <div className="max-w-7xl mx-auto">
-          {filtered.length === 0 ? (
+          {isLoading ? (
+            <div className="flex justify-center py-20">
+              <Loader2 className="w-8 h-8 animate-spin text-muted-foreground" />
+            </div>
+          ) : filtered.length === 0 ? (
             <div className="text-center py-20 text-muted-foreground">
-              По выбранным фильтрам ничего не найдено. Попробуйте сбросить фильтры.
+              {projects.length === 0
+                ? "Пока нет опубликованных проектов."
+                : "По выбранным фильтрам ничего не найдено. Попробуйте сбросить фильтры."}
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {filtered.map((project) => (
-                <article
-                  key={project.slug}
-                  className="group cursor-pointer"
-                >
+                <article key={project.id} className="group cursor-pointer">
                   <div className="relative overflow-hidden rounded-2xl aspect-[4/5] bg-secondary/40">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      loading="lazy"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
-                    />
+                    {project.image_url ? (
+                      <img
+                        src={project.image_url}
+                        alt={project.title}
+                        loading="lazy"
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
+                        Без фото
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-graphite/85 via-graphite/10 to-transparent" />
                     <div className="absolute top-4 left-4">
                       <span className="inline-block bg-warm-white/90 backdrop-blur-sm text-graphite text-xs px-3 py-1 rounded-full">
@@ -189,9 +219,11 @@ const Portfolio = () => {
                       </span>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6">
-                      <p className="text-warm-white/70 text-xs uppercase tracking-[0.15em]">
-                        {project.designer}
-                      </p>
+                      {project.designer && (
+                        <p className="text-warm-white/70 text-xs uppercase tracking-[0.15em]">
+                          {project.designer}
+                        </p>
+                      )}
                       <h3 className="text-warm-white text-xl md:text-2xl font-heading tracking-tight mt-1.5 leading-tight">
                         {project.title}
                       </h3>
@@ -203,7 +235,7 @@ const Portfolio = () => {
                   </div>
                   <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground px-1">
                     <span>{project.room}</span>
-                    <span>Коллекция «{project.collection}»</span>
+                    {project.collection && <span>Коллекция «{project.collection}»</span>}
                   </div>
                 </article>
               ))}
@@ -212,7 +244,6 @@ const Portfolio = () => {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="px-6 md:px-16 lg:px-24 pb-24">
         <div className="max-w-7xl mx-auto bg-graphite text-warm-white rounded-3xl p-10 md:p-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="max-w-xl">
