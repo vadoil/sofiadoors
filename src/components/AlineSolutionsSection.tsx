@@ -88,7 +88,7 @@ const AlineSolutionsSection = () => {
                   </p>
                   <div className="pt-2">
                     <a
-                      href="#help-form"
+                      href="/#help"
                       className="inline-flex items-center gap-2 text-sm md:text-base text-graphite border-b border-graphite/30 hover:border-graphite pb-1 transition-colors"
                     >
                       Запросить расчёт
