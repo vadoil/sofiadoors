@@ -91,10 +91,10 @@ const Portfolio = () => {
             Портфолио
           </p>
           <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] max-w-3xl">
-            Sofia в реальных интерьерах
+            Фрамир в реальных интерьерах
           </h1>
           <p className="text-muted-foreground max-w-2xl mt-6 text-base md:text-lg leading-relaxed">
-            Более 150 проектов с дверями Sofia: квартиры, дома, офисы и
+            Более 150 проектов с дверями Фрамир: квартиры, дома, офисы и
             общественные пространства. Дизайнеры выбирают нас за безупречное
             качество и широкий выбор отделки.
           </p>

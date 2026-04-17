@@ -22,7 +22,7 @@ const PortfolioSection = () => {
               className={`text-3xl md:text-5xl tracking-tight font-heading opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: "0.1s" }}
             >
-              Sofia в интерьерах
+              Фрамир в интерьерах
             </h2>
             <p
               className={`text-muted-foreground max-w-xl mt-4 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
