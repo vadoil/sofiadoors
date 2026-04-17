@@ -6,10 +6,9 @@ import ChatWidget from "@/components/ChatWidget";
 import QuizWidget from "@/components/QuizWidget";
 
 const TaskSelectionSection = lazy(() => import("@/components/TaskSelectionSection"));
-const PortfolioSection = lazy(() => import("@/components/PortfolioSection"));
 const HelpFormSection = lazy(() => import("@/components/HelpFormSection"));
 const ProcessSection = lazy(() => import("@/components/ProcessSection"));
-const DesignersSection = lazy(() => import("@/components/DesignersSection"));
+const ForDesignersSection = lazy(() => import("@/components/ForDesignersSection"));
 const FAQSection = lazy(() => import("@/components/FAQSection"));
 const FinalCTASection = lazy(() => import("@/components/FinalCTASection"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
@@ -23,10 +22,9 @@ const Index = () => {
       <WhyChooseUsSection />
       <Suspense fallback={<div className="h-96" />}>
         <TaskSelectionSection />
-        <PortfolioSection />
         <HelpFormSection />
         <ProcessSection />
-        <DesignersSection />
+        <ForDesignersSection />
         <FAQSection />
         <FinalCTASection />
         <ContactSection />
