@@ -23,6 +23,7 @@ import doorFokus2 from "@/assets/door-fokus.jpg";
 import doorSkyline2 from "@/assets/door-skyline.jpg";
 import doorHidden2 from "@/assets/door-hidden.jpg";
 import doorAcoustic2 from "@/assets/door-acoustic.jpg";
+import sofiaMaster from "@/assets/sofia-master.png";
 
 type Slide = {
   image: string;
