@@ -34,6 +34,7 @@ import doorCatalina from "@/assets/door-catalina.png";
 import doorElegans from "@/assets/door-elegans.png";
 import doorFlorence from "@/assets/door-florence.png";
 import doorSavona from "@/assets/door-savona.png";
+import doorTwin from "@/assets/door-twin.png";
 import sofiaMaster from "@/assets/sofia-master.png";
 import sofiaGrunt from "@/assets/sofia-grunt.png";
 
@@ -58,7 +59,7 @@ const allSlides: Slide[] = [
   { image: doorFlorence, title: "Флоренция", price: "от 65 535 ₽" },
 
   { image: doorSavona, title: "Савона", price: "от 53 400 ₽" },
-  { image: door1000lines, title: "Твин", price: "от 47 330 ₽" },
+  { image: doorTwin, title: "Твин", price: "от 47 330 ₽" },
   { image: doorSolyaris, title: "Соло", price: "от 52 285 ₽" },
   { image: doorManiliona, title: "Дуэт", price: "от 43 690 ₽" },
   { image: doorFireproof, title: "Канва", price: "от 25 825 ₽" },
