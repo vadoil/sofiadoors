@@ -65,7 +65,7 @@ const CollectionsSection = () => {
         <p
           className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
         >
-          Акции Sofia
+          Акции Фрамир
         </p>
         <h2
           className={`text-3xl md:text-5xl tracking-tight mb-6 opacity-0 font-heading ${isVisible ? "animate-fade-up" : ""}`}
@@ -92,7 +92,7 @@ const CollectionsSection = () => {
                 <CountdownBadge />
                 <img
                   src={promo.image}
-                  alt="Акция Sofia"
+                  alt="Акция Фрамир"
                   loading="lazy"
                   className="w-full h-auto transition-transform duration-700 group-hover:scale-[1.04]"
                 />
