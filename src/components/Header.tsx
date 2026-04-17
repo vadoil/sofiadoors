@@ -10,6 +10,7 @@ const Header = () => {
     { label: "Каталог", href: "/catalog", isRoute: true },
     { label: "Палитра", href: "/palette", isRoute: true },
     { label: "Дизайнерам", href: "/designers", isRoute: true },
+    { label: "Портфолио", href: "/portfolio", isRoute: true },
     { label: "Новости", href: "/news", isRoute: true },
     { label: "Контакты", href: "#contact" },
   ];

@@ -1,80 +1,9 @@
-import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { projects } from "@/data/portfolioData";
 
-const projects = [
-  {
-    image: "https://framyr.ru/upload/iblock/68a/ug2o4s24umi27zcifsxpvrtqgjj4c8xx.jpg",
-    title: "ЖК «Светлана парк»",
-    designer: "Ё [YOUR] DESIGN",
-    link: "https://framyr.ru/projects/svetlana-park/",
-  },
-  {
-    image: "https://framyr.ru/upload/iblock/9d3/vejv6fyprf9oi24nd00f1ibhr42q7vii.jpg",
-    title: "Квартира для двоих",
-    designer: "Валерия Кошеутова",
-    link: "https://framyr.ru/projects/kvartira-dlya-dvoikh/",
-  },
-  {
-    image: "https://framyr.ru/upload/iblock/e33/5rcwfm2ordug8eltqmlkrcyyrnk64q41.jpeg",
-    title: "Светлая душевая",
-    designer: "Студия DSGN HUB",
-    link: "https://framyr.ru/projects/svetlaya-dushevaya/",
-  },
-  {
-    image: "https://framyr.ru/upload/iblock/7ac/6i66wnx1tmv0x8d4jtj0mqe2bh2sgp9p.jpg",
-    title: "Загородный дом",
-    designer: "Студия DSGN HUB",
-    link: "https://framyr.ru/projects/zagorodnyy-dom-dlya-sergeya-i-marii-sirotkinykh/",
-  },
-  {
-    image: "https://framyr.ru/upload/iblock/eb6/2hx98ej4wo84b5qr6dst2ldersc3lodd.jpg",
-    title: "ЖК Riversky 83",
-    designer: "Студия DSGN HUB",
-    link: "https://framyr.ru/projects/zhk-riversky-83/",
-  },
-  {
-    image: "https://framyr.ru/upload/iblock/10a/yh0gdsiu21qicgar5sm5wjvultddxv8g.jpg",
-    title: "Дом с цветным интерьером",
-    designer: "Анна Малютина",
-    link: "https://framyr.ru/projects/dom-s-tsvetnym-intererom/",
-  },
-  {
-    image: "https://framyr.ru/upload/iblock/f61/0edxsk1f6ugp34znrq0b26xkodsfex4j.jpg",
-    title: "Мастер-спальня с радиусной стеной",
-    designer: "Студия DSGN HUB",
-    link: "https://framyr.ru/projects/master-spalnya-s-radiusnoy-stenoy/",
-  },
-  {
-    image: "https://framyr.ru/upload/iblock/0ae/p7z62qh4dwz5n16twptqdb0iq9r80f7k.jpg",
-    title: "Спальня с акцентной дверью",
-    designer: "Студия DSGN HUB",
-    link: "https://framyr.ru/projects/spalnya-s-aktsentnoy-dveryu/",
-  },
-  {
-    image: "https://framyr.ru/upload/optimization/images/71ceaee3c9e1927c7da12f8828909547.webp",
-    title: "Зимняя гармония",
-    designer: "Ирина Киряшова",
-    link: "https://framyr.ru/projects/zimnyaya-garmoniya/",
-  },
-  {
-    image: "https://framyr.ru/upload/optimization/images/30c5cb2643d8ee6df9a1d990252ab6fa.webp",
-    title: "Дом с панорамным остеклением",
-    designer: "Chado",
-    link: "https://framyr.ru/projects/dom-s-panoramnym-ostekleniem/",
-  },
-  {
-    image: "https://framyr.ru/upload/optimization/images/521719d88d5fbd30087882295a37e360.webp",
-    title: "Монохром",
-    designer: "Евгения Мельникова",
-    link: "https://framyr.ru/projects/monokhrom/",
-  },
-  {
-    image: "https://framyr.ru/upload/optimization/images/4dca62e910c1e5035490e20ad3b1c6e2.webp",
-    title: "Офис DSGN HUB",
-    designer: "Студия DSGN HUB",
-    link: "https://framyr.ru/projects/ofis-dsgn-hub/",
-  },
-];
+const featured = projects.slice(0, 8);
 
 const PortfolioSection = () => {
   const { ref, isVisible } = useScrollReveal();
@@ -93,35 +22,32 @@ const PortfolioSection = () => {
               className={`text-3xl md:text-5xl tracking-tight font-heading opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: "0.1s" }}
             >
-              Фрамир в интерьерах
+              Sofia в интерьерах
             </h2>
             <p
               className={`text-muted-foreground max-w-xl mt-4 leading-relaxed opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: "0.15s" }}
             >
-              Дизайнеры и архитекторы выбирают наш продукт для проектов своих
-              клиентов и всегда остаются довольны безупречным дизайном и качеством.
+              Дизайнеры и архитекторы выбирают наши двери для проектов своих
+              клиентов и всегда остаются довольны безупречным качеством и
+              дизайном.
             </p>
           </div>
-          <a
-            href="https://framyr.ru/projects/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 rounded-2xl border border-border px-6 py-3 text-sm font-medium transition-all duration-200 hover:bg-secondary active:scale-95 shrink-0 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+          <Link
+            to="/portfolio"
+            className={`inline-flex items-center gap-2 rounded-full border border-border px-6 py-3 text-sm font-medium transition-all duration-200 hover:bg-secondary active:scale-95 shrink-0 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
             style={{ animationDelay: "0.2s" }}
           >
-            Все 157 проектов
+            Все {projects.length}+ проектов
             <ArrowRight className="w-4 h-4" />
-          </a>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
-          {projects.map((project, i) => (
-            <a
-              key={project.title}
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+          {featured.map((project, i) => (
+            <Link
+              key={project.slug}
+              to="/portfolio"
               className={`group relative overflow-hidden rounded-2xl aspect-[3/4] cursor-pointer opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
               style={{ animationDelay: `${0.2 + i * 0.05}s` }}
             >
@@ -131,8 +57,8 @@ const PortfolioSection = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+              <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/10 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-2 opacity-90 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                 <p className="text-primary-foreground text-sm font-medium leading-tight">
                   {project.title}
                 </p>
@@ -140,7 +66,7 @@ const PortfolioSection = () => {
                   {project.designer}
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
