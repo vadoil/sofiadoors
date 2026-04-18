@@ -107,7 +107,7 @@ const Advantages = () => {
               <a
                 href="#help"
                 className="inline-flex items-center gap-2 border border-graphite/25 text-graphite px-7 py-3.5 rounded-full font-semibold hover:bg-bronze hover:text-bronze-foreground hover:border-bronze transition-all"
-              ></a>
+              >
                 Записаться в шоурум
               </a>
             </div>
