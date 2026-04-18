@@ -243,6 +243,25 @@ const CollectionsMarquee = () => {
         <MarqueeRow slides={row1} direction="left" />
         <MarqueeRow slides={row2} direction="right" />
       </div>
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="https://framyr.ru/catalog/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-graphite text-primary-foreground px-8 py-4 text-sm md:text-base font-medium tracking-wide transition-all duration-300 hover:bg-graphite/90 hover:gap-3 w-full sm:w-auto"
+        >
+          Все двери Фрамир
+          <ArrowRight className="w-4 h-4" />
+        </a>
+        <a
+          href="https://framyr.ru/catalog/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-sm md:text-base text-muted-foreground hover:text-graphite underline underline-offset-4 transition-colors"
+        >
+          Открыть полный каталог на framyr.ru
+        </a>
+      </div>
     </section>
   );
 };
