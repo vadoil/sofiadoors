@@ -320,13 +320,13 @@ const Advantages = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             <a
               href="tel:+78462429636"
-              className="inline-flex items-center gap-2 bg-graphite text-warm-white px-8 py-4 rounded-full font-semibold hover:bg-graphite/90 transition-all"
+              className="inline-flex items-center gap-2 bg-bronze text-bronze-foreground px-8 py-4 rounded-full font-semibold hover:bg-bronze/90 transition-all"
             >
               8 (846) 242-96-36
             </a>
             <Link
               to="/"
-              className="inline-flex items-center gap-2 border border-graphite/25 text-graphite px-8 py-4 rounded-full font-semibold hover:bg-graphite hover:text-warm-white transition-all"
+              className="inline-flex items-center gap-2 border border-warm-white/25 text-warm-white px-8 py-4 rounded-full font-semibold hover:bg-bronze hover:border-bronze transition-all"
             >
               На главную
             </Link>
