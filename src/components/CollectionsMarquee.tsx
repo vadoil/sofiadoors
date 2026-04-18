@@ -186,8 +186,7 @@ const MarqueeRow = ({
         {items.map((slide, i) => (
           <div
             key={`${slide.title}-${i}`}
-            className="shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group w-[78vw] sm:w-auto"
-            style={{}}
+            className="shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group w-[78vw] sm:w-[clamp(520px,42vw,820px)]"
           >
             <div className="aspect-[4/3] relative overflow-hidden">
               <img
