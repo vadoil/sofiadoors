@@ -21,7 +21,7 @@ const Header = () => {
       <div className="bg-graphite text-warm-white/90 px-6 lg:px-16 xl:px-24 py-1.5 hidden lg:flex items-center justify-between text-xs font-medium">
         <div className="flex items-center gap-2">
           <Flame className="w-3 h-3 text-bronze-foreground" />
-          <span>Скидки до 60% на двери Фрамир — акция до 13 апреля!</span>
+          <span>Скидки до 50% на двери Фрамир — акция до 2 мая!</span>
         </div>
         <div className="flex items-center gap-6">
           <span className="text-warm-white/70">г. Самара, ул. Чкалова, 100</span>
