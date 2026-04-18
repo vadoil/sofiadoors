@@ -1,26 +1,36 @@
-import { Palette, Package, Building2, HeartHandshake } from "lucide-react";
+import { Factory, Layers, Wrench, ShieldCheck, Truck, HeartHandshake } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
 
 const cards = [
   {
-    icon: Palette,
-    title: "Подбор под стиль интерьера",
-    desc: "Поможем выбрать коллекцию и покрытие, которые точно впишутся в ваш дизайн — минимализм, неоклассика, тёплый современный стиль.",
+    icon: Factory,
+    title: "Собственная фабрика",
+    desc: "Двери Фрамир производятся на одной из крупнейших фабрик России — с современным оборудованием и контролем качества на каждом этапе.",
   },
   {
-    icon: Package,
+    icon: Layers,
+    title: "8 видов покрытий",
+    desc: "Шпон, эмаль, нанотекс, стекло, зеркало, ПВХ, экошпон. Подбираем материал под архитектуру помещения и бюджет проекта.",
+  },
+  {
+    icon: Wrench,
     title: "Полная комплектация",
-    desc: "Полотно, короб, наличники, фурнитура — подберём всё в едином стиле. Не нужно искать каждый элемент отдельно.",
+    desc: "Полотно, короб, наличники, фурнитура, доборы — собираем дверной комплект под ключ в едином стиле.",
   },
   {
-    icon: Building2,
-    title: "Для квартиры, дома и коммерции",
-    desc: "Решения для любого типа объекта: от студии до загородного дома и гостиничного проекта.",
+    icon: ShieldCheck,
+    title: "Гарантия 5 лет",
+    desc: "Уверены в материалах и сборке: даём расширенную гарантию на полотно и фурнитуру наших дверей.",
+  },
+  {
+    icon: Truck,
+    title: "Доставка и монтаж",
+    desc: "Свои бригады замерщиков и установщиков по Самаре и области. Чисто, точно, в согласованные сроки.",
   },
   {
     icon: HeartHandshake,
-    title: "Сопровождение от выбора до заказа",
-    desc: "Консультируем, помогаем с замерами, согласовываем комплектацию. Вы не останетесь один на один с выбором.",
+    title: "Сопровождение проекта",
+    desc: "От первого визита в шоурум до сдачи объекта — один менеджер ведёт ваш заказ и держит вас в курсе.",
   },
 ];
 
@@ -29,29 +39,29 @@ const WhyChooseUsSection = () => {
 
   return (
     <section id="advantages" className="py-24 md:py-32 px-6 md:px-16 lg:px-24">
-      <div ref={ref} className="max-w-6xl mx-auto">
+      <div ref={ref} className="max-w-7xl mx-auto">
         <p className={`text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
-          Почему выбирают нас
+          Почему Фрамир
         </p>
         <h2
-          className={`text-3xl md:text-5xl tracking-tight mb-16 max-w-2xl opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+          className={`font-heading text-3xl md:text-5xl tracking-tight leading-tight mb-14 md:mb-16 max-w-2xl opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
           style={{ animationDelay: "0.1s" }}
         >
-          Не просто магазин дверей, а экспертный подбор под ваш интерьер
+          Шесть причин выбрать наши двери
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
           {cards.map((card, i) => (
             <div
               key={card.title}
-              className={`group rounded-2xl border border-border p-8 md:p-10 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
-              style={{ animationDelay: `${0.2 + i * 0.1}s` }}
+              className={`group bg-warm-white border border-stone/60 rounded-2xl p-7 md:p-8 hover:border-graphite/30 hover:shadow-lg transition-all duration-300 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+              style={{ animationDelay: `${0.2 + i * 0.08}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-primary/8 flex items-center justify-center mb-6 transition-colors duration-300 group-hover:bg-primary/15">
-                <card.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
+              <div className="w-12 h-12 rounded-xl bg-graphite/5 flex items-center justify-center mb-5 group-hover:bg-graphite group-hover:text-warm-white transition-colors">
+                <card.icon className="w-5 h-5" strokeWidth={1.6} />
               </div>
-              <h3 className="text-xl md:text-2xl tracking-tight mb-3 font-heading">{card.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">{card.desc}</p>
+              <h3 className="font-heading text-xl md:text-2xl tracking-tight mb-3">{card.title}</h3>
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{card.desc}</p>
             </div>
           ))}
         </div>
