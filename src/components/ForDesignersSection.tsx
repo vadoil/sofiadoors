@@ -35,7 +35,10 @@ const ForDesignersSection = () => {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <a
-                href="#help"
+                href="/katalog-framyr.pdf"
+                download="katalog-framyr.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 border border-foreground/20 px-7 py-3.5 rounded-full font-semibold hover:bg-foreground hover:text-background transition-all"
               >
                 Скачать каталог
