@@ -78,7 +78,7 @@ const Advantages = () => {
               Преимущества · Фрамир · Самара
             </p>
             <h1
-              className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.02] mb-6 animate-fade-up"
+              className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.08] mb-6 animate-fade-up"
               style={{ animationDelay: "0.1s" }}
             >
               Двери, в которых
