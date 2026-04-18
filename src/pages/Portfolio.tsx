@@ -3,6 +3,7 @@ import { ArrowRight, X, Loader2 } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import { supabase } from "@/integrations/supabase/client";
 
 const styleFilters = ["Современные", "Классические", "Неоклассические", "Дизайнерские", "Скрытые"];
@@ -255,13 +256,20 @@ const Portfolio = () => {
               согласуем все детали с вашим дизайнером.
             </p>
           </div>
-          <a
-            href="/#help"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold hover:bg-primary/90 transition-all shrink-0"
-          >
-            Обсудить проект
-            <ArrowRight className="w-4 h-4" />
-          </a>
+          <RequestQuoteDialog
+            title="Расскажите о вашем проекте"
+            description="Опишите задачу — подберём двери, посчитаем смету и согласуем детали с вашим дизайнером."
+            source="portfolio_cta"
+            trigger={
+              <button
+                type="button"
+                className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold hover:bg-primary/90 transition-all shrink-0"
+              >
+                Обсудить проект
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            }
+          />
         </div>
       </section>
 
