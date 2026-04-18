@@ -222,8 +222,8 @@ const MarqueeRow = ({
 
 const CollectionsMarquee = () => {
   return (
-    <section id="collections" className="relative py-16 md:py-24 px-0 bg-background overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 mb-10 md:mb-14">
+    <section id="collections" className="relative py-10 md:py-24 px-0 bg-background overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 mb-6 md:mb-14">
         <div className="flex items-end justify-between gap-6 flex-wrap">
           <div>
             <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-muted-foreground">
@@ -239,11 +239,11 @@ const CollectionsMarquee = () => {
           </p>
         </div>
       </div>
-      <div className="flex flex-col gap-5 md:gap-6">
+      <div className="flex flex-col gap-3 md:gap-6">
         <MarqueeRow slides={row1} direction="left" />
         <MarqueeRow slides={row2} direction="right" />
       </div>
-      <div className="max-w-[1400px] mx-auto px-4 md:px-8 mt-10 md:mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 mt-6 md:mt-14 flex justify-center">
         <a
           href="https://framyr.ru/catalog/"
           target="_blank"
@@ -252,14 +252,6 @@ const CollectionsMarquee = () => {
         >
           Все двери Фрамир
           <ArrowRight className="w-4 h-4" />
-        </a>
-        <a
-          href="https://framyr.ru/catalog/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm md:text-base text-muted-foreground hover:text-graphite underline underline-offset-4 transition-colors"
-        >
-          Открыть полный каталог на framyr.ru
         </a>
       </div>
     </section>
