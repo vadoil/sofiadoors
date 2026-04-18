@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top accent bar — глубокий графит для контраста */}
-      <div className="bg-graphite text-warm-white/90 px-6 md:px-16 lg:px-24 py-1.5 hidden md:flex items-center justify-between text-xs font-medium">
+      <div className="bg-graphite text-warm-white/90 px-6 lg:px-16 xl:px-24 py-1.5 hidden lg:flex items-center justify-between text-xs font-medium">
         <div className="flex items-center gap-2">
           <Flame className="w-3 h-3 text-bronze-foreground" />
           <span>Скидки до 60% на двери Фрамир — акция до 13 апреля!</span>
@@ -35,14 +35,22 @@ const Header = () => {
         </div>
       </div>
 
+      {/* Mobile/tablet top strip — короткая версия акции */}
+      <div className="bg-graphite text-warm-white/90 px-4 py-1.5 flex lg:hidden items-center justify-center gap-2 text-[11px] font-medium">
+        <Flame className="w-3 h-3 text-bronze-foreground shrink-0" />
+        <span className="truncate">Скидки до 60% — акция до 13 апреля</span>
+      </div>
+
       {/* Основная навигация — тёплый айвори с лёгким blur */}
-      <div className="px-6 md:px-16 lg:px-24 py-4 flex items-center justify-between bg-warm-white/85 backdrop-blur-md border-b border-stone/60">
-        <div className="flex items-center gap-3">
-          <Link to="/" className="text-graphite text-xl font-heading font-semibold tracking-wide">
-            Фрамир · Самара
-          </Link>
-        </div>
-        <nav className="hidden md:flex items-center gap-8">
+      <div className="px-4 sm:px-6 lg:px-16 xl:px-24 py-3 lg:py-4 flex items-center justify-between gap-4 bg-warm-white/85 backdrop-blur-md border-b border-stone/60">
+        <Link
+          to="/"
+          className="text-graphite text-base sm:text-lg lg:text-xl font-heading font-semibold tracking-wide whitespace-nowrap"
+        >
+          Фрамир&nbsp;·&nbsp;Самара
+        </Link>
+
+        <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
           <Link
             to="/"
             aria-label="На главную"
@@ -71,24 +79,32 @@ const Header = () => {
           )}
           <a
             href="#help"
-            className="text-sm bg-primary text-primary-foreground px-5 py-2 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-sm"
+            className="text-sm bg-primary text-primary-foreground px-5 py-2 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-sm whitespace-nowrap"
           >
             Оставить заявку
           </a>
         </nav>
-        <div className="flex items-center gap-3 md:hidden">
-          <Link to="/" aria-label="На главную" className="text-graphite">
-            <Home className="w-4 h-4" />
-          </Link>
-          <a href="tel:+78462429636" className="text-graphite">
+
+        <div className="flex items-center gap-2 sm:gap-3 lg:hidden">
+          <a
+            href="#help"
+            className="hidden sm:inline-flex text-xs bg-primary text-primary-foreground px-4 py-2 rounded-full hover:bg-primary/90 transition-all font-semibold shadow-sm whitespace-nowrap"
+          >
+            Заявка
+          </a>
+          <a
+            href="tel:+78462429636"
+            aria-label="Позвонить"
+            className="inline-flex w-9 h-9 items-center justify-center rounded-full border border-stone/70 text-graphite"
+          >
             <Phone className="w-4 h-4" />
           </a>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="text-graphite"
+            className="inline-flex w-9 h-9 items-center justify-center rounded-full border border-stone/70 text-graphite"
             aria-label="Меню"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
               {menuOpen ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
             </svg>
           </button>
@@ -96,7 +112,7 @@ const Header = () => {
       </div>
 
       {menuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-warm-white/95 backdrop-blur-md px-6 py-8 flex flex-col gap-6 md:hidden border-b border-stone/60">
+        <div className="absolute top-full left-0 right-0 bg-warm-white/95 backdrop-blur-md px-6 py-8 flex flex-col gap-6 lg:hidden border-b border-stone/60 max-h-[calc(100vh-4rem)] overflow-y-auto">
           {navLinks.map((link) =>
             link.isRoute ? (
               <Link
