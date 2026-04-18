@@ -36,9 +36,9 @@ const HeroSection = () => {
               </div>
 
               {/* Interest — заголовок */}
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight mb-6">
                 Двери, которые<br />
-                <span className="italic text-bronze-foreground/95">формируют</span> пространство
+                <span className="italic font-display font-normal text-bronze-foreground/95">формируют</span> пространство
               </h1>
 
               {/* Desire — выгоды */}

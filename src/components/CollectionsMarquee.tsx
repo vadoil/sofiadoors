@@ -230,7 +230,7 @@ const CollectionsMarquee = () => {
             <span className="text-xs md:text-sm tracking-[0.25em] uppercase text-muted-foreground">
               Каталог Фрамир
             </span>
-            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight mt-3 max-w-2xl leading-[1.05]">
+            <h2 className="font-heading text-2xl md:text-4xl lg:text-5xl tracking-tight mt-3 max-w-2xl leading-[1.1]">
               Межкомнатные двери
             </h2>
           </div>

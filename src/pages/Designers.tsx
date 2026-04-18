@@ -40,9 +40,9 @@ const Designers = () => {
             <p className="text-sm uppercase tracking-[0.25em] text-accent mb-4 animate-fade-up">
               Сотрудничество
             </p>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading tracking-tight leading-[1.02] mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading tracking-tight leading-[1.08] mb-6 animate-fade-up" style={{ animationDelay: "0.1s" }}>
               Дизайнерам<br />
-              <span className="text-accent italic">и архитекторам</span>
+              <span className="text-accent italic font-display font-normal">и архитекторам</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl animate-fade-up" style={{ animationDelay: "0.2s" }}>
               Если вы профессионально занимаетесь интерьерами — будем рады пообщаться. Поддерживаем

@@ -111,7 +111,7 @@ const Portfolio = () => {
           <p className="text-sm uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Портфолио
           </p>
-          <h1 className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] max-w-3xl">
+          <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.1] max-w-3xl">
             Фрамир в реальных интерьерах
           </h1>
           <p className="text-muted-foreground max-w-2xl mt-6 text-base md:text-lg leading-relaxed">
