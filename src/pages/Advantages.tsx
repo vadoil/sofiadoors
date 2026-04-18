@@ -99,15 +99,15 @@ const Advantages = () => {
             >
               <Link
                 to="/catalog"
-                className="inline-flex items-center gap-2 bg-graphite text-warm-white px-7 py-3.5 rounded-full font-semibold hover:bg-graphite/90 transition-all"
+                className="inline-flex items-center gap-2 bg-bronze text-bronze-foreground px-7 py-3.5 rounded-full font-semibold hover:bg-bronze/90 transition-all"
               >
                 Смотреть каталог
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href="#help"
-                className="inline-flex items-center gap-2 border border-graphite/25 text-graphite px-7 py-3.5 rounded-full font-semibold hover:bg-graphite hover:text-warm-white transition-all"
-              >
+                className="inline-flex items-center gap-2 border border-graphite/25 text-graphite px-7 py-3.5 rounded-full font-semibold hover:bg-bronze hover:text-bronze-foreground hover:border-bronze transition-all"
+              ></a>
                 Записаться в шоурум
               </a>
             </div>

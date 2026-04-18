@@ -22,8 +22,8 @@ const FilterChip = ({
     onClick={onClick}
     className={`px-4 py-2 rounded-full text-sm border transition-all duration-200 ${
       active
-        ? "bg-graphite text-warm-white border-graphite"
-        : "bg-warm-white text-graphite/80 border-stone/60 hover:border-graphite/40"
+        ? "bg-bronze text-bronze-foreground border-bronze"
+        : "bg-warm-white text-graphite/80 border-stone/60 hover:border-bronze/40"
     }`}
   >
     {label}

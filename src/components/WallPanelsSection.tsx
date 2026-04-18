@@ -257,7 +257,7 @@ const WallPanelsSection = () => {
               <TabsTrigger
                 key={c.id}
                 value={c.id}
-                className="rounded-full border border-border bg-background px-5 md:px-7 py-2.5 md:py-3 text-sm md:text-base data-[state=active]:bg-graphite data-[state=active]:text-primary-foreground data-[state=active]:border-graphite transition-colors"
+                className="rounded-full border border-border bg-background px-5 md:px-7 py-2.5 md:py-3 text-sm md:text-base data-[state=active]:bg-bronze data-[state=active]:text-bronze-foreground data-[state=active]:border-bronze transition-colors"
               >
                 {c.label}
               </TabsTrigger>

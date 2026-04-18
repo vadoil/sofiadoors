@@ -248,7 +248,7 @@ const CollectionsMarquee = () => {
           href="https://framyr.ru/catalog/"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-graphite text-primary-foreground px-8 py-4 text-sm md:text-base font-medium tracking-wide transition-all duration-300 hover:bg-graphite/90 hover:gap-3 w-full sm:w-auto"
+          className="inline-flex items-center justify-center gap-2 rounded-full bg-bronze text-bronze-foreground px-8 py-4 text-sm md:text-base font-medium tracking-wide transition-all duration-300 hover:bg-bronze/90 hover:gap-3 w-full sm:w-auto"
         >
           Все двери Фрамир
           <ArrowRight className="w-4 h-4" />
