@@ -37,7 +37,7 @@ const News = () => {
           </Link>
 
           <p className="text-sm uppercase tracking-[0.25em] text-accent mb-4">Блог Фрамир</p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading tracking-tight mb-6 leading-[1.05]">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-heading tracking-tight mb-6 leading-[1.1]">
             Новости и статьи
           </h1>
           <p className="text-muted-foreground max-w-xl mb-10 leading-relaxed">

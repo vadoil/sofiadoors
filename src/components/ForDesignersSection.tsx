@@ -19,7 +19,7 @@ const ForDesignersSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-12 md:mb-14">
           <div className={`opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
             <p className="text-sm uppercase tracking-[0.25em] text-accent mb-4">Профессионалам</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading tracking-tight mb-6 leading-[1.05]">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading tracking-tight mb-6 leading-[1.1]">
               Дизайнерам<br />и архитекторам
             </h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
