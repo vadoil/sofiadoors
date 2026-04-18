@@ -8,9 +8,9 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative pt-24 md:pt-28 pb-12 md:pb-20 px-4 md:px-8 bg-background overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
-        <div className="relative rounded-[2rem] overflow-hidden shadow-2xl">
+    <section className="relative bg-background overflow-hidden">
+      <div className="w-full">
+        <div className="relative overflow-hidden h-screen min-h-[640px]">
           {/* Background image */}
           <img
             src={heroWorkshop}
