@@ -1,5 +1,5 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import promoElegant from "@/assets/promo-elegant.jpg";
+import promoElegant from "@/assets/cta-interior.jpg";
 
 const FinalCTASection = () => {
   const { ref, isVisible } = useScrollReveal();
