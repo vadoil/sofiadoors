@@ -83,21 +83,6 @@ const HeroSection = () => {
                 </Button>
               </div>
 
-              {/* Social proof */}
-              <div className="flex flex-wrap items-center gap-6 md:gap-10 mt-10 pt-8 border-t border-warm-white/15">
-                <div>
-                  <div className="font-heading text-3xl md:text-4xl text-bronze-foreground">25+</div>
-                  <div className="text-xs uppercase tracking-wider text-warm-white/60 mt-1">лет на рынке</div>
-                </div>
-                <div>
-                  <div className="font-heading text-3xl md:text-4xl text-bronze-foreground">40+</div>
-                  <div className="text-xs uppercase tracking-wider text-warm-white/60 mt-1">коллекций</div>
-                </div>
-                <div>
-                  <div className="font-heading text-3xl md:text-4xl text-bronze-foreground">12 000</div>
-                  <div className="text-xs uppercase tracking-wider text-warm-white/60 mt-1">проектов в год</div>
-                </div>
-              </div>
             </div>
 
             {/* Right side intentionally empty — let the photo breathe */}

@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import CollectionsMarquee from "@/components/CollectionsMarquee";
+import StatsSection from "@/components/StatsSection";
 import WhyChooseUsSection from "@/components/WhyChooseUsSection";
 import ChatWidget from "@/components/ChatWidget";
 import QuizWidget from "@/components/QuizWidget";
@@ -26,6 +27,7 @@ const Index = () => {
       <CollectionsMarquee />
       <WhyChooseUsSection />
       <Suspense fallback={<div className="h-96" />}>
+        <StatsSection />
         <WallPanelsSection />
         <TaskSelectionSection />
         <AlineSolutionsSection />
