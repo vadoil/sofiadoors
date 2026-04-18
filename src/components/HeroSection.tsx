@@ -31,21 +31,21 @@ const HeroSection = () => {
               <div className="inline-flex items-center gap-2 self-start px-4 py-2 mb-6 rounded-full bg-warm-white/10 backdrop-blur-md border border-warm-white/20">
                 <Sparkles className="w-4 h-4 text-bronze" />
                 <span className="text-xs md:text-sm tracking-[0.2em] uppercase text-warm-white/90">
-                  Фабрика Фрамир · Самара
+                  Фрамир · Самара
                 </span>
               </div>
 
               {/* Interest — заголовок */}
               <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6">
-                Двери, которые<br />
-                <span className="italic text-bronze-foreground/95">формируют</span> пространство
+                Дизайнерские двери<br />
+                для <span className="italic text-bronze-foreground/95">идеального</span> интерьера
               </h1>
 
               {/* Desire — выгоды */}
               <p className="text-base md:text-lg text-warm-white/85 max-w-xl mb-4 leading-relaxed">
                 Полотна высотой до 6 метров, скрытый монтаж, шумоизоляция 60 мм
-                и 40+ авторских коллекций — производим под ваш проект на собственной
-                фабрике в Самаре.
+                и 40+ авторских коллекций — производим под ваш проект и характер
+                вашего пространства.
               </p>
 
               <ul className="space-y-2 mb-8 text-sm md:text-base text-warm-white/80">
