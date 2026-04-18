@@ -26,7 +26,7 @@ const NewsSection = () => {
   return (
     <section id="news" className="pt-12 md:pt-16 pb-16 md:pb-24 px-6 md:px-16 lg:px-24 bg-secondary/30">
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="flex items-end justify-between mb-14 flex-wrap gap-6">
+        <div className="flex items-end justify-between mb-8 md:mb-12 flex-wrap gap-6">
           <div>
             <p className={`text-sm uppercase tracking-[0.2em] text-accent mb-4 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
               Блог Фрамир
