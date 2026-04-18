@@ -25,7 +25,7 @@ const HeroSection = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/70 via-transparent to-transparent" />
 
           {/* Content */}
-          <div className="relative grid md:grid-cols-2 gap-8 px-6 md:px-14 lg:px-20 py-16 md:py-24 lg:py-32 min-h-[560px] md:min-h-[640px]">
+          <div className="relative grid md:grid-cols-2 gap-8 px-6 md:px-14 lg:px-20 pt-28 md:pt-32 pb-16 md:pb-24 h-full">
             <div className="flex flex-col justify-center text-warm-white animate-reveal">
               {/* Attention */}
               <div className="inline-flex items-center gap-2 self-start px-4 py-2 mb-6 rounded-full bg-warm-white/10 backdrop-blur-md border border-warm-white/20">
