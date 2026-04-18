@@ -15,13 +15,13 @@ const HeroSection = () => {
           <img
             src={heroWorkshop}
             alt="Мастерская Фрамир — двери ручной работы в Самаре"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="absolute inset-0 w-full h-full object-cover object-left md:object-center"
             loading="eager"
             fetchPriority="high"
           />
 
           {/* Layered gradients for legibility */}
-          <div className="absolute inset-0 bg-gradient-to-r from-graphite/85 via-graphite/55 to-graphite/10" />
+          <div className="absolute inset-0 bg-gradient-to-b md:bg-gradient-to-r from-graphite/85 via-graphite/55 to-graphite/10" />
           <div className="absolute inset-0 bg-gradient-to-t from-graphite/70 via-transparent to-transparent" />
 
           {/* Content */}
@@ -36,19 +36,19 @@ const HeroSection = () => {
               </div>
 
               {/* Interest — заголовок */}
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.08] tracking-tight mb-6">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-semibold md:font-medium leading-[1.05] tracking-tight mb-6">
                 Двери, которые<br />
                 <span className="italic font-display font-normal text-bronze-foreground/95">формируют</span> пространство
               </h1>
 
               {/* Desire — выгоды */}
-              <p className="text-base md:text-lg text-warm-white/85 max-w-xl mb-4 leading-relaxed">
+              <p className="text-base md:text-lg text-warm-white/90 md:text-warm-white/85 max-w-xl mb-4 leading-relaxed font-medium md:font-normal">
                 Полотна высотой до 6 метров, скрытый монтаж, шумоизоляция 60 мм
                 и 40+ авторских коллекций — производим под ваш проект и характер
                 вашего пространства.
               </p>
 
-              <ul className="space-y-2 mb-8 text-sm md:text-base text-warm-white/80">
+              <ul className="space-y-2 mb-8 text-sm md:text-base text-warm-white/90 md:text-warm-white/80 font-medium md:font-normal">
                 <li className="flex items-center gap-3">
                   <span className="w-1.5 h-1.5 rounded-full bg-bronze" />
                   Замер и 3D-визуализация — бесплатно

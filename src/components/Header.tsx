@@ -113,6 +113,14 @@ const Header = () => {
 
       {menuOpen && (
         <div className="absolute top-full left-0 right-0 bg-warm-white/95 backdrop-blur-md px-6 py-8 flex flex-col gap-6 lg:hidden border-b border-stone/60 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <Link
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="text-lg text-graphite/80 hover:text-graphite transition-colors inline-flex items-center gap-2"
+          >
+            <Home className="w-4 h-4" strokeWidth={1.6} />
+            Главная
+          </Link>
           {navLinks.map((link) =>
             link.isRoute ? (
               <Link
