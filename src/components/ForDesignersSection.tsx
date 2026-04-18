@@ -14,9 +14,9 @@ const ForDesignersSection = () => {
   const { ref, isVisible } = useScrollReveal();
 
   return (
-    <section id="designers" className="py-24 md:py-32 px-6 md:px-16 lg:px-24 bg-secondary/40">
+    <section id="designers" className="py-16 md:py-20 px-6 md:px-16 lg:px-24 bg-secondary/40">
       <div ref={ref} className="max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-12 md:mb-14">
           <div className={`opacity-0 ${isVisible ? "animate-fade-up" : ""}`}>
             <p className="text-sm uppercase tracking-[0.25em] text-accent mb-4">Профессионалам</p>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading tracking-tight mb-6 leading-[1.05]">
