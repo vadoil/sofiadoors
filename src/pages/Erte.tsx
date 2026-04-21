@@ -249,6 +249,30 @@ const Erte = () => {
         </div>
       </section>
 
+      {/* Видео — 2 в ряд */}
+      <section className="py-12 md:py-20 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+            {erteVideos.map((src, i) => (
+              <div
+                key={i}
+                className="relative aspect-video overflow-hidden rounded-2xl bg-secondary/40"
+              >
+                <video
+                  src={src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Модельный ряд */}
       <section className="py-16 md:py-24 px-4 md:px-8 bg-secondary/20">
         <div className="max-w-[1400px] mx-auto">
