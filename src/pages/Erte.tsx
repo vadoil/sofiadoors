@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Download } from "lucide-react";
+import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import erteHero from "@/assets/erte-hero-banner.png";
@@ -16,6 +23,10 @@ import model9 from "@/assets/erte/ПО Эрте 11.webp";
 import twoSided1 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра Зеркало.webp";
 import twoSided2 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра + ПГ Эрте 1 Рустика.webp";
 import twoSided3 from "@/assets/erte/two-sided/ПГ Эрте 1 Рустика Зеркало.webp";
+import erteVideo1 from "@/assets/erte/videos/erte-1.mp4";
+import erteVideo2 from "@/assets/erte/videos/erte-2.mp4";
+
+const erteVideos = [erteVideo1, erteVideo2];
 
 const erteModels = [
   { src: model1, name: "ПГ Эрте 1 Каннелюра с декором" },
@@ -101,18 +112,11 @@ const Erte = () => {
       {/* Story + door image */}
       <section className="py-16 md:py-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-          {/* Door visual */}
+          {/* Video carousel */}
           <div className="md:col-span-5 lg:col-span-5 order-2 md:order-1">
-            <div className="relative mx-auto max-w-[420px]">
+            <div className="relative mx-auto max-w-[460px]">
               <div className="absolute -inset-6 md:-inset-10 rounded-[2rem] bg-gradient-to-br from-bronze/10 via-transparent to-stone/40 blur-2xl pointer-events-none" />
-              <div className="relative aspect-[3/7] overflow-hidden rounded-2xl bg-secondary/40">
-                <img
-                  src={erteDoor}
-                  alt="Дверь Эрте — вертикальные каннелюры, эмаль, латунная фурнитура"
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-contain"
-                />
-              </div>
+              <ErteVideoCarousel />
             </div>
           </div>
 
