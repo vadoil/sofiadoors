@@ -191,11 +191,18 @@ const Erte = () => {
       {/* Story + door image */}
       <section className="py-16 md:py-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
-          {/* Video carousel */}
+          {/* Door visual */}
           <div className="md:col-span-5 lg:col-span-5 order-2 md:order-1">
-            <div className="relative mx-auto max-w-[460px]">
+            <div className="relative mx-auto max-w-[420px]">
               <div className="absolute -inset-6 md:-inset-10 rounded-[2rem] bg-gradient-to-br from-bronze/10 via-transparent to-stone/40 blur-2xl pointer-events-none" />
-              <ErteVideoCarousel />
+              <div className="relative aspect-[3/7] overflow-hidden rounded-2xl bg-secondary/40">
+                <img
+                  src={erteDoor}
+                  alt="Дверь Эрте — вертикальные каннелюры, эмаль, латунная фурнитура"
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-contain"
+                />
+              </div>
             </div>
           </div>
 
