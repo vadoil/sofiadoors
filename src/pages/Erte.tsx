@@ -30,8 +30,59 @@ import portfolio7 from "@/assets/erte/portfolio/erte-portfolio-7.webp";
 import portfolio8 from "@/assets/erte/portfolio/erte-portfolio-8.webp";
 import portfolio9 from "@/assets/erte/portfolio/erte-portfolio-9.webp";
 import portfolio10 from "@/assets/erte/portfolio/erte-portfolio-10.webp";
+import detailCannelure from "@/assets/erte/detail-cannelure.webp";
+import detailRustica from "@/assets/erte/detail-rustica.webp";
+import detailDecorGold from "@/assets/erte/detail-decor-gold.webp";
+import detailDecorSilver from "@/assets/erte/detail-decor-silver.webp";
+import detailMirror from "@/assets/erte/detail-mirror.webp";
+import detailNalichnik from "@/assets/erte/detail-nalichnik.webp";
+import detailHandleAprile from "@/assets/erte/detail-handle-aprile.webp";
+import detailHandleRaflesia from "@/assets/erte/detail-handle-raflesia.webp";
 
 const erteVideos = [erteVideo1, erteVideo2];
+
+const erteDetails = [
+  {
+    src: detailCannelure,
+    title: "Каннелюра",
+    text: "Волнообразная фрезеровка Каннелюра гармонично смотрится как на стенах, так и на мебели. Акценты, расставленные в разных частях дома, помогают собрать интерьер в единое целое.",
+  },
+  {
+    src: detailRustica,
+    title: "Рустика",
+    text: "Геометричная фрезеровка Рустика — строгое, но изящное украшение двери. Создаёт глубокий светотеневой рисунок.",
+  },
+  {
+    src: detailDecorGold,
+    title: "Декор золото",
+    text: "Декор, покрытый брашированным золотом, дополняет фрезеровку, добавляя полотнам глубины и сияния.",
+  },
+  {
+    src: detailDecorSilver,
+    title: "Декор серебро",
+    text: "Дополнительные сияющие линии на полотне. Можно поставить на любую модель.",
+  },
+  {
+    src: detailMirror,
+    title: "Зеркало",
+    text: "Зеркала — важный элемент стиля ар-деко. Поэтому зеркала в полотнах Эрте не только бесцветные, но и в оттенках «бронза» и «графит». Можно украсить фацетами для дополнительного сияния.",
+  },
+  {
+    src: detailNalichnik,
+    title: "Наличник Эрте",
+    text: "Геометричные ступенчатые наличники продолжают фрезеровку полотен, образуя единый с дверью ансамбль.",
+  },
+  {
+    src: detailHandleAprile,
+    title: "Ручка Aprile Pina",
+    text: "Аккуратная ручка на минималистичной розетке дополняет образ. Цвета: золотой, чёрный или хром.",
+  },
+  {
+    src: detailHandleRaflesia,
+    title: "Ручка Raflesia Q",
+    text: "Ступенчатая, как фрезеровка. Подчёркивает геометричность модели.",
+  },
+];
 
 const ertePortfolio = [
   portfolio1,
@@ -268,33 +319,6 @@ const Erte = () => {
         </div>
       </section>
 
-      {/* Видео коллекции */}
-      <section className="py-16 md:py-24 px-4 md:px-8 bg-graphite text-warm-white relative overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-[1400px] mx-auto">
-          <div className="max-w-3xl mb-12 md:mb-16">
-            <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-bronze mb-4">
-              Эрте в движении
-            </span>
-            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-5">
-              Каннелюры, эмаль, латунь
-            </h2>
-            <p className="text-warm-white/70 text-base md:text-lg leading-relaxed">
-              Покажем коллекцию в деталях: как ложится свет на грани,
-              переливается фурнитура и работает фактура эмали.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
-            {erteVideos.map((src, i) => (
-              <ErteVideoPlayer key={i} src={src} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Модельный ряд */}
       <section className="py-16 md:py-24 px-4 md:px-8 bg-secondary/20">
         <div className="max-w-[1400px] mx-auto">
@@ -371,6 +395,73 @@ const Erte = () => {
                   {m.name}
                 </figcaption>
               </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Детали коллекции */}
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-secondary/20">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <span className="inline-block text-xs md:text-sm tracking-[0.25em] uppercase text-bronze mb-4">
+              Детали
+            </span>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]">
+              Детали коллекции
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {erteDetails.map((d, i) => (
+              <figure key={d.title} className="group">
+                <div className="relative aspect-square overflow-hidden rounded-xl bg-background ring-1 ring-border/40">
+                  <img
+                    src={d.src}
+                    alt={d.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                  <span className="absolute top-3 left-3 text-[10px] md:text-xs tracking-[0.2em] uppercase text-warm-white/90 bg-graphite/60 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <figcaption className="mt-5">
+                  <h3 className="font-heading text-xl md:text-2xl tracking-tight mb-2">
+                    {d.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {d.text}
+                  </p>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Видео коллекции */}
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-graphite text-warm-white relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-bronze mb-4">
+              Эрте в движении
+            </span>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-5">
+              Каннелюры, эмаль, латунь
+            </h2>
+            <p className="text-warm-white/70 text-base md:text-lg leading-relaxed">
+              Покажем коллекцию в деталях: как ложится свет на грани,
+              переливается фурнитура и работает фактура эмали.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
+            {erteVideos.map((src, i) => (
+              <ErteVideoPlayer key={i} src={src} index={i} />
             ))}
           </div>
         </div>
