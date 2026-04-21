@@ -371,12 +371,16 @@ const Erte = () => {
               <span className="text-bronze font-medium">
                 от 48 545 ₽ за комплект
               </span>
-              <a
-                href="/#help"
-                className="inline-flex items-center gap-2 text-graphite border-b border-graphite/30 hover:border-graphite pb-1 transition-colors"
-              >
-                Запросить расчёт
-              </a>
+              <RequestQuoteDialog
+                source="erte_inline_quote"
+                title="Запросить расчёт"
+                description="Оставьте контакты — менеджер перезвонит, согласует удобное время и пришлёт инженера на бесплатный замер."
+                trigger={
+                  <button className="inline-flex items-center gap-2 text-graphite border-b border-graphite/30 hover:border-graphite pb-1 transition-colors">
+                    Запросить расчёт
+                  </button>
+                }
+              />
             </div>
           </div>
         </div>
