@@ -12,6 +12,7 @@ import {
 } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import heroDoor from "@/assets/advantages/hero-door.jpg";
 import factory from "@/assets/advantages/factory.jpg";
 import materials from "@/assets/advantages/materials.jpg";
@@ -104,12 +105,16 @@ const Advantages = () => {
                 Смотреть каталог
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <a
-                href="#help"
-                className="inline-flex items-center gap-2 border border-graphite/25 text-graphite px-7 py-3.5 rounded-full font-semibold hover:bg-bronze hover:text-bronze-foreground hover:border-bronze transition-all"
-              >
-                Записаться в шоурум
-              </a>
+              <RequestQuoteDialog
+                source="advantages_showroom"
+                title="Записаться в шоурум"
+                description="Оставьте контакты — менеджер свяжется и согласует удобное время визита в шоурум в Самаре."
+                trigger={
+                  <button className="inline-flex items-center gap-2 border border-graphite/25 text-graphite px-7 py-3.5 rounded-full font-semibold hover:bg-bronze hover:text-bronze-foreground hover:border-bronze transition-all">
+                    Записаться в шоурум
+                  </button>
+                }
+              />
             </div>
           </div>
           <div
