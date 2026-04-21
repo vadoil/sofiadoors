@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import Footer from "@/components/Footer";
 import { framyrItems } from "@/data/framyrCatalog";
 import alineDoors from "@/assets/aline/aline-doors.png";
@@ -172,13 +173,17 @@ const Catalog = () => {
           </div>
 
           <div className="mt-12 md:mt-16 flex justify-center">
-            <a
-              href="/#help"
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-bronze text-bronze-foreground px-8 py-4 text-sm md:text-base font-medium tracking-wide transition-all duration-300 hover:bg-bronze/90 hover:gap-3"
-            >
-              Запросить расчёт по каталогу
-              <ArrowRight className="w-4 h-4" />
-            </a>
+            <RequestQuoteDialog
+              source="catalog_main_cta"
+              title="Запросить расчёт по каталогу"
+              description="Оставьте контакты — менеджер свяжется, уточнит задачу и пришлёт расчёт по выбранным коллекциям."
+              trigger={
+                <button className="inline-flex items-center justify-center gap-2 rounded-full bg-bronze text-bronze-foreground px-8 py-4 text-sm md:text-base font-medium tracking-wide transition-all duration-300 hover:bg-bronze/90 hover:gap-3">
+                  Запросить расчёт по каталогу
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              }
+            />
           </div>
         </div>
       </section>

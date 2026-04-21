@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import alineDoors from "@/assets/aline/aline-doors.png";
 import alinePartitions from "@/assets/aline/aline-partitions.png";
 import alineSliding from "@/assets/aline/aline-sliding.png";
@@ -87,13 +88,17 @@ const AlineSolutionsSection = () => {
                     {b.text}
                   </p>
                   <div className="pt-2">
-                    <a
-                      href="/#help"
-                      className="inline-flex items-center gap-2 text-sm md:text-base text-graphite border-b border-graphite/30 hover:border-graphite pb-1 transition-colors"
-                    >
-                      Запросить расчёт
-                      <ArrowRight className="w-4 h-4" />
-                    </a>
+                    <RequestQuoteDialog
+                      source={`aline_${b.title}`}
+                      title={`Запросить расчёт — ${b.title}`}
+                      description="Оставьте контакты — подберём комплектацию А-лайн под ваш проект и пришлём расчёт."
+                      trigger={
+                        <button className="inline-flex items-center gap-2 text-sm md:text-base text-graphite border-b border-graphite/30 hover:border-graphite pb-1 transition-colors">
+                          Запросить расчёт
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      }
+                    />
                   </div>
                 </div>
 

@@ -1,4 +1,5 @@
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import promoElegant from "@/assets/cta-interior.jpg";
 
 const FinalCTASection = () => {
@@ -26,13 +27,19 @@ const FinalCTASection = () => {
         >
           Оставьте заявку — поможем выбрать коллекцию, покрытие и комплектацию без лишних ошибок и переплат.
         </p>
-        <a
-          href="#help"
-          className={`inline-flex items-center rounded-2xl bg-background px-10 py-5 text-base font-medium text-foreground transition-all duration-200 hover:bg-background/90 active:scale-95 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
-          style={{ animationDelay: "0.2s" }}
-        >
-          Оставить заявку
-        </a>
+        <RequestQuoteDialog
+          source="final_cta"
+          title="Оставить заявку"
+          description="Опишите задачу — поможем выбрать коллекцию, покрытие и комплектацию без лишних ошибок и переплат."
+          trigger={
+            <button
+              className={`inline-flex items-center rounded-2xl bg-background px-10 py-5 text-base font-medium text-foreground transition-all duration-200 hover:bg-background/90 active:scale-95 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+              style={{ animationDelay: "0.2s" }}
+            >
+              Оставить заявку
+            </button>
+          }
+        />
       </div>
     </section>
   );

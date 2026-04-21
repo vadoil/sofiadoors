@@ -1,5 +1,6 @@
 import { PenTool, Layers, MessageSquare } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import architectCollab from "@/assets/architect-collab.jpg";
 
 const features = [
@@ -52,13 +53,19 @@ const DesignersSection = () => {
               ))}
             </div>
 
-            <a
-              href="#help"
-              className={`inline-flex items-center rounded-2xl bg-primary px-8 py-4 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-95 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
-              style={{ animationDelay: "0.25s" }}
-            >
-              Обсудить проект
-            </a>
+            <RequestQuoteDialog
+              source="designers_section"
+              title="Обсудить проект с дизайнером"
+              description="Расскажите о проекте — поможем интегрировать двери Фрамир от первых визуализаций до финальной комплектации."
+              trigger={
+                <button
+                  className={`inline-flex items-center rounded-2xl bg-primary px-8 py-4 text-sm font-medium text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-95 opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+                  style={{ animationDelay: "0.25s" }}
+                >
+                  Обсудить проект
+                </button>
+              }
+            />
           </div>
         </div>
       </div>
