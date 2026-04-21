@@ -249,25 +249,28 @@ const Erte = () => {
         </div>
       </section>
 
-      {/* Видео — 2 в ряд */}
-      <section className="py-12 md:py-20 px-4 md:px-8">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+      {/* Видео коллекции */}
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-graphite text-warm-white relative overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
+
+        <div className="relative max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-bronze mb-4">
+              Эрте в движении
+            </span>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-5">
+              Каннелюры, эмаль, латунь
+            </h2>
+            <p className="text-warm-white/70 text-base md:text-lg leading-relaxed">
+              Покажем коллекцию в деталях: как ложится свет на грани,
+              переливается фурнитура и работает фактура эмали.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-8">
             {erteVideos.map((src, i) => (
-              <div
-                key={i}
-                className="relative aspect-video overflow-hidden rounded-2xl bg-secondary/40"
-              >
-                <video
-                  src={src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
+              <ErteVideoPlayer key={i} src={src} index={i} />
             ))}
           </div>
         </div>
