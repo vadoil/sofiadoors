@@ -4,6 +4,27 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import erteHero from "@/assets/erte-hero-banner.png";
 import erteDoor from "@/assets/erte-door.png";
+import model1 from "@/assets/erte/ПГ Эрте 1 Каннелюра с декором.webp";
+import model2 from "@/assets/erte/ПГ Эрте 1 Каннелюра.webp";
+import model3 from "@/assets/erte/ПГ Эрте 1 Рустика.webp";
+import model4 from "@/assets/erte/ПГ Эрте 2 Рустика.webp";
+import model5 from "@/assets/erte/ПО Эрте 1.webp";
+import model6 from "@/assets/erte/ПО Эрте 2 Рустика.webp";
+import model7 from "@/assets/erte/ПО Эрте 8.webp";
+import model8 from "@/assets/erte/ПО Эрте 9.webp";
+import model9 from "@/assets/erte/ПО Эрте 11.webp";
+
+const erteModels = [
+  { src: model1, name: "ПГ Эрте 1 Каннелюра с декором" },
+  { src: model2, name: "ПГ Эрте 1 Каннелюра" },
+  { src: model3, name: "ПГ Эрте 1 Рустика" },
+  { src: model4, name: "ПГ Эрте 2 Рустика" },
+  { src: model5, name: "ПО Эрте 1" },
+  { src: model6, name: "ПО Эрте 2 Рустика" },
+  { src: model7, name: "ПО Эрте 8" },
+  { src: model8, name: "ПО Эрте 9" },
+  { src: model9, name: "ПО Эрте 11" },
+];
 
 const ErteWordmark = ({ className }: { className?: string }) => (
   <svg
@@ -125,6 +146,43 @@ const Erte = () => {
                 Запросить расчёт
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Модельный ряд */}
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-secondary/20">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-10 md:mb-16">
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-6">
+              Модельный ряд
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Ар-деко — это замысловатые костюмы артистов и фешенебельные
+              обложки модных журналов. Это сочетание стиля древних
+              цивилизаций и неоклассики. Это вечный праздник: бархат,
+              сияние, золото. Эту многогранность мы отразили в моделях
+              коллекции Erte, которую украшают фрезеровки и молдинги,
+              зеркала и сложные цвета.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
+            {erteModels.map((m) => (
+              <figure key={m.name} className="group">
+                <div className="aspect-[3/7] overflow-hidden rounded-lg bg-background">
+                  <img
+                    src={m.src}
+                    alt={m.name}
+                    loading="lazy"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <figcaption className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
+                  {m.name}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
