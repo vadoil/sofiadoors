@@ -768,6 +768,19 @@ const Erte = () => {
       </section>
 
       <Footer />
+
+      {/* Lightbox портфолио */}
+      <Dialog open={lightboxIndex !== null} onOpenChange={(o) => !o && setLightboxIndex(null)}>
+        <DialogContent className="max-w-5xl w-[95vw] p-0 bg-graphite border-none overflow-hidden">
+          {lightboxIndex !== null && (
+            <img
+              src={ertePortfolio[lightboxIndex]}
+              alt={`Интерьер с дверями Эрте — фото ${lightboxIndex + 1}`}
+              className="w-full h-auto max-h-[85vh] object-contain bg-graphite"
+            />
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
