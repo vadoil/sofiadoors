@@ -46,15 +46,15 @@ import nalPryamoy100 from "@/assets/erte/nalichniki/pryamoy-100.webp";
 import nalKomplanar90 from "@/assets/erte/nalichniki/komplanar-90.webp";
 import nalAlyans80 from "@/assets/erte/nalichniki/alyans-80.webp";
 import nalAlyans100 from "@/assets/erte/nalichniki/alyans-100.webp";
-import nalRelefnyy80 from "@/assets/erte/nalichniki/relefnyy-80.png";
-import nalRelefnyy100 from "@/assets/erte/nalichniki/relefnyy-100.png";
+import nalRelefnyy80 from "@/assets/erte/nalichniki/relefnyy-80.webp";
+import nalRelefnyy100 from "@/assets/erte/nalichniki/relefnyy-100.webp";
 import nalVerona80 from "@/assets/erte/nalichniki/verona-80.webp";
 import nalVerona100 from "@/assets/erte/nalichniki/verona-100.webp";
 import nalVeronaKomplanar80 from "@/assets/erte/nalichniki/verona-komplanar-80.webp";
 import nalKatalina100 from "@/assets/erte/nalichniki/katalina-100.webp";
-import nalErte100 from "@/assets/erte/nalichniki/erte-100.png";
-import nalTvin75 from "@/assets/erte/nalichniki/tvin-75.png";
-import nalTvinKomplanar75 from "@/assets/erte/nalichniki/tvin-komplanar-75.png";
+import nalErte100 from "@/assets/erte/nalichniki/erte-100.webp";
+import nalTvin75 from "@/assets/erte/nalichniki/tvin-75.webp";
+import nalTvinKomplanar75 from "@/assets/erte/nalichniki/tvin-komplanar-75.webp";
 import nalKorobSkrytyy from "@/assets/erte/nalichniki/korob-skrytyy.webp";
 
 const erteNalichniki = [
