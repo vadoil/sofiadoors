@@ -1,13 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette } from "lucide-react";
+import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette, Play, Pause } from "lucide-react";
 import RequestQuoteDialog from "@/components/RequestQuoteDialog";
-import { useEffect, useState } from "react";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  type CarouselApi,
-} from "@/components/ui/carousel";
+import { useRef, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import erteHero from "@/assets/erte-hero-banner.png";
