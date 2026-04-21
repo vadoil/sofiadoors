@@ -39,6 +39,43 @@ import detailMirror from "@/assets/erte/detail-mirror.webp";
 import detailNalichnik from "@/assets/erte/detail-nalichnik.webp";
 import detailHandleAprile from "@/assets/erte/detail-handle-aprile.webp";
 import detailHandleRaflesia from "@/assets/erte/detail-handle-raflesia.webp";
+import nalPryamoy70 from "@/assets/erte/nalichniki/pryamoy-70.png";
+import nalPryamoy80 from "@/assets/erte/nalichniki/pryamoy-80.png";
+import nalPryamoy90 from "@/assets/erte/nalichniki/pryamoy-90.png";
+import nalPryamoy100 from "@/assets/erte/nalichniki/pryamoy-100.png";
+import nalKomplanar90 from "@/assets/erte/nalichniki/komplanar-90.png";
+import nalAlyans80 from "@/assets/erte/nalichniki/alyans-80.png";
+import nalAlyans100 from "@/assets/erte/nalichniki/alyans-100.png";
+import nalRelefnyy80 from "@/assets/erte/nalichniki/relefnyy-80.png";
+import nalRelefnyy100 from "@/assets/erte/nalichniki/relefnyy-100.png";
+import nalVerona80 from "@/assets/erte/nalichniki/verona-80.png";
+import nalVerona100 from "@/assets/erte/nalichniki/verona-100.png";
+import nalVeronaKomplanar90 from "@/assets/erte/nalichniki/verona-komplanar-90.png";
+import nalKatalina100 from "@/assets/erte/nalichniki/katalina-100.png";
+import nalErte100 from "@/assets/erte/nalichniki/erte-100.png";
+import nalTvin75 from "@/assets/erte/nalichniki/tvin-75.png";
+import nalTvinKomplanar75 from "@/assets/erte/nalichniki/tvin-komplanar-75.png";
+import nalKorobSkrytyy from "@/assets/erte/nalichniki/korob-skrytyy.png";
+
+const erteNalichniki = [
+  { name: "Прямой 70 мм", src: nalPryamoy70 },
+  { name: "Прямой 80 мм", src: nalPryamoy80 },
+  { name: "Прямой 90 мм", src: nalPryamoy90 },
+  { name: "Прямой 100 мм", src: nalPryamoy100 },
+  { name: "Компланар 90 мм", src: nalKomplanar90 },
+  { name: "Альянс 80 мм", src: nalAlyans80 },
+  { name: "Альянс 100 мм", src: nalAlyans100 },
+  { name: "Рельефный 80 мм", src: nalRelefnyy80 },
+  { name: "Рельефный 100 мм", src: nalRelefnyy100 },
+  { name: "Верона 80 мм", src: nalVerona80 },
+  { name: "Верона 100 мм", src: nalVerona100 },
+  { name: "Верона Компланар 90 мм", src: nalVeronaKomplanar90 },
+  { name: "Каталина 100 мм", src: nalKatalina100 },
+  { name: "Эрте 100 мм", src: nalErte100 },
+  { name: "Твин 75 мм", src: nalTvin75 },
+  { name: "Твин Компланар 75 мм", src: nalTvinKomplanar75 },
+  { name: "Короб скрытый алюминиевый", src: nalKorobSkrytyy },
+];
 
 const erteVideos = [erteVideo1, erteVideo2];
 
@@ -528,36 +565,18 @@ const Erte = () => {
               </div>
 
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
-                {[
-                  "Прямой 70 мм",
-                  "Прямой 80 мм",
-                  "Прямой 90 мм",
-                  "Прямой 100 мм",
-                  "Компланар 90 мм",
-                  "Альянс 80 мм",
-                  "Альянс 100 мм",
-                  "Рельефный 80 мм",
-                  "Рельефный 100 мм",
-                  "Верона 80 мм",
-                  "Верона 100 мм",
-                  "Верона Компланар 90 мм",
-                  "Каталина 100 мм",
-                  "Эрте 100 мм",
-                  "Твин 75 мм",
-                  "Твин Компланар 75 мм",
-                  "Короб скрытый алюминиевый",
-                ].map((name) => (
-                  <figure key={name} className="group">
-                    <div className="aspect-square rounded-lg bg-secondary/40 ring-1 ring-border/40 flex items-center justify-center transition-colors group-hover:ring-bronze/40">
-                      {/* Stylised corner illustration */}
-                      <div className="relative w-3/4 h-3/4">
-                        <div className="absolute inset-0 border-l-2 border-t-2 border-foreground/15 rounded-tl-sm" />
-                        <div className="absolute inset-[10%] border-l border-t border-foreground/20" />
-                        <div className="absolute inset-[22%] border-l border-t border-foreground/30" />
-                      </div>
+                {erteNalichniki.map((n) => (
+                  <figure key={n.name} className="group">
+                    <div className="aspect-square overflow-hidden rounded-lg bg-secondary/40 ring-1 ring-border/40 transition-colors group-hover:ring-bronze/40">
+                      <img
+                        src={n.src}
+                        alt={n.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      />
                     </div>
                     <figcaption className="mt-3 text-xs md:text-sm text-foreground/80 leading-tight">
-                      {name}
+                      {n.name}
                     </figcaption>
                   </figure>
                 ))}
