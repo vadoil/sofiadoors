@@ -1,5 +1,6 @@
 import { Sun, Flame, Crown, EyeOff, PenTool, Home } from "lucide-react";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 
 const tasks = [
   { icon: Sun, title: "Для светлого минимализма", desc: "Лаконичные формы, светлые покрытия, чистые линии" },
@@ -34,16 +35,23 @@ const TaskSelectionSection = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {tasks.map((task, i) => (
-            <a
+            <RequestQuoteDialog
               key={task.title}
-              href="#help"
-              className={`group rounded-2xl border border-border bg-background p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 cursor-pointer opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
-              style={{ animationDelay: `${0.2 + i * 0.08}s` }}
-            >
-              <task.icon className="w-6 h-6 text-primary mb-4 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
-              <h3 className="text-lg tracking-tight mb-2 font-heading">{task.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{task.desc}</p>
-            </a>
+              source={`task_${task.title}`}
+              title={task.title}
+              description="Оставьте контакты — подберём подходящие коллекции и поможем определиться с решением под вашу задачу."
+              trigger={
+                <button
+                  type="button"
+                  className={`group text-left w-full rounded-2xl border border-border bg-background p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 cursor-pointer opacity-0 ${isVisible ? "animate-fade-up" : ""}`}
+                  style={{ animationDelay: `${0.2 + i * 0.08}s` }}
+                >
+                  <task.icon className="w-6 h-6 text-primary mb-4 transition-transform duration-300 group-hover:scale-110" strokeWidth={1.5} />
+                  <h3 className="text-lg tracking-tight mb-2 font-heading">{task.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{task.desc}</p>
+                </button>
+              }
+            />
           ))}
         </div>
       </div>
