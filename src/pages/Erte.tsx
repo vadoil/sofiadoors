@@ -256,6 +256,8 @@ const ErteWordmark = ({ className }: { className?: string }) => (
 );
 
 const Erte = () => {
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -675,9 +677,12 @@ const Erte = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 [grid-auto-flow:dense]">
             {ertePortfolio.map((src, i) => (
-              <figure
+              <button
+                type="button"
                 key={i}
-                className={`group overflow-hidden rounded-xl bg-background ${
+                onClick={() => setLightboxIndex(i)}
+                aria-label={`Открыть фото ${i + 1}`}
+                className={`group relative overflow-hidden rounded-xl bg-background focus:outline-none focus-visible:ring-2 focus-visible:ring-bronze ${
                   i === 0 || i === 5 ? "md:col-span-2 md:row-span-2" : ""
                 }`}
               >
@@ -689,7 +694,8 @@ const Erte = () => {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                   />
                 </div>
-              </figure>
+                <span className="absolute inset-0 bg-graphite/0 group-hover:bg-graphite/15 transition-colors" />
+              </button>
             ))}
           </div>
         </div>
