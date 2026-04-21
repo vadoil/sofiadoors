@@ -13,6 +13,9 @@ import model6 from "@/assets/erte/ПО Эрте 2 Рустика.webp";
 import model7 from "@/assets/erte/ПО Эрте 8.webp";
 import model8 from "@/assets/erte/ПО Эрте 9.webp";
 import model9 from "@/assets/erte/ПО Эрте 11.webp";
+import twoSided1 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра Зеркало.webp";
+import twoSided2 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра + ПГ Эрте 1 Рустика.webp";
+import twoSided3 from "@/assets/erte/two-sided/ПГ Эрте 1 Рустика Зеркало.webp";
 
 const erteModels = [
   { src: model1, name: "ПГ Эрте 1 Каннелюра с декором" },
@@ -24,6 +27,12 @@ const erteModels = [
   { src: model7, name: "ПО Эрте 8" },
   { src: model8, name: "ПО Эрте 9" },
   { src: model9, name: "ПО Эрте 11" },
+];
+
+const erteTwoSided = [
+  { src: twoSided1, name: "ПГ Эрте 1 Каннелюра Зеркало" },
+  { src: twoSided2, name: "ПГ Эрте 1 Каннелюра + ПГ Эрте 1 Рустика" },
+  { src: twoSided3, name: "ПГ Эрте 1 Рустика Зеркало" },
 ];
 
 const ErteWordmark = ({ className }: { className?: string }) => (
