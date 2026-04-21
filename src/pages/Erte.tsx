@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette, Play, Pause, Sparkles } from "lucide-react";
+import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette, Play, Pause, Sparkles, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RequestQuoteDialog from "@/components/RequestQuoteDialog";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import erteHero from "@/assets/erte-hero-banner.png";
@@ -257,6 +256,29 @@ const ErteWordmark = ({ className }: { className?: string }) => (
 
 const Erte = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevLightbox = () =>
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + ertePortfolio.length) % ertePortfolio.length));
+  const nextLightbox = () =>
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % ertePortfolio.length));
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prevLightbox();
+      if (e.key === "ArrowRight") nextLightbox();
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightboxIndex]);
 
   return (
     <div className="min-h-screen">
@@ -769,18 +791,71 @@ const Erte = () => {
 
       <Footer />
 
-      {/* Lightbox портфолио */}
-      <Dialog open={lightboxIndex !== null} onOpenChange={(o) => !o && setLightboxIndex(null)}>
-        <DialogContent className="max-w-5xl w-[95vw] p-0 bg-graphite border-none overflow-hidden">
-          {lightboxIndex !== null && (
-            <img
-              src={ertePortfolio[lightboxIndex]}
-              alt={`Интерьер с дверями Эрте — фото ${lightboxIndex + 1}`}
-              className="w-full h-auto max-h-[85vh] object-contain bg-graphite"
-            />
-          )}
-        </DialogContent>
-      </Dialog>
+      {/* Lightbox портфолио — без фона, со стрелками */}
+      {lightboxIndex !== null && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-200"
+          role="dialog"
+          aria-modal="true"
+          onClick={closeLightbox}
+          onTouchStart={(e) => {
+            touchStartX.current = e.touches[0].clientX;
+          }}
+          onTouchEnd={(e) => {
+            if (touchStartX.current === null) return;
+            const dx = e.changedTouches[0].clientX - touchStartX.current;
+            if (Math.abs(dx) > 50) (dx > 0 ? prevLightbox : nextLightbox)();
+            touchStartX.current = null;
+          }}
+        >
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeLightbox();
+            }}
+            aria-label="Закрыть"
+            className="absolute top-4 right-4 md:top-6 md:right-6 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-graphite/70 backdrop-blur-sm text-warm-white flex items-center justify-center hover:bg-graphite transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              prevLightbox();
+            }}
+            aria-label="Предыдущее фото"
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-graphite/70 backdrop-blur-sm text-warm-white flex items-center justify-center hover:bg-graphite transition-colors"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              nextLightbox();
+            }}
+            aria-label="Следующее фото"
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-10 w-10 h-10 md:w-12 md:h-12 rounded-full bg-graphite/70 backdrop-blur-sm text-warm-white flex items-center justify-center hover:bg-graphite transition-colors"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
+
+          <img
+            src={ertePortfolio[lightboxIndex]}
+            alt={`Интерьер с дверями Эрте — фото ${lightboxIndex + 1}`}
+            onClick={(e) => e.stopPropagation()}
+            className="max-w-full max-h-full object-contain drop-shadow-2xl select-none"
+          />
+
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs md:text-sm text-warm-white/90 bg-graphite/70 backdrop-blur-sm px-3 py-1.5 rounded-full">
+            {lightboxIndex + 1} / {ertePortfolio.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
