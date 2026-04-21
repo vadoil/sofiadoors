@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette, Play, Pause } from "lucide-react";
+import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette, Play, Pause, Sparkles } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import { useRef, useState } from "react";
 import Header from "@/components/Header";
@@ -447,51 +448,169 @@ const Erte = () => {
             <span className="inline-block text-xs md:text-sm tracking-[0.25em] uppercase text-bronze mb-4">
               Покрытие и цвет
             </span>
-            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-6">
-              Эмаль
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]">
+              Соберите свою дверь
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-              Полотна Эрте окрашиваются эмалью — гладкое матовое покрытие
-              без бликов. Базовая палитра ниже, а вообще доступен любой
-              оттенок RAL или NCS под ваш интерьер.
-            </p>
           </div>
 
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-7 md:gap-x-6 md:gap-y-9">
-            {[
-              { name: "Белоснежный", hex: "#F4F1EC" },
-              { name: "Бланж (RAL 9001)", hex: "#E8E1D4" },
-              { name: "Кремово-белый", hex: "#EDE6D8" },
-              { name: "Пралине (NCS)", hex: "#C9BCAB" },
-              { name: "Грейдж (NCS)", hex: "#B8AEA2" },
-              { name: "Молескин", hex: "#B5ADA6" },
-              { name: "Умбра (NCS)", hex: "#8C7F75" },
-              { name: "Чёрный агат", hex: "#1B1A18" },
-              { name: "Базальт (NCS)", hex: "#3A3936" },
-              { name: "Пыльно-серый", hex: "#9B9A98" },
-              { name: "Телегрей (RAL)", hex: "#C9CCCE" },
-              { name: "Скандинавский", hex: "#DCDDDD" },
-              { name: "Сигнально-белый", hex: "#EDEDEB" },
-              { name: "Кашемир (NCS)", hex: "#D4CDC2" },
-              { name: "Серый шёлк", hex: "#BFBDB8" },
-            ].map((c) => (
-              <div key={c.name} className="group flex flex-col items-center text-center">
-                <div
-                  className="w-16 h-16 md:w-20 md:h-20 rounded-full ring-1 ring-border/60 shadow-sm transition-transform duration-300 group-hover:scale-105"
-                  style={{ backgroundColor: c.hex }}
-                  aria-label={c.name}
-                />
-                <span className="mt-3 text-[11px] md:text-xs text-muted-foreground leading-tight">
-                  {c.name}
-                </span>
+          <Tabs defaultValue="coating" className="w-full">
+            <TabsList className="h-auto bg-transparent p-0 border-b border-border/60 rounded-none w-full justify-start gap-1 md:gap-2 mb-10 overflow-x-auto flex-nowrap">
+              {[
+                { v: "coating", l: "Покрытие" },
+                { v: "framing", l: "Обрамление" },
+                { v: "multicolor", l: "Мультицвет" },
+              ].map((t) => (
+                <TabsTrigger
+                  key={t.v}
+                  value={t.v}
+                  className="rounded-none border-b-2 border-transparent data-[state=active]:border-bronze data-[state=active]:bg-transparent data-[state=active]:shadow-none data-[state=active]:text-foreground text-muted-foreground px-4 md:px-5 py-3 text-sm md:text-base font-medium tracking-wide"
+                >
+                  {t.l}
+                </TabsTrigger>
+              ))}
+            </TabsList>
+
+            {/* Покрытие — эмаль + цвета */}
+            <TabsContent value="coating" className="mt-0 focus-visible:outline-none">
+              <div className="max-w-3xl mb-10">
+                <h3 className="font-heading text-2xl md:text-3xl tracking-tight mb-3">Эмаль</h3>
+                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Гладкое матовое покрытие без бликов. Базовая палитра ниже —
+                  доступен любой оттенок RAL или NCS.
+                </p>
               </div>
-            ))}
-          </div>
 
-          <p className="mt-10 md:mt-12 text-xs md:text-sm text-muted-foreground/70 max-w-2xl">
-            * Цвета на экране передаются приближённо. Финальный оттенок
-            подбираем по веерам RAL/NCS на замере.
-          </p>
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-7 md:gap-x-6 md:gap-y-9">
+                {[
+                  { name: "Белоснежный", hex: "#F4F1EC" },
+                  { name: "Бланж (RAL 9001)", hex: "#E8E1D4" },
+                  { name: "Кремово-белый", hex: "#EDE6D8" },
+                  { name: "Пралине (NCS)", hex: "#C9BCAB" },
+                  { name: "Грейдж (NCS)", hex: "#B8AEA2" },
+                  { name: "Молескин", hex: "#B5ADA6" },
+                  { name: "Умбра (NCS)", hex: "#8C7F75" },
+                  { name: "Чёрный агат", hex: "#1B1A18" },
+                  { name: "Базальт (NCS)", hex: "#3A3936" },
+                  { name: "Пыльно-серый", hex: "#9B9A98" },
+                  { name: "Телегрей (RAL)", hex: "#C9CCCE" },
+                  { name: "Скандинавский", hex: "#DCDDDD" },
+                  { name: "Сигнально-белый", hex: "#EDEDEB" },
+                  { name: "Кашемир (NCS)", hex: "#D4CDC2" },
+                  { name: "Серый шёлк", hex: "#BFBDB8" },
+                ].map((c) => (
+                  <div key={c.name} className="group flex flex-col items-center text-center">
+                    <div
+                      className="w-16 h-16 md:w-20 md:h-20 rounded-full ring-1 ring-border/60 shadow-sm transition-transform duration-300 group-hover:scale-105"
+                      style={{ backgroundColor: c.hex }}
+                      aria-label={c.name}
+                    />
+                    <span className="mt-3 text-[11px] md:text-xs text-muted-foreground leading-tight">
+                      {c.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-10 text-xs md:text-sm text-muted-foreground/70 max-w-2xl">
+                * Цвета на экране передаются приближённо. Финальный оттенок
+                подбираем по веерам RAL/NCS на замере.
+              </p>
+            </TabsContent>
+
+            {/* Обрамление — наличники */}
+            <TabsContent value="framing" className="mt-0 focus-visible:outline-none">
+              <div className="max-w-3xl mb-10">
+                <h3 className="font-heading text-2xl md:text-3xl tracking-tight mb-3">Наличник</h3>
+                <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+                  Подбираем наличник под полотно — от прямых минималистичных
+                  до ступенчатых «Эрте» и рельефных «Верона».
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                {[
+                  "Прямой 70 мм",
+                  "Прямой 80 мм",
+                  "Прямой 90 мм",
+                  "Прямой 100 мм",
+                  "Компланар 90 мм",
+                  "Альянс 80 мм",
+                  "Альянс 100 мм",
+                  "Рельефный 80 мм",
+                  "Рельефный 100 мм",
+                  "Верона 80 мм",
+                  "Верона 100 мм",
+                  "Верона Компланар 90 мм",
+                  "Каталина 100 мм",
+                  "Эрте 100 мм",
+                  "Твин 75 мм",
+                  "Твин Компланар 75 мм",
+                  "Короб скрытый алюминиевый",
+                ].map((name) => (
+                  <figure key={name} className="group">
+                    <div className="aspect-square rounded-lg bg-secondary/40 ring-1 ring-border/40 flex items-center justify-center transition-colors group-hover:ring-bronze/40">
+                      {/* Stylised corner illustration */}
+                      <div className="relative w-3/4 h-3/4">
+                        <div className="absolute inset-0 border-l-2 border-t-2 border-foreground/15 rounded-tl-sm" />
+                        <div className="absolute inset-[10%] border-l border-t border-foreground/20" />
+                        <div className="absolute inset-[22%] border-l border-t border-foreground/30" />
+                      </div>
+                    </div>
+                    <figcaption className="mt-3 text-xs md:text-sm text-foreground/80 leading-tight">
+                      {name}
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </TabsContent>
+
+            {/* Мультицвет */}
+            <TabsContent value="multicolor" className="mt-0 focus-visible:outline-none">
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-graphite via-graphite to-graphite/95 text-warm-white p-8 md:p-14">
+                <div className="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-bronze/15 blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -left-24 w-[420px] h-[420px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
+
+                <div className="relative grid md:grid-cols-2 gap-10 md:gap-14 items-center">
+                  <div>
+                    <span className="inline-flex items-center gap-2 text-xs md:text-sm tracking-[0.25em] uppercase text-stone mb-5">
+                      <Sparkles className="w-3.5 h-3.5" />
+                      Мультицвет
+                    </span>
+                    <h3 className="font-heading text-3xl md:text-4xl lg:text-5xl tracking-tight leading-[1.05] mb-5">
+                      Красим в любой цвет
+                    </h3>
+                    <p className="text-warm-white/70 text-sm md:text-base leading-relaxed mb-8 max-w-md">
+                      Подбираем эмаль по веерам RAL и NCS — более 2 000
+                      оттенков. Стороны полотна, наличник и декор могут быть
+                      разных цветов.
+                    </p>
+                    <Link
+                      to="/palette"
+                      className="inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-warm-white text-graphite text-sm md:text-base font-medium tracking-wide shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)] hover:-translate-y-0.5 transition-all duration-300"
+                    >
+                      <Palette className="w-4 h-4" />
+                      Открыть палитру
+                    </Link>
+                  </div>
+
+                  {/* Decorative gradient swatch grid */}
+                  <div className="grid grid-cols-6 gap-2 md:gap-3">
+                    {[
+                      "#C9BCAB", "#8C7F75", "#3A3936", "#9B9A98", "#C9CCCE", "#DCDDDD",
+                      "#B8AEA2", "#1B1A18", "#EDEDEB", "#D4CDC2", "#BFBDB8", "#E8E1D4",
+                      "#7A6B5E", "#A8967F", "#5C5852", "#D6CFC4", "#2A2826", "#F4F1EC",
+                    ].map((hex, i) => (
+                      <div
+                        key={i}
+                        className="aspect-square rounded-md ring-1 ring-warm-white/10"
+                        style={{ backgroundColor: hex }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
