@@ -1,4 +1,5 @@
 import { useRef, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 import doorElegant from "@/assets/door-elegant-hero-new.png";
@@ -50,6 +51,7 @@ type Slide = {
   image: string;
   title: string;
   price: string;
+  href?: string;
 };
 
 // 22 коллекции Фрамир — по 11 в каждом ряду
@@ -61,7 +63,7 @@ const allSlides: Slide[] = [
   { image: doorDuo, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽" },
   { image: doorPrime, title: "Прайм", price: "от 71 547 ₽" },
   { image: doorRhythm, title: "Ритм", price: "от 44 905 ₽" },
-  { image: doorErte, title: "Эрте", price: "от 48 545 ₽" },
+  { image: doorErte, title: "Эрте", price: "от 48 545 ₽", href: "/catalog/erte" },
   { image: doorCatalina, title: "Каталина", price: "от 66 750 ₽" },
   { image: doorElegans, title: "Элеганс", price: "от 27 020 ₽" },
   { image: doorFlorence, title: "Флоренция", price: "от 65 535 ₽" },
@@ -183,11 +185,8 @@ const MarqueeRow = ({
         className="flex gap-5 md:gap-6 pointer-events-none"
         style={{ width: "max-content", willChange: "transform" }}
       >
-        {items.map((slide, i) => (
-          <div
-            key={`${slide.title}-${i}`}
-            className="shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group w-[78vw] sm:w-[clamp(520px,42vw,820px)]"
-          >
+        {items.map((slide, i) => {
+          const Inner = (
             <div className="aspect-[4/3] relative overflow-hidden">
               <img
                 src={slide.image}
@@ -213,8 +212,26 @@ const MarqueeRow = ({
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+
+          const className =
+            "shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group w-[78vw] sm:w-[clamp(520px,42vw,820px)] block";
+
+          return slide.href ? (
+            <Link
+              key={`${slide.title}-${i}`}
+              to={slide.href}
+              className={className}
+              style={{ pointerEvents: "auto" }}
+            >
+              {Inner}
+            </Link>
+          ) : (
+            <div key={`${slide.title}-${i}`} className={className}>
+              {Inner}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
