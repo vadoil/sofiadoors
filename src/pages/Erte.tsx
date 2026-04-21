@@ -640,9 +640,9 @@ const Erte = () => {
                   {/* Decorative gradient swatch grid */}
                   <div className="grid grid-cols-6 gap-2 md:gap-3">
                     {[
-                      "#C9BCAB", "#8C7F75", "#3A3936", "#9B9A98", "#C9CCCE", "#DCDDDD",
-                      "#B8AEA2", "#1B1A18", "#EDEDEB", "#D4CDC2", "#BFBDB8", "#E8E1D4",
-                      "#7A6B5E", "#A8967F", "#5C5852", "#D6CFC4", "#2A2826", "#F4F1EC",
+                      "#D81B60", "#7B3FA0", "#1A4FBF", "#0F766E", "#708238", "#E4B400",
+                      "#FF7A00", "#C2185B", "#9C6ADE", "#3B6FE0", "#14B8A6", "#A3B86C",
+                      "#F4B400", "#E85D75", "#5E35B1", "#0E7490", "#556B2F", "#B8860B",
                     ].map((hex, i) => (
                       <div
                         key={i}
