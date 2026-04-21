@@ -25,8 +25,31 @@ import twoSided2 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюр�
 import twoSided3 from "@/assets/erte/two-sided/ПГ Эрте 1 Рустика Зеркало.webp";
 import erteVideo1 from "@/assets/erte/videos/erte-1.mp4";
 import erteVideo2 from "@/assets/erte/videos/erte-2.mp4";
+import portfolio1 from "@/assets/erte/portfolio/erte-portfolio-1.webp";
+import portfolio2 from "@/assets/erte/portfolio/erte-portfolio-2.webp";
+import portfolio3 from "@/assets/erte/portfolio/erte-portfolio-3.webp";
+import portfolio4 from "@/assets/erte/portfolio/erte-portfolio-4.webp";
+import portfolio5 from "@/assets/erte/portfolio/erte-portfolio-5.webp";
+import portfolio6 from "@/assets/erte/portfolio/erte-portfolio-6.webp";
+import portfolio7 from "@/assets/erte/portfolio/erte-portfolio-7.webp";
+import portfolio8 from "@/assets/erte/portfolio/erte-portfolio-8.webp";
+import portfolio9 from "@/assets/erte/portfolio/erte-portfolio-9.webp";
+import portfolio10 from "@/assets/erte/portfolio/erte-portfolio-10.webp";
 
 const erteVideos = [erteVideo1, erteVideo2];
+
+const ertePortfolio = [
+  portfolio1,
+  portfolio2,
+  portfolio3,
+  portfolio4,
+  portfolio5,
+  portfolio6,
+  portfolio7,
+  portfolio8,
+  portfolio9,
+  portfolio10,
+];
 
 const erteModels = [
   { src: model1, name: "ПГ Эрте 1 Каннелюра с декором" },
@@ -294,6 +317,58 @@ const Erte = () => {
               </figure>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Портфолио */}
+      <section className="py-16 md:py-24 px-4 md:px-8 bg-secondary/20">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-10 md:mb-14">
+            <span className="inline-block text-xs md:text-sm tracking-[0.25em] uppercase text-bronze mb-4">
+              Портфолио
+            </span>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]">
+              Эрте в интерьерах
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5 [grid-auto-flow:dense]">
+            {ertePortfolio.map((src, i) => (
+              <figure
+                key={i}
+                className={`group overflow-hidden rounded-xl bg-background ${
+                  i === 0 || i === 5 ? "md:col-span-2 md:row-span-2" : ""
+                }`}
+              >
+                <div className="aspect-[4/5] w-full overflow-hidden">
+                  <img
+                    src={src}
+                    alt={`Интерьер с дверями Эрте — фото ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                  />
+                </div>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-20 md:py-28 px-4 md:px-8">
+        <div className="max-w-[1100px] mx-auto text-center">
+          <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-6">
+            Нравится коллекция?
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-10">
+            Оставьте заявку, и мы перезвоним, чтобы помочь выбрать модель.
+          </p>
+          <a
+            href="/#help"
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-bronze text-warm-white text-sm md:text-base font-medium tracking-wide shadow-[0_10px_30px_-10px_hsl(var(--bronze)/0.6)] hover:shadow-[0_16px_40px_-12px_hsl(var(--bronze)/0.75)] hover:-translate-y-0.5 transition-all duration-300"
+          >
+            Вызвать замерщика
+          </a>
         </div>
       </section>
 
