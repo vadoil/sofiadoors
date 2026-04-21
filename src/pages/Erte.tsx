@@ -15,7 +15,7 @@ import model5 from "@/assets/erte/ПО Эрте 1.webp";
 import model6 from "@/assets/erte/ПО Эрте 2 Рустика.webp";
 import model7 from "@/assets/erte/ПО Эрте 8.webp";
 import model8 from "@/assets/erte/ПО Эрте 9.webp";
-import model9 from "@/assets/erte/ПО Эрте 11.webp";
+import model9 from "@/assets/erte/po-erte-11.webp";
 import twoSided1 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра Зеркало.webp";
 import twoSided2 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра + ПГ Эрте 1 Рустика.webp";
 import twoSided3 from "@/assets/erte/two-sided/ПГ Эрте 1 Рустика Зеркало.webp";
