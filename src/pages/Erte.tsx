@@ -223,7 +223,7 @@ const Erte = () => {
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-6">
               Модельный ряд
             </h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-8">
               Ар-деко — это замысловатые костюмы артистов и фешенебельные
               обложки модных журналов. Это сочетание стиля древних
               цивилизаций и неоклассики. Это вечный праздник: бархат,
@@ -231,6 +231,15 @@ const Erte = () => {
               коллекции Erte, которую украшают фрезеровки и молдинги,
               зеркала и сложные цвета.
             </p>
+            <a
+              href="https://3ddd.ru/3dmodels/show/om_kollektsiia_dverei_erte_v_emali_ot_fabriki_framyr_2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-3 px-6 py-3.5 rounded-full bg-bronze text-warm-white text-sm md:text-base font-medium tracking-wide shadow-[0_8px_24px_-8px_hsl(var(--bronze)/0.55)] hover:shadow-[0_12px_30px_-8px_hsl(var(--bronze)/0.7)] hover:-translate-y-0.5 transition-all duration-300"
+            >
+              <Download className="w-4 h-4 transition-transform group-hover:translate-y-0.5" />
+              Скачать на 3DDD
+            </a>
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 md:gap-6">
