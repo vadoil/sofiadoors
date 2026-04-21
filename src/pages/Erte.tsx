@@ -447,7 +447,7 @@ const Erte = () => {
 
         <div className="relative max-w-[1400px] mx-auto">
           <div className="max-w-3xl mb-12 md:mb-16">
-            <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-bronze mb-4">
+            <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-stone mb-4">
               Эрте в движении
             </span>
             <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-5">
@@ -541,7 +541,7 @@ const Erte = () => {
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-bronze/15 blur-3xl pointer-events-none" />
         <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
         <div className="relative max-w-[1100px] mx-auto text-center">
-          <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-bronze mb-6">
+          <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-stone mb-6">
             Коллекция Эрте
           </span>
           <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-6">
