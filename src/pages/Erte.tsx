@@ -300,7 +300,7 @@ const Erte = () => {
       <section className="py-16 md:py-24 px-6 md:px-16 lg:px-24">
         <div className="max-w-[1400px] mx-auto grid md:grid-cols-12 gap-10 md:gap-16 items-center">
           {/* Door visual */}
-          <div className="md:col-span-5 lg:col-span-5 order-2 md:order-1">
+          <div className="hidden md:block md:col-span-5 lg:col-span-5 order-2 md:order-1">
             <div className="relative mx-auto max-w-[420px]">
               <div className="absolute -inset-6 md:-inset-10 rounded-[2rem] bg-gradient-to-br from-bronze/10 via-transparent to-stone/40 blur-2xl pointer-events-none" />
               <div className="relative aspect-[3/7] overflow-hidden rounded-2xl bg-secondary/40">
@@ -418,15 +418,15 @@ const Erte = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-10">
             {erteTwoSided.map((m) => (
               <figure key={m.name} className="group">
-                <div className="aspect-[3/4] overflow-hidden rounded-lg bg-secondary/30">
+                <div className="aspect-[3/5] md:aspect-[3/4] overflow-hidden rounded-lg bg-secondary/30">
                   <img
                     src={m.src}
                     alt={m.name}
                     loading="lazy"
-                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                    className="w-full h-full object-cover md:object-contain object-top scale-[1.18] md:scale-100 transition-transform duration-500 group-hover:scale-[1.22] md:group-hover:scale-[1.03]"
                   />
                 </div>
                 <figcaption className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
@@ -450,7 +450,7 @@ const Erte = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {erteDetails.map((d, i) => (
               <figure key={d.title} className="group">
                 <div className="relative aspect-square overflow-hidden rounded-xl bg-background ring-1 ring-border/40">
