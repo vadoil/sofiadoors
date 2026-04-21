@@ -6,19 +6,24 @@ import { framyrItems } from "@/data/framyrCatalog";
 import alineDoors from "@/assets/aline/aline-doors.png";
 import alinePartitions from "@/assets/aline/aline-partitions.png";
 import alineSliding from "@/assets/aline/aline-sliding.png";
+import wpShpon from "@/assets/wall-panels/shpon.webp";
+import wpEmal from "@/assets/wall-panels/emal.webp";
+import wpNanoteks from "@/assets/wall-panels/nanoteks.webp";
+import wpSteklo from "@/assets/wall-panels/steklo.webp";
+import wpZerkalo from "@/assets/wall-panels/zerkalo.webp";
 
 // Маппинг карточек коллекций → внутренние страницы (если есть)
 const collectionRoutes: Record<string, string> = {
   Эрте: "/catalog/erte",
 };
 
-// Стеновые панели — 5 коллекций (плейсхолдеры, заполним позже)
+// Стеновые панели — 5 коллекций
 const wallPanels = [
-  { name: "Шпон", desc: "Натуральная фактура дерева", image: "https://framyr.ru/upload/dev2fun.imagecompress/webp/iblock/536/586yihqci2cm39ab1qkk8w0h5ozd7d8f.webp" },
-  { name: "Эмаль", desc: "Гладкая матовая поверхность", image: "https://framyr.ru/upload/dev2fun.imagecompress/webp/iblock/6ce/2zrf60endnaltrjgv6ignce8ymrd97la.webp" },
-  { name: "Нанотекс", desc: "Износостойкое покрытие", image: "https://framyr.ru/upload/dev2fun.imagecompress/webp/iblock/41c/y81fvacdfm53pvzcvyixcfbw6knfmibj.webp" },
-  { name: "Стекло", desc: "Светопрозрачные панели", image: "https://framyr.ru/upload/dev2fun.imagecompress/webp/iblock/8ed/gd1ccaj0bfs8ljx0mj3y97fs6rzfcg0j.webp" },
-  { name: "Зеркало", desc: "Расширяют пространство", image: "https://framyr.ru/upload/dev2fun.imagecompress/webp/iblock/fdb/ub25pnmcjahv13abzh8vswhfvrkpivmq.webp" },
+  { name: "Шпон", desc: "Натуральная фактура дерева", image: wpShpon },
+  { name: "Эмаль", desc: "Гладкая матовая поверхность", image: wpEmal },
+  { name: "Нанотекс", desc: "Износостойкое покрытие", image: wpNanoteks },
+  { name: "Стекло", desc: "Светопрозрачные панели", image: wpSteklo },
+  { name: "Зеркало", desc: "Расширяют пространство", image: wpZerkalo },
 ];
 
 const alineBlocks = [
