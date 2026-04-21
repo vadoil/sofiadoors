@@ -196,6 +196,41 @@ const Erte = () => {
         </div>
       </section>
 
+      {/* Двустороннее полотно */}
+      <section className="py-16 md:py-24 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-10 md:mb-16">
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-6">
+              Двустороннее полотно
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Две стороны двери — два разных полотна. С зеркалом и без,
+              с каннелюрами и гладкое. С разным рисунком и глубиной
+              фрезеровки. Чтобы легко создавать разные образы в смежных
+              помещениях.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+            {erteTwoSided.map((m) => (
+              <figure key={m.name} className="group">
+                <div className="aspect-[3/4] overflow-hidden rounded-lg bg-secondary/30">
+                  <img
+                    src={m.src}
+                    alt={m.name}
+                    loading="lazy"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <figcaption className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
+                  {m.name}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
