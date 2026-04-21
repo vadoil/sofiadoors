@@ -13,6 +13,9 @@ import model6 from "@/assets/erte/ПО Эрте 2 Рустика.webp";
 import model7 from "@/assets/erte/ПО Эрте 8.webp";
 import model8 from "@/assets/erte/ПО Эрте 9.webp";
 import model9 from "@/assets/erte/ПО Эрте 11.webp";
+import twoSided1 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра Зеркало.webp";
+import twoSided2 from "@/assets/erte/two-sided/ПГ Эрте 1 Каннелюра + ПГ Эрте 1 Рустика.webp";
+import twoSided3 from "@/assets/erte/two-sided/ПГ Эрте 1 Рустика Зеркало.webp";
 
 const erteModels = [
   { src: model1, name: "ПГ Эрте 1 Каннелюра с декором" },
@@ -24,6 +27,12 @@ const erteModels = [
   { src: model7, name: "ПО Эрте 8" },
   { src: model8, name: "ПО Эрте 9" },
   { src: model9, name: "ПО Эрте 11" },
+];
+
+const erteTwoSided = [
+  { src: twoSided1, name: "ПГ Эрте 1 Каннелюра Зеркало" },
+  { src: twoSided2, name: "ПГ Эрте 1 Каннелюра + ПГ Эрте 1 Рустика" },
+  { src: twoSided3, name: "ПГ Эрте 1 Рустика Зеркало" },
 ];
 
 const ErteWordmark = ({ className }: { className?: string }) => (
@@ -171,6 +180,41 @@ const Erte = () => {
             {erteModels.map((m) => (
               <figure key={m.name} className="group">
                 <div className="aspect-[3/7] overflow-hidden rounded-lg bg-background">
+                  <img
+                    src={m.src}
+                    alt={m.name}
+                    loading="lazy"
+                    className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                </div>
+                <figcaption className="mt-3 text-xs md:text-sm text-muted-foreground text-center">
+                  {m.name}
+                </figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Двустороннее полотно */}
+      <section className="py-16 md:py-24 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-10 md:mb-16">
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-6">
+              Двустороннее полотно
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Две стороны двери — два разных полотна. С зеркалом и без,
+              с каннелюрами и гладкое. С разным рисунком и глубиной
+              фрезеровки. Чтобы легко создавать разные образы в смежных
+              помещениях.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-10">
+            {erteTwoSided.map((m) => (
+              <figure key={m.name} className="group">
+                <div className="aspect-[3/4] overflow-hidden rounded-lg bg-secondary/30">
                   <img
                     src={m.src}
                     alt={m.name}
