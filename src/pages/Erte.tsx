@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download } from "lucide-react";
+import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette } from "lucide-react";
+import RequestQuoteDialog from "@/components/RequestQuoteDialog";
 import { useEffect, useState } from "react";
 import {
   Carousel,
@@ -356,21 +357,69 @@ const Erte = () => {
         </div>
       </section>
 
+      {/* Что входит */}
+      <section className="py-16 md:py-24 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-12 md:mb-16">
+            <span className="inline-block text-xs md:text-sm tracking-[0.25em] uppercase text-bronze mb-4">
+              Под ключ
+            </span>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05]">
+              Что входит в комплект
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {[
+              { icon: Ruler, title: "Бесплатный замер", text: "Инженер приедет в удобное время и снимет точные размеры проёмов." },
+              { icon: Palette, title: "Подбор цвета и фурнитуры", text: "Любой оттенок RAL и латунные ручки — собираем образ под ваш интерьер." },
+              { icon: Truck, title: "Доставка и установка", text: "Наши монтажники по Самаре и области. Аккуратно, в срок." },
+              { icon: ShieldCheck, title: "Гарантия 5 лет", text: "На полотно, эмаль и фурнитуру. Сервис от производителя." },
+            ].map(({ icon: Icon, title, text }) => (
+              <div key={title} className="group">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-bronze/10 text-bronze mb-5 transition-colors group-hover:bg-bronze group-hover:text-warm-white">
+                  <Icon className="w-5 h-5" />
+                </div>
+                <h3 className="font-heading text-xl md:text-2xl tracking-tight mb-2">
+                  {title}
+                </h3>
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+                  {text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-20 md:py-28 px-4 md:px-8">
-        <div className="max-w-[1100px] mx-auto text-center">
+      <section className="py-20 md:py-28 px-4 md:px-8 bg-gradient-to-br from-graphite via-graphite to-graphite/95 text-warm-white relative overflow-hidden">
+        <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full bg-bronze/15 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -left-32 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
+        <div className="relative max-w-[1100px] mx-auto text-center">
+          <span className="inline-block text-xs md:text-sm tracking-[0.3em] uppercase text-bronze mb-6">
+            Коллекция Эрте
+          </span>
           <h2 className="font-heading text-4xl md:text-6xl lg:text-7xl tracking-tight leading-[1.05] mb-6">
             Нравится коллекция?
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-xl mx-auto mb-10">
+          <p className="text-warm-white/70 text-base md:text-lg max-w-xl mx-auto mb-10">
             Оставьте заявку, и мы перезвоним, чтобы помочь выбрать модель.
           </p>
-          <a
-            href="/#help"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-bronze text-warm-white text-sm md:text-base font-medium tracking-wide shadow-[0_10px_30px_-10px_hsl(var(--bronze)/0.6)] hover:shadow-[0_16px_40px_-12px_hsl(var(--bronze)/0.75)] hover:-translate-y-0.5 transition-all duration-300"
-          >
-            Вызвать замерщика
-          </a>
+          <RequestQuoteDialog
+            source="erte_cta_measurer"
+            title="Вызвать замерщика"
+            description="Оставьте контакты — менеджер перезвонит, согласует удобное время и пришлёт инженера на бесплатный замер."
+            trigger={
+              <button className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-bronze text-warm-white text-sm md:text-base font-medium tracking-wide shadow-[0_10px_30px_-10px_hsl(var(--bronze)/0.7)] hover:shadow-[0_16px_40px_-12px_hsl(var(--bronze)/0.9)] hover:-translate-y-0.5 transition-all duration-300">
+                <Ruler className="w-4 h-4" />
+                Вызвать замерщика
+              </button>
+            }
+          />
+          <p className="mt-6 text-xs md:text-sm text-warm-white/50">
+            Замер бесплатный · Перезвоним в течение часа в рабочее время
+          </p>
         </div>
       </section>
 
