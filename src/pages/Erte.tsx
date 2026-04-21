@@ -88,20 +88,22 @@ const ErteVideoCarousel = () => {
       <Carousel
         setApi={setApi}
         opts={{ loop: true, align: "start" }}
-        className="relative aspect-[3/7] overflow-hidden rounded-2xl bg-secondary/40"
+        className="relative rounded-2xl bg-secondary/40"
       >
-        <CarouselContent className="h-full ml-0">
+        <CarouselContent className="ml-0">
           {erteVideos.map((src, i) => (
-            <CarouselItem key={i} className="pl-0 h-full">
-              <video
-                src={src}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
+            <CarouselItem key={i} className="pl-0">
+              <div className="relative aspect-[3/7] overflow-hidden rounded-2xl">
+                <video
+                  src={src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
             </CarouselItem>
           ))}
         </CarouselContent>
