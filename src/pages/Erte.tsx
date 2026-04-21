@@ -43,19 +43,19 @@ import nalPryamoy70 from "@/assets/erte/nalichniki/pryamoy-70.webp";
 import nalPryamoy80 from "@/assets/erte/nalichniki/pryamoy-80.webp";
 import nalPryamoy90 from "@/assets/erte/nalichniki/pryamoy-90.webp";
 import nalPryamoy100 from "@/assets/erte/nalichniki/pryamoy-100.webp";
-import nalKomplanar90 from "@/assets/erte/nalichniki/komplanar-90.png";
-import nalAlyans80 from "@/assets/erte/nalichniki/alyans-80.png";
-import nalAlyans100 from "@/assets/erte/nalichniki/alyans-100.png";
+import nalKomplanar90 from "@/assets/erte/nalichniki/komplanar-90.webp";
+import nalAlyans80 from "@/assets/erte/nalichniki/alyans-80.webp";
+import nalAlyans100 from "@/assets/erte/nalichniki/alyans-100.webp";
 import nalRelefnyy80 from "@/assets/erte/nalichniki/relefnyy-80.png";
 import nalRelefnyy100 from "@/assets/erte/nalichniki/relefnyy-100.png";
-import nalVerona80 from "@/assets/erte/nalichniki/verona-80.png";
-import nalVerona100 from "@/assets/erte/nalichniki/verona-100.png";
-import nalVeronaKomplanar90 from "@/assets/erte/nalichniki/verona-komplanar-90.png";
-import nalKatalina100 from "@/assets/erte/nalichniki/katalina-100.png";
+import nalVerona80 from "@/assets/erte/nalichniki/verona-80.webp";
+import nalVerona100 from "@/assets/erte/nalichniki/verona-100.webp";
+import nalVeronaKomplanar80 from "@/assets/erte/nalichniki/verona-komplanar-80.webp";
+import nalKatalina100 from "@/assets/erte/nalichniki/katalina-100.webp";
 import nalErte100 from "@/assets/erte/nalichniki/erte-100.png";
 import nalTvin75 from "@/assets/erte/nalichniki/tvin-75.png";
 import nalTvinKomplanar75 from "@/assets/erte/nalichniki/tvin-komplanar-75.png";
-import nalKorobSkrytyy from "@/assets/erte/nalichniki/korob-skrytyy.png";
+import nalKorobSkrytyy from "@/assets/erte/nalichniki/korob-skrytyy.webp";
 
 const erteNalichniki = [
   { name: "Прямой 70 мм", src: nalPryamoy70 },
@@ -69,7 +69,7 @@ const erteNalichniki = [
   { name: "Рельефный 100 мм", src: nalRelefnyy100 },
   { name: "Верона 80 мм", src: nalVerona80 },
   { name: "Верона 100 мм", src: nalVerona100 },
-  { name: "Верона Компланар 90 мм", src: nalVeronaKomplanar90 },
+  { name: "Верона Компланар 80 мм", src: nalVeronaKomplanar80 },
   { name: "Каталина 100 мм", src: nalKatalina100 },
   { name: "Эрте 100 мм", src: nalErte100 },
   { name: "Твин 75 мм", src: nalTvin75 },
