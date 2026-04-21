@@ -256,6 +256,29 @@ const ErteWordmark = ({ className }: { className?: string }) => (
 
 const Erte = () => {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const touchStartX = useRef<number | null>(null);
+
+  const closeLightbox = () => setLightboxIndex(null);
+  const prevLightbox = () =>
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + ertePortfolio.length) % ertePortfolio.length));
+  const nextLightbox = () =>
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % ertePortfolio.length));
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") prevLightbox();
+      if (e.key === "ArrowRight") nextLightbox();
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [lightboxIndex]);
 
   return (
     <div className="min-h-screen">
