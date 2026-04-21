@@ -46,6 +46,59 @@ const erteTwoSided = [
   { src: twoSided3, name: "ПГ Эрте 1 Рустика Зеркало" },
 ];
 
+const ErteVideoCarousel = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+    setCurrent(api.selectedScrollSnap());
+    const onSelect = () => setCurrent(api.selectedScrollSnap());
+    api.on("select", onSelect);
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  return (
+    <div className="relative">
+      <Carousel
+        setApi={setApi}
+        opts={{ loop: true, align: "start" }}
+        className="relative aspect-[3/7] overflow-hidden rounded-2xl bg-secondary/40"
+      >
+        <CarouselContent className="h-full ml-0">
+          {erteVideos.map((src, i) => (
+            <CarouselItem key={i} className="pl-0 h-full">
+              <video
+                src={src}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+        {erteVideos.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => api?.scrollTo(i)}
+            aria-label={`Слайд ${i + 1}`}
+            className={`h-1.5 rounded-full transition-all ${
+              current === i ? "w-8 bg-bronze" : "w-1.5 bg-warm-white/60"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 const ErteWordmark = ({ className }: { className?: string }) => (
   <svg
     viewBox="0 0 1309 394"
