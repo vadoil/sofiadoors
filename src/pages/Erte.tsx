@@ -287,11 +287,11 @@ const Erte = () => {
       {/* Hero banner */}
       <section className="pt-24 md:pt-28">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8">
-          <div className="relative overflow-hidden rounded-2xl">
+          <div className="relative overflow-hidden rounded-2xl h-[70vh] md:h-auto">
             <img
               src={erteHero}
               alt="Коллекция дверей Эрте — ар-деко в эмали"
-              className="w-full h-auto block"
+              className="w-full h-full md:h-auto object-cover object-center md:object-contain block"
               loading="eager"
             />
           </div>
