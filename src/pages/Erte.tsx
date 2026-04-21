@@ -798,7 +798,7 @@ const Erte = () => {
       {/* Lightbox портфолио — без фона, со стрелками */}
       {lightboxIndex !== null && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 animate-in fade-in duration-200"
+          className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-10 bg-graphite/85 backdrop-blur-md animate-in fade-in duration-200"
           role="dialog"
           aria-modal="true"
           onClick={closeLightbox}
