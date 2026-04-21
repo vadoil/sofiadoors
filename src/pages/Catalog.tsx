@@ -49,7 +49,7 @@ const Catalog = () => {
             ваш проект и бюджет.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
             {doors.map((item) => {
               const internal = collectionRoutes[item.name];
               const CardInner = (
@@ -104,7 +104,7 @@ const Catalog = () => {
             в один проект с дверями для цельного интерьера.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-5">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
             {wallPanels.map((p) => (
               <article key={p.name} className="group">
                 <div className="relative overflow-hidden rounded-2xl aspect-[3/4] bg-background">
