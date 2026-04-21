@@ -64,58 +64,83 @@ const erteTwoSided = [
   { src: twoSided3, name: "ПГ Эрте 1 Рустика Зеркало" },
 ];
 
-const ErteVideoCarousel = () => {
-  const [api, setApi] = useState<CarouselApi>();
-  const [current, setCurrent] = useState(0);
+const erteVideoTitles = [
+  "Деталь №1 — каннелюры и латунь",
+  "Деталь №2 — игра света на эмали",
+];
 
-  useEffect(() => {
-    if (!api) return;
-    setCurrent(api.selectedScrollSnap());
-    const onSelect = () => setCurrent(api.selectedScrollSnap());
-    api.on("select", onSelect);
-    return () => {
-      api.off("select", onSelect);
-    };
-  }, [api]);
+const ErteVideoPlayer = ({
+  src,
+  index,
+}: {
+  src: string;
+  index: number;
+}) => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [playing, setPlaying] = useState(false);
+  const [started, setStarted] = useState(false);
+
+  const toggle = () => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play();
+      setPlaying(true);
+      setStarted(true);
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
+  };
 
   return (
-    <div className="relative">
-      <Carousel
-        setApi={setApi}
-        opts={{ loop: true, align: "start" }}
-        className="relative rounded-2xl bg-secondary/40"
+    <figure className="group">
+      <div
+        className="relative aspect-video overflow-hidden rounded-2xl bg-graphite/60 cursor-pointer ring-1 ring-warm-white/10 hover:ring-bronze/40 transition-all"
+        onClick={toggle}
       >
-        <CarouselContent className="ml-0">
-          {erteVideos.map((src, i) => (
-            <CarouselItem key={i} className="pl-0">
-              <div className="relative aspect-[3/7] overflow-hidden rounded-2xl">
-                <video
-                  src={src}
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-        {erteVideos.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => api?.scrollTo(i)}
-            aria-label={`Слайд ${i + 1}`}
-            className={`h-1.5 rounded-full transition-all ${
-              current === i ? "w-8 bg-bronze" : "w-1.5 bg-warm-white/60"
-            }`}
-          />
-        ))}
+        <video
+          ref={videoRef}
+          src={src}
+          playsInline
+          preload="metadata"
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+          onEnded={() => setPlaying(false)}
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+
+        {/* Overlay gradient — only before first play */}
+        {!started && (
+          <div className="absolute inset-0 bg-gradient-to-t from-graphite/80 via-graphite/20 to-transparent pointer-events-none" />
+        )}
+
+        {/* Play / Pause button */}
+        <div
+          className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${
+            playing ? "opacity-0 group-hover:opacity-100" : "opacity-100"
+          }`}
+        >
+          <div className="flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-bronze text-warm-white shadow-[0_10px_30px_-8px_hsl(var(--bronze)/0.7)] group-hover:scale-105 transition-transform duration-300">
+            {playing ? (
+              <Pause className="w-6 h-6 md:w-7 md:h-7" />
+            ) : (
+              <Play className="w-6 h-6 md:w-7 md:h-7 translate-x-0.5" />
+            )}
+          </div>
+        </div>
+
+        {/* Index badge */}
+        {!started && (
+          <div className="absolute top-4 left-4 text-xs tracking-[0.25em] uppercase text-warm-white/70">
+            0{index + 1}
+          </div>
+        )}
       </div>
-    </div>
+      <figcaption className="mt-4 text-sm md:text-base text-warm-white/80">
+        {erteVideoTitles[index] ?? `Видео ${index + 1}`}
+      </figcaption>
+    </figure>
   );
 };
 
