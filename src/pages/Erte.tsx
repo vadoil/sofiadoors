@@ -440,6 +440,61 @@ const Erte = () => {
         </div>
       </section>
 
+      {/* Покрытие и цвет */}
+      <section className="py-16 md:py-24 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="max-w-3xl mb-10 md:mb-14">
+            <span className="inline-block text-xs md:text-sm tracking-[0.25em] uppercase text-bronze mb-4">
+              Покрытие и цвет
+            </span>
+            <h2 className="font-heading text-3xl md:text-5xl lg:text-6xl tracking-tight leading-[1.05] mb-6">
+              Эмаль
+            </h2>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+              Полотна Эрте окрашиваются эмалью — гладкое матовое покрытие
+              без бликов. Базовая палитра ниже, а вообще доступен любой
+              оттенок RAL или NCS под ваш интерьер.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-7 md:gap-x-6 md:gap-y-9">
+            {[
+              { name: "Белоснежный", hex: "#F4F1EC" },
+              { name: "Бланж (RAL 9001)", hex: "#E8E1D4" },
+              { name: "Кремово-белый", hex: "#EDE6D8" },
+              { name: "Пралине (NCS)", hex: "#C9BCAB" },
+              { name: "Грейдж (NCS)", hex: "#B8AEA2" },
+              { name: "Молескин", hex: "#B5ADA6" },
+              { name: "Умбра (NCS)", hex: "#8C7F75" },
+              { name: "Чёрный агат", hex: "#1B1A18" },
+              { name: "Базальт (NCS)", hex: "#3A3936" },
+              { name: "Пыльно-серый", hex: "#9B9A98" },
+              { name: "Телегрей (RAL)", hex: "#C9CCCE" },
+              { name: "Скандинавский", hex: "#DCDDDD" },
+              { name: "Сигнально-белый", hex: "#EDEDEB" },
+              { name: "Кашемир (NCS)", hex: "#D4CDC2" },
+              { name: "Серый шёлк", hex: "#BFBDB8" },
+            ].map((c) => (
+              <div key={c.name} className="group flex flex-col items-center text-center">
+                <div
+                  className="w-16 h-16 md:w-20 md:h-20 rounded-full ring-1 ring-border/60 shadow-sm transition-transform duration-300 group-hover:scale-105"
+                  style={{ backgroundColor: c.hex }}
+                  aria-label={c.name}
+                />
+                <span className="mt-3 text-[11px] md:text-xs text-muted-foreground leading-tight">
+                  {c.name}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 md:mt-12 text-xs md:text-sm text-muted-foreground/70 max-w-2xl">
+            * Цвета на экране передаются приближённо. Финальный оттенок
+            подбираем по веерам RAL/NCS на замере.
+          </p>
+        </div>
+      </section>
+
       {/* Видео коллекции */}
       <section className="py-16 md:py-24 px-4 md:px-8 bg-graphite text-warm-white relative overflow-hidden">
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] rounded-full bg-bronze/10 blur-3xl pointer-events-none" />
