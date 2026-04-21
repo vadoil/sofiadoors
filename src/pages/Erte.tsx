@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette, Play, Pause, Sparkles } from "lucide-react";
+import { ArrowLeft, Download, Ruler, Truck, ShieldCheck, Palette, Play, Pause, Sparkles, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RequestQuoteDialog from "@/components/RequestQuoteDialog";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import erteHero from "@/assets/erte-hero-banner.png";
