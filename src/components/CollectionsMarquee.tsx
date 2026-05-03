@@ -160,8 +160,8 @@ const MarqueeRow = ({
   );
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
     window.clearTimeout(resumeTimer.current);
-    animRef.current?.pause();
     dragRef.current = {
       isDown: true,
       moved: false,
@@ -169,16 +169,20 @@ const MarqueeRow = ({
       startTime: (animRef.current?.currentTime as number) || 0,
       pointerId: e.pointerId,
     };
-    try {
-      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
-    } catch {}
   }, []);
 
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
       if (!dragRef.current.isDown) return;
       const dx = e.clientX - dragRef.current.startX;
-      if (Math.abs(dx) > 4) dragRef.current.moved = true;
+      if (!dragRef.current.moved && Math.abs(dx) > 6) {
+        dragRef.current.moved = true;
+        animRef.current?.pause();
+        try {
+          (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+        } catch {}
+      }
+      if (!dragRef.current.moved) return;
       const multiplier = direction === "left" ? -1 : 1;
       const anim = animRef.current;
       if (anim) {
@@ -192,10 +196,12 @@ const MarqueeRow = ({
     (e: React.PointerEvent) => {
       if (!dragRef.current.isDown) return;
       dragRef.current.isDown = false;
-      try {
-        (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
-      } catch {}
-      scheduleResume();
+      if (dragRef.current.moved) {
+        try {
+          (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+        } catch {}
+        scheduleResume();
+      }
     },
     [scheduleResume]
   );
