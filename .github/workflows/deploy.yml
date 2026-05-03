@@ -5,10 +5,45 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      - name: Build production bundle
+        env:
+          VITE_SUPABASE_PROJECT_ID: hzkamwrrxcsywbpsgcsd
+          VITE_SUPABASE_PUBLISHABLE_KEY: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6a2Ftd3JyeGNzeXdicHNnY3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3MDc5OTMsImV4cCI6MjA5MTI4Mzk5M30.vCYg-I7JMD0arDbeeC0UNiftmDm32uKyG69BMfwFtyc
+          VITE_SUPABASE_URL: https://hzkamwrrxcsywbpsgcsd.supabase.co
+        run: npm run build
+
+      - name: Pack build artifact
+        run: tar -czf dist.tar.gz dist
+
+      - name: Upload build to VPS
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          source: dist.tar.gz
+          target: /tmp/framyr-deploy
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -17,47 +52,33 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             set -e
-            REPO_URL="https://github.com/${{ github.repository }}.git"
             TARGET="/var/www/framyr"
+            ARCHIVE="/tmp/framyr-deploy/dist.tar.gz"
 
-            # Если папки нет или это не git-репозиторий — клонируем заново
-            if [ ! -d "$TARGET/.git" ]; then
-              echo "Project missing — cloning fresh"
-              sudo mkdir -p "$TARGET"
-              sudo chown -R $USER:$USER "$TARGET"
-              rm -rf "$TARGET"/* "$TARGET"/.[!.]* 2>/dev/null || true
-              git clone "$REPO_URL" "$TARGET"
-            fi
-
-            cd "$TARGET"
-            git fetch --all
-            git reset --hard origin/main
-
-            # На случай если .env удалили — восстанавливаем из секретов/значений по умолчанию
-            cat > .env <<EOF
-            VITE_SUPABASE_PROJECT_ID="hzkamwrrxcsywbpsgcsd"
-            VITE_SUPABASE_PUBLISHABLE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6a2Ftd3JyeGNzeXdicHNnY3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3MDc5OTMsImV4cCI6MjA5MTI4Mzk5M30.vCYg-I7JMD0arDbeeC0UNiftmDm32uKyG69BMfwFtyc"
-            VITE_SUPABASE_URL="https://hzkamwrrxcsywbpsgcsd.supabase.co"
-            EOF
-
-            npm install --no-audit --no-fund
-
-            # Собираем во временную папку, чтобы не сломать рабочий dist при ошибке
-            rm -rf dist_new
-            NODE_OPTIONS="--max-old-space-size=1536" npx vite build --outDir dist_new
-
-            # Проверяем что сборка реально удалась
-            if [ ! -f "dist_new/index.html" ]; then
-              echo "ERROR: build failed — index.html not produced"
-              rm -rf dist_new
+            if [ ! -f "$ARCHIVE" ]; then
+              echo "ERROR: archive not found: $ARCHIVE"
               exit 1
             fi
 
-            # Атомарная замена
-            rm -rf dist_old
-            [ -d dist ] && mv dist dist_old
-            mv dist_new dist
-            rm -rf dist_old
+            sudo mkdir -p "$TARGET"
+            sudo chown -R $USER:$USER "$TARGET"
+
+            rm -rf "$TARGET/dist_new"
+            mkdir -p "$TARGET/dist_new"
+            tar -xzf "$ARCHIVE" -C "$TARGET/dist_new" --strip-components=1
+
+            if [ ! -f "$TARGET/dist_new/index.html" ]; then
+              echo "ERROR: build artifact is invalid"
+              rm -rf "$TARGET/dist_new"
+              exit 1
+            fi
+
+            rm -rf "$TARGET/dist_old"
+            [ -d "$TARGET/dist" ] && mv "$TARGET/dist" "$TARGET/dist_old"
+            mv "$TARGET/dist_new" "$TARGET/dist"
+            rm -rf "$TARGET/dist_old"
+
+            rm -f "$ARCHIVE"
 
             sudo /bin/systemctl reload nginx || sudo /bin/systemctl restart nginx
             echo "Deploy OK: $(date)"
