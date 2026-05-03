@@ -219,16 +219,34 @@ const MarqueeRow = ({
           const className =
             "shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group w-[78vw] sm:w-[clamp(520px,42vw,820px)] block";
 
-          return slide.href ? (
-            <Link
-              key={`${slide.title}-${i}`}
-              to={slide.href}
-              className={className}
-              style={{ pointerEvents: "auto" }}
-            >
-              {Inner}
-            </Link>
-          ) : (
+          if (slide.href) {
+            const isExternal = /^https?:\/\//.test(slide.href);
+            if (isExternal) {
+              return (
+                <a
+                  key={`${slide.title}-${i}`}
+                  href={slide.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                  style={{ pointerEvents: "auto" }}
+                >
+                  {Inner}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={`${slide.title}-${i}`}
+                to={slide.href}
+                className={className}
+                style={{ pointerEvents: "auto" }}
+              >
+                {Inner}
+              </Link>
+            );
+          }
+          return (
             <div key={`${slide.title}-${i}`} className={className}>
               {Inner}
             </div>
