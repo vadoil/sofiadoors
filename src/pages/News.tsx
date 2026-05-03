@@ -81,8 +81,14 @@ const News = () => {
               {filtered.map((item) => (
                 <article
                   key={item.id}
-                  className="group rounded-2xl overflow-hidden bg-card border border-border/50
-                    transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:border-accent/30"
+                  onClick={() => {
+                    if (item.source_url) {
+                      window.open(item.source_url, "_blank", "noopener,noreferrer");
+                    }
+                  }}
+                  className={`group rounded-2xl overflow-hidden bg-card border border-border/50
+                    transition-all duration-500 hover:shadow-xl hover:-translate-y-1 hover:border-accent/30
+                    ${item.source_url ? "cursor-pointer" : ""}`}
                 >
                   <div className="relative overflow-hidden aspect-[16/10] bg-secondary">
                     {item.image_url ? (
