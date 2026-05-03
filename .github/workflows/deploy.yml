@@ -17,10 +17,31 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           script: |
             set -e
-            cd /var/www/framyr
+            REPO_URL="https://github.com/${{ github.repository }}.git"
+            TARGET="/var/www/framyr"
+
+            # Если папки нет или это не git-репозиторий — клонируем заново
+            if [ ! -d "$TARGET/.git" ]; then
+              echo "Project missing — cloning fresh"
+              sudo mkdir -p "$TARGET"
+              sudo chown -R $USER:$USER "$TARGET"
+              rm -rf "$TARGET"/* "$TARGET"/.[!.]* 2>/dev/null || true
+              git clone "$REPO_URL" "$TARGET"
+            fi
+
+            cd "$TARGET"
             git fetch --all
             git reset --hard origin/main
+
+            # На случай если .env удалили — восстанавливаем из секретов/значений по умолчанию
+            cat > .env <<EOF
+            VITE_SUPABASE_PROJECT_ID="hzkamwrrxcsywbpsgcsd"
+            VITE_SUPABASE_PUBLISHABLE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6a2Ftd3JyeGNzeXdicHNnY3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU3MDc5OTMsImV4cCI6MjA5MTI4Mzk5M30.vCYg-I7JMD0arDbeeC0UNiftmDm32uKyG69BMfwFtyc"
+            VITE_SUPABASE_URL="https://hzkamwrrxcsywbpsgcsd.supabase.co"
+            EOF
+
             npm install --no-audit --no-fund
             npm run build
-            sudo /bin/systemctl reload nginx
+
+            sudo /bin/systemctl reload nginx || sudo /bin/systemctl restart nginx
             echo "Deploy OK: $(date)"
