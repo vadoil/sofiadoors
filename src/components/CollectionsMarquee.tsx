@@ -54,31 +54,33 @@ type Slide = {
   href?: string;
 };
 
+const FRAMYR = "https://framyr.ru/catalog";
+
 // 22 коллекции Фрамир — по 11 в каждом ряду
 const allSlides: Slide[] = [
-  { image: sofiaMaster, title: "Мастер", price: "от 88 100 ₽" },
-  { image: sofiaGrunt, title: "Двери в грунте под покраску", price: "от 35 640 ₽" },
-  { image: doorBase, title: "Бэйс", price: "от 24 365 ₽" },
-  { image: doorAline, title: "А-лайн", price: "от 76 805 ₽" },
-  { image: doorDuo, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽" },
-  { image: doorPrime, title: "Прайм", price: "от 71 547 ₽" },
-  { image: doorRhythm, title: "Ритм", price: "от 44 905 ₽" },
+  { image: sofiaMaster, title: "Мастер", price: "от 88 100 ₽", href: `${FRAMYR}/master/` },
+  { image: sofiaGrunt, title: "Двери в грунте под покраску", price: "от 35 640 ₽", href: `${FRAMYR}/dveri-v-grunte/` },
+  { image: doorBase, title: "Бэйс", price: "от 24 365 ₽", href: `${FRAMYR}/beis/` },
+  { image: doorAline, title: "А-лайн", price: "от 76 805 ₽", href: `${FRAMYR}/a-layn/` },
+  { image: doorDuo, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽", href: `${FRAMYR}/duo/` },
+  { image: doorPrime, title: "Прайм", price: "от 71 547 ₽", href: `${FRAMYR}/praym/` },
+  { image: doorRhythm, title: "Ритм", price: "от 44 905 ₽", href: `${FRAMYR}/ritm/` },
   { image: doorErte, title: "Эрте", price: "от 48 545 ₽", href: "/catalog/erte" },
-  { image: doorCatalina, title: "Каталина", price: "от 66 750 ₽" },
-  { image: doorElegans, title: "Элеганс", price: "от 27 020 ₽" },
-  { image: doorFlorence, title: "Флоренция", price: "от 65 535 ₽" },
+  { image: doorCatalina, title: "Каталина", price: "от 66 750 ₽", href: `${FRAMYR}/katalina/` },
+  { image: doorElegans, title: "Элеганс", price: "от 27 020 ₽", href: `${FRAMYR}/elegans/` },
+  { image: doorFlorence, title: "Флоренция", price: "от 65 535 ₽", href: `${FRAMYR}/florentsiya/` },
 
-  { image: doorSavona, title: "Савона", price: "от 53 400 ₽" },
-  { image: doorTwin, title: "Твин", price: "от 47 330 ₽" },
-  { image: doorSolo, title: "Соло", price: "от 52 285 ₽" },
-  { image: doorDuet, title: "Дуэт", price: "от 43 690 ₽" },
-  { image: doorKanva, title: "Канва", price: "от 25 825 ₽" },
-  { image: doorEmma, title: "Эмма", price: "от 47 330 ₽" },
-  { image: doorArta, title: "Арта", price: "от 29 630 ₽" },
-  { image: doorOmega, title: "Омега", price: "от 50 975 ₽" },
-  { image: doorTitanium, title: "Титаниум", price: "от 28 605 ₽" },
-  { image: doorNeo, title: "Нео", price: "от 28 000 ₽" },
-  { image: doorRimini, title: "Римини", price: "от 49 760 ₽" },
+  { image: doorSavona, title: "Савона", price: "от 53 400 ₽", href: `${FRAMYR}/savona/` },
+  { image: doorTwin, title: "Твин", price: "от 47 330 ₽", href: `${FRAMYR}/tvin/` },
+  { image: doorSolo, title: "Соло", price: "от 52 285 ₽", href: `${FRAMYR}/solo/` },
+  { image: doorDuet, title: "Дуэт", price: "от 43 690 ₽", href: `${FRAMYR}/duet/` },
+  { image: doorKanva, title: "Канва", price: "от 25 825 ₽", href: `${FRAMYR}/kanva/` },
+  { image: doorEmma, title: "Эмма", price: "от 47 330 ₽", href: `${FRAMYR}/emma/` },
+  { image: doorArta, title: "Арта", price: "от 29 630 ₽", href: `${FRAMYR}/arta/` },
+  { image: doorOmega, title: "Омега", price: "от 50 975 ₽", href: `${FRAMYR}/omega/` },
+  { image: doorTitanium, title: "Титаниум", price: "от 28 605 ₽", href: `${FRAMYR}/titanium/` },
+  { image: doorNeo, title: "Нео", price: "от 28 000 ₽", href: `${FRAMYR}/neo/` },
+  { image: doorRimini, title: "Римини", price: "от 49 760 ₽", href: `${FRAMYR}/rimini/` },
 ];
 
 const row1 = allSlides.slice(0, 11);
@@ -217,16 +219,34 @@ const MarqueeRow = ({
           const className =
             "shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group w-[78vw] sm:w-[clamp(520px,42vw,820px)] block";
 
-          return slide.href ? (
-            <Link
-              key={`${slide.title}-${i}`}
-              to={slide.href}
-              className={className}
-              style={{ pointerEvents: "auto" }}
-            >
-              {Inner}
-            </Link>
-          ) : (
+          if (slide.href) {
+            const isExternal = /^https?:\/\//.test(slide.href);
+            if (isExternal) {
+              return (
+                <a
+                  key={`${slide.title}-${i}`}
+                  href={slide.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={className}
+                  style={{ pointerEvents: "auto" }}
+                >
+                  {Inner}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={`${slide.title}-${i}`}
+                to={slide.href}
+                className={className}
+                style={{ pointerEvents: "auto" }}
+              >
+                {Inner}
+              </Link>
+            );
+          }
+          return (
             <div key={`${slide.title}-${i}`} className={className}>
               {Inner}
             </div>
