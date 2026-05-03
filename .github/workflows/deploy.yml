@@ -41,7 +41,23 @@ jobs:
             EOF
 
             npm install --no-audit --no-fund
-            npm run build
+
+            # Собираем во временную папку, чтобы не сломать рабочий dist при ошибке
+            rm -rf dist_new
+            NODE_OPTIONS="--max-old-space-size=1536" npx vite build --outDir dist_new
+
+            # Проверяем что сборка реально удалась
+            if [ ! -f "dist_new/index.html" ]; then
+              echo "ERROR: build failed — index.html not produced"
+              rm -rf dist_new
+              exit 1
+            fi
+
+            # Атомарная замена
+            rm -rf dist_old
+            [ -d dist ] && mv dist dist_old
+            mv dist_new dist
+            rm -rf dist_old
 
             sudo /bin/systemctl reload nginx || sudo /bin/systemctl restart nginx
             echo "Deploy OK: $(date)"
