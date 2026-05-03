@@ -20,7 +20,7 @@ jobs:
             cd /var/www/framyr
             git fetch --all
             git reset --hard origin/main
-            npm ci
+            npm install --no-audit --no-fund
             npm run build
             sudo /bin/systemctl reload nginx
             echo "Deploy OK: $(date)"
