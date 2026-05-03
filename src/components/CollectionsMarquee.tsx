@@ -95,8 +95,14 @@ const MarqueeRow = ({
 }) => {
   const trackRef = useRef<HTMLDivElement>(null);
   const animRef = useRef<Animation | null>(null);
-  const rafRef = useRef<number>(0);
-  const dragRef = useRef({ isDragging: false, startX: 0, startTime: 0 });
+  const resumeTimer = useRef<number>(0);
+  const dragRef = useRef({
+    isDown: false,
+    moved: false,
+    startX: 0,
+    startTime: 0,
+    pointerId: 0,
+  });
 
   const items = [...slides, ...slides];
 
@@ -124,75 +130,107 @@ const MarqueeRow = ({
     };
   }, [direction]);
 
-  const pauseAndResume = useCallback(() => {
-    const anim = animRef.current;
-    if (!anim) return;
-    anim.pause();
-    clearTimeout(rafRef.current);
-    rafRef.current = window.setTimeout(() => {
-      anim.play();
-    }, 800) as unknown as number;
+  const scheduleResume = useCallback(() => {
+    window.clearTimeout(resumeTimer.current);
+    resumeTimer.current = window.setTimeout(() => {
+      animRef.current?.play();
+    }, 1200);
   }, []);
 
-  const shiftTime = useCallback((delta: number) => {
-    const anim = animRef.current;
-    if (!anim || anim.currentTime == null) return;
-    const multiplier = direction === "left" ? 1 : -1;
-    const newTime = (anim.currentTime as number) + delta * multiplier;
-    anim.currentTime = Math.max(0, newTime);
-  }, [direction]);
+  const shiftTime = useCallback(
+    (delta: number) => {
+      const anim = animRef.current;
+      if (!anim || anim.currentTime == null) return;
+      const multiplier = direction === "left" ? 1 : -1;
+      const newTime = (anim.currentTime as number) + delta * multiplier;
+      anim.currentTime = Math.max(0, newTime);
+    },
+    [direction]
+  );
 
   const handleWheel = useCallback(
     (e: React.WheelEvent) => {
-      e.preventDefault();
       const delta = e.deltaY || e.deltaX;
+      if (Math.abs(delta) < 1) return;
+      animRef.current?.pause();
       shiftTime(delta * 8);
-      pauseAndResume();
+      scheduleResume();
     },
-    [shiftTime, pauseAndResume]
+    [shiftTime, scheduleResume]
   );
 
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
-    dragRef.current = { isDragging: true, startX: e.clientX, startTime: (animRef.current?.currentTime as number) || 0 };
-    (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    window.clearTimeout(resumeTimer.current);
     animRef.current?.pause();
+    dragRef.current = {
+      isDown: true,
+      moved: false,
+      startX: e.clientX,
+      startTime: (animRef.current?.currentTime as number) || 0,
+      pointerId: e.pointerId,
+    };
+    try {
+      (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+    } catch {}
   }, []);
 
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (!dragRef.current.isDragging) return;
-    const dx = e.clientX - dragRef.current.startX;
-    const multiplier = direction === "left" ? -1 : 1;
-    const anim = animRef.current;
-    if (anim) {
-      anim.currentTime = Math.max(0, dragRef.current.startTime + dx * 8 * multiplier);
-    }
-  }, [direction]);
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (!dragRef.current.isDown) return;
+      const dx = e.clientX - dragRef.current.startX;
+      if (Math.abs(dx) > 4) dragRef.current.moved = true;
+      const multiplier = direction === "left" ? -1 : 1;
+      const anim = animRef.current;
+      if (anim) {
+        anim.currentTime = Math.max(0, dragRef.current.startTime + dx * 6 * multiplier);
+      }
+    },
+    [direction]
+  );
 
-  const handlePointerUp = useCallback(() => {
-    dragRef.current.isDragging = false;
-    pauseAndResume();
-  }, [pauseAndResume]);
+  const handlePointerUp = useCallback(
+    (e: React.PointerEvent) => {
+      if (!dragRef.current.isDown) return;
+      dragRef.current.isDown = false;
+      try {
+        (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+      } catch {}
+      scheduleResume();
+    },
+    [scheduleResume]
+  );
+
+  const handleClickCapture = useCallback((e: React.MouseEvent) => {
+    if (dragRef.current.moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      dragRef.current.moved = false;
+    }
+  }, []);
 
   return (
     <div
-      className="relative overflow-hidden cursor-grab active:cursor-grabbing select-none touch-pan-y"
+      className="relative overflow-hidden cursor-grab active:cursor-grabbing select-none"
+      style={{ touchAction: "pan-y" }}
       onWheel={handleWheel}
       onPointerDown={handlePointerDown}
       onPointerMove={handlePointerMove}
       onPointerUp={handlePointerUp}
       onPointerCancel={handlePointerUp}
+      onClickCapture={handleClickCapture}
     >
       <div
         ref={trackRef}
-        className="flex gap-5 md:gap-6 pointer-events-none"
+        className="flex gap-5 md:gap-6"
         style={{ width: "max-content", willChange: "transform" }}
       >
         {items.map((slide, i) => {
           const Inner = (
-            <div className="aspect-[4/3] relative overflow-hidden">
+            <div className="aspect-[4/3] relative overflow-hidden pointer-events-none">
               <img
                 src={slide.image}
                 alt={slide.title}
+                draggable={false}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                 loading={i < 6 ? "eager" : "lazy"}
               />
@@ -217,7 +255,7 @@ const MarqueeRow = ({
           );
 
           const className =
-            "shrink-0 relative overflow-hidden rounded-2xl cursor-pointer group w-[78vw] sm:w-[clamp(520px,42vw,820px)] block";
+            "shrink-0 relative overflow-hidden rounded-2xl group w-[78vw] sm:w-[clamp(520px,42vw,820px)] block";
 
           if (slide.href) {
             const isExternal = /^https?:\/\//.test(slide.href);
@@ -228,8 +266,8 @@ const MarqueeRow = ({
                   href={slide.href}
                   target="_blank"
                   rel="noopener noreferrer"
+                  draggable={false}
                   className={className}
-                  style={{ pointerEvents: "auto" }}
                 >
                   {Inner}
                 </a>
@@ -239,8 +277,8 @@ const MarqueeRow = ({
               <Link
                 key={`${slide.title}-${i}`}
                 to={slide.href}
+                draggable={false}
                 className={className}
-                style={{ pointerEvents: "auto" }}
               >
                 {Inner}
               </Link>
