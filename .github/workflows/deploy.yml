@@ -60,8 +60,7 @@ jobs:
               exit 1
             fi
 
-            sudo mkdir -p "$TARGET"
-            sudo chown -R $USER:$USER "$TARGET"
+            mkdir -p "$TARGET"
 
             rm -rf "$TARGET/dist_new"
             mkdir -p "$TARGET/dist_new"
@@ -80,5 +79,5 @@ jobs:
 
             rm -f "$ARCHIVE"
 
-            sudo /bin/systemctl reload nginx || sudo /bin/systemctl restart nginx
+            sudo -n /bin/systemctl reload nginx || sudo -n /bin/systemctl restart nginx || echo "WARN: nginx reload skipped (no passwordless sudo). Static files served on next request."
             echo "Deploy OK: $(date)"
