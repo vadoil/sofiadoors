@@ -65,7 +65,7 @@ const allSlides: Slide[] = [
   { image: doorDuo, title: "Дуо — двусторонняя коллекция", price: "от 64 575 ₽", href: `${FRAMYR}/duo/` },
   { image: doorPrime, title: "Прайм", price: "от 71 547 ₽", href: `${FRAMYR}/praym/` },
   { image: doorRhythm, title: "Ритм", price: "от 44 905 ₽", href: `${FRAMYR}/ritm/` },
-  { image: doorErte, title: "Эрте", price: "от 48 545 ₽", href: "https://framyr-samara.ru/catalog/erte" },
+  { image: doorErte, title: "Эрте", price: "от 48 545 ₽", href: "/catalog/erte" },
   { image: doorCatalina, title: "Каталина", price: "от 66 750 ₽", href: `${FRAMYR}/katalina/` },
   { image: doorElegans, title: "Элеганс", price: "от 27 020 ₽", href: `${FRAMYR}/elegans/` },
   { image: doorFlorence, title: "Флоренция", price: "от 65 535 ₽", href: `${FRAMYR}/florentsiya/` },
