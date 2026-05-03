@@ -9,6 +9,7 @@ import Erte from "./pages/Erte.tsx";
 import News from "./pages/News.tsx";
 import Palette from "./pages/Palette.tsx";
 import Admin from "./pages/Admin.tsx";
+import Auth from "./pages/Auth.tsx";
 import Designers from "./pages/Designers.tsx";
 import Portfolio from "./pages/Portfolio.tsx";
 import Advantages from "./pages/Advantages.tsx";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/advantages" element={<Advantages />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/auth" element={<Auth />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
