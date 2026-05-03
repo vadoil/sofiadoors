@@ -24,6 +24,7 @@ export type Database = {
           image_url: string | null
           is_published: boolean
           published_at: string | null
+          source_url: string | null
           title: string
           updated_at: string
         }
@@ -36,6 +37,7 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean
           published_at?: string | null
+          source_url?: string | null
           title: string
           updated_at?: string
         }
@@ -48,6 +50,7 @@ export type Database = {
           image_url?: string | null
           is_published?: boolean
           published_at?: string | null
+          source_url?: string | null
           title?: string
           updated_at?: string
         }
@@ -64,6 +67,7 @@ export type Database = {
           is_published: boolean
           room: string
           sort_order: number
+          source_url: string | null
           style: string
           title: string
           updated_at: string
@@ -78,6 +82,7 @@ export type Database = {
           is_published?: boolean
           room?: string
           sort_order?: number
+          source_url?: string | null
           style?: string
           title: string
           updated_at?: string
@@ -92,6 +97,7 @@ export type Database = {
           is_published?: boolean
           room?: string
           sort_order?: number
+          source_url?: string | null
           style?: string
           title?: string
           updated_at?: string
